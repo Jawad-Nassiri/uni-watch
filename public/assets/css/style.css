@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* header section start  */
+
+.header-section {
+    background-image: url("../images/header-bg.png");
+    background-size: 100%;
+    padding: 10px 0px 37px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    position: relative;
+}
+
+.list ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.list ul.active {
+    right: 0;
+}
+
+.list ul > li#close {
+    display: none;
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.open-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.list ul > li {
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #080808;
+    border-radius: 40px;
+    margin-top: 30px;
+}
+
+.list ul > li a{
+    color: #080808;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s all ease;
+}
+
+.list ul > li a:hover {
+    background-color: #b60213;
+    color: #fff;
+}
+
+/* header section finished  */
+
+/* footer section start  */
+.footer-section {
+    background-image: url('../images/footer-bg.png');
+    width: 100%;
+    height: auto;
+    padding-top: 90px;
+    background-size: 100% 100%;
+    padding-bottom: 30px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section {
+    border-bottom: 1px solid #080808;
+    width: 100%;
+}
+.follow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow .title {
+    margin-bottom: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.follow .contact {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.follow .contact > a {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    color: #080808;
+    margin: 0 60px;
+    transition: all 0.7s ease;
+}
+
+.follow .contact > a:hover {
+    color: #b60213;
+}
+.contact > a img {
+    margin: 0 7px;
+}
+
+.copyright-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright-section > p {
+    color: #080808;
+    font-size: 16px;
+}
+
+
+
+
+/* media query start  */
+
+@media (max-width: 1200px) {
+    /* header section  */
+    .header-section {
+            background-size: 100% 100%;
+            padding: 15px 0px 95px 0px;
+    }
+}
+
+/*! */
+@media (max-width: 990px) {
+    /* header section  */
+    .header-section {
+        height: 80px;
+        background-image: url("");
+        background: #fff;
+        background-size: 0%;
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        margin-left: 20px;
+    }
+
+    /* navbar for tablet and mobile device  */
+    .list ul {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        height: 100vh;
+        width: 250px;
+        background-color: #fff;
+        transition: 0.5s;
+        padding-top: 20px;
+        padding-left: 5px;
+        /* height: auto; */
+    }
+
+    .list ul > li#close {
+        display: block;
+    }
+
+    .open-icon {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 20px;
+    }
+
+    .list ul > li {
+        margin-top: 10px;
+    }
+    
+    .list ul > li a{
+        padding: 10px;
+    }
+
+    /* footer section  */
+
+    .footer-section {
+        background-image: url('');
+        background: #fff;
+    }
+
+    .follow .contact > a {
+        margin: 0 30px;
+    }
+}
+
+
+/*! */
+@media (max-width: 768px) {
+    /* footer section  */
+
+    .follow .contact {
+        flex-wrap: wrap;
+    }
+
+    .follow .contact > a {
+        margin: 10px 15px;
+    }
+
+    .copyright-section {
+        padding: 0 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.blue {
+    height: 400px;
+    background-color: blue;
+}
+
+div.black {
+    height: 400px;
+    background-color: black;
+}
