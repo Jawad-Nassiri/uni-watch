@@ -10,5 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     currentPageItem.style.cssText = 'background:#b60213; color:white;'
 
+
+    // slider 
+
+
     
 })

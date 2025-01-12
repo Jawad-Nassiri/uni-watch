@@ -15,4 +15,4 @@ ini_set('session.gc_maxlifetime', $sessionLifetime);
 require "autoload.php";
 session_start();
 include "functions.inc.php";
-define("ROOT", "/uoni-watch/");
+define("ROOT", "/uni-watch/");
