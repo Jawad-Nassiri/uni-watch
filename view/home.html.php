@@ -22,7 +22,7 @@
 
 
 <div class="watch-product">
-    <div class="watch">
+    <div class="watch first-watch">
         <img class="img-1" src="/uni-watch/public/assets/images/watches/img-1.png" alt="watch">
     </div>
     <div class="watch-detail">
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div class="watch-product">
+<div class="watch-product second">
     <div class="watch-detail">
         <h3 class="title">Uni Watch</h3>
         <p class="description">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
@@ -41,7 +41,7 @@
         <div class="read_bt"><a href="#">Buy Now</a></div>
     </div>
 
-    <div class="watch">
+    <div class="watch second-watch">
         <img src="/uni-watch/public/assets/images/watches/img-2.png" alt="watch">
     </div>
 </div>
