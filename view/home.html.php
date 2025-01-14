@@ -23,7 +23,7 @@
 
 <div class="watch-product">
     <div class="watch">
-        <img src="/uni-watch/public/assets/images/watches/w29.png" alt="watch">
+        <img class="img-1" src="/uni-watch/public/assets/images/watches/img-1.png" alt="watch">
     </div>
     <div class="watch-detail">
         <h3 class="title">Uni Watch</h3>
@@ -42,50 +42,110 @@
     </div>
 
     <div class="watch">
-        <img src="/uni-watch/public/assets/images/watches/w25.png" alt="watch">
+        <img src="/uni-watch/public/assets/images/watches/img-2.png" alt="watch">
     </div>
 </div>
 
-<div class="slider-container">
-    <div class="card">
-        <div class="title">
-            <h1>Our Watch Collection</h1>
+
+<!-- carousel  -->
+<div class="carousel-section">
+    <div class="featured-product">
+        <p>Featured Products</p>
+        <div></div>
+    </div>
+    <div class="carousel-container">
+            
+            <div class="navigation prev">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            
+            
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch"></div>
+                </div>
+            </div>
+            
+            
+            <div class="navigation next">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+    </div>
+</div>
+
+<!-- feedback  -->
+<div class="feedback-area">
+    <div class="container-fluid">
+        <div class="feedback-title">
+            <h2 class="title">Customers Feedback</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div class="slider-wrapper">
-            <i class="fa-solid fa-arrow-left arrow left-arrow"></i>
-            <ul class="card-list">
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s1.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s2.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s3.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s4.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s5.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s6.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s7.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s8.png" alt="watch">
-                </li>
-                <li class="card-item">
-                    <img src="/uni-watch/public/assets/images/watches/s9.png" alt="watch">
-                </li>
-            </ul>
-            <i class="fa-solid fa-arrow-right arrow right-arrow"></i>
+        <div class="comments-container">
+            <div class="comments">
+                <div class="customer">
+                    <div class="detail">
+                        <img src="/uni-watch/public/assets/images/customers/client-1.png" alt="client">
+                        <h5>Albert Coleman</h5>
+                        <span>Businessman</span>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments">
+                <div class="customer">
+                    <div class="detail">
+                        <img src="/uni-watch/public/assets/images/customers/client-2.png" alt="client">
+                        <h5>Joe Wilson</h5>
+                        <span>Geologist</span>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments">
+                <div class="customer">
+                    <div class="detail">
+                        <img src="/uni-watch/public/assets/images/customers/client-3.png" alt="client">
+                        <h5>Joe Wilson</h5>
+                        <span>Businessman</span>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="read_bt see-more"><a href="#">See More</a></div>
 
 </body>
 </html>
