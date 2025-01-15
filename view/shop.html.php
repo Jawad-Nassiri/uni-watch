@@ -323,6 +323,39 @@
     </div>
 </div>
 
+<div class="read_bt see-more"><a href="#">See More</a></div>
+
+<div class="shop-carousel-container">
+    <div class="shop-carousel-list">
+        
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w1.png" alt="watch">
+        </div>
+
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w2.png" alt="watch">
+        </div>
+
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w3.png" alt="watch">
+        </div>
+
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w4.png" alt="watch">
+        </div>
+
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w5.png" alt="watch">
+        </div>
+
+        <div class="shop-carousel-item">
+            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w6.png" alt="watch">
+        </div>
+
+    </div>
+</div>
+
+
 
 
 <?php require "../public/footer.html.php" ?>
