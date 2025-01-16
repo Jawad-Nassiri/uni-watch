@@ -19,28 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextBtn = document.querySelector('.next');
         const items = document.querySelectorAll('.carousel-item');
 
-
-        const itemWidth = document.querySelector('.carousel-item').offsetWidth + 20;
-        const totalItems = items.length;
-        const visibleItems = Math.round(carousel.offsetWidth / itemWidth);
-        const maxIndex = totalItems - visibleItems;
+        let itemWidth = document.querySelector('.carousel-item').offsetWidth + 20;
+        let totalItems = items.length;
+        let visibleItems = Math.round(carousel.offsetWidth / itemWidth);
+        let maxIndex = totalItems - visibleItems;
         let currentIndex = 0;
+
+        window.addEventListener('resize', function(){
+            itemWidth = document.querySelector('.carousel-item').offsetWidth + 20; 
+            visibleItems = Math.round(carousel.offsetWidth / itemWidth); 
+            maxIndex = totalItems - visibleItems; 
+        });
+        
 
         nextBtn.addEventListener('click', () => {
             currentIndex++;
-        
+
             if (currentIndex > maxIndex) {
                 currentIndex = 0; 
                 carousel.scrollLeft = 0;
             } else {
-                carousel.scrollLeft = itemWidth * currentIndex; 
+                carousel.scrollLeft = itemWidth * currentIndex;
             }
         });
-        
 
         prevBtn.addEventListener('click', () => {
             currentIndex--;
-        
+
             if (currentIndex < 0) {
                 currentIndex = maxIndex;
                 carousel.scrollLeft = itemWidth * maxIndex;
@@ -63,10 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const shopCarouselContainer = document.querySelector('.shop-carousel-list')
         const shopCarouselItems = document.querySelectorAll('.shop-carousel-item')
         const shopCarouselItemWidth = document.querySelector('.shop-carousel-item').offsetWidth + 1
-
-        console.log('scroll width => ' , shopCarouselContainer.scrollWidth)
-        console.log('offset width => ' , shopCarouselContainer.offsetWidth)
-
         
         const itemsClone = Array.from(shopCarouselItems).map(item => item.cloneNode(true))
         itemsClone.forEach(item => shopCarouselContainer.append(item))
@@ -82,9 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         }, 2000)
-
-
-
     }
         
         

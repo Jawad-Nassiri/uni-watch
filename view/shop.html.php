@@ -7,6 +7,8 @@
         <span>We Believe That Good Design is Always in Season</span>
     </div>
 </div>
+
+
 <div class="product-container">
     <div class="product-list">
         <div class="product-item">

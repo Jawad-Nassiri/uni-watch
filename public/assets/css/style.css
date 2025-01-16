@@ -339,12 +339,13 @@ body {
 .carousel {
     display: flex;
     overflow-x: auto;
-    gap: 20px;
+    /* gap: 20px; */
     scroll-behavior: smooth;
     margin: 0 auto;
 }
 
 .carousel-track {
+    width: 100%;
     display: flex;
     gap: 20px;
 }
@@ -443,6 +444,8 @@ body {
     color :#393939;
 }
 
+
+/* product section  */
 .product-container {
     width: 100%;
     height: auto;
@@ -453,22 +456,20 @@ body {
 .product-list {
     width: 100%;
     height: auto;
-    padding: 0 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; 
-    gap: 30px;
+    gap: 20px;
 }
 
 .product-item {
-    width: 415px;
+    width: 25%;
     height: 380px;
     background: url('../images/product-bg.png') no-repeat;
     background-position: bottom right;
     border-radius: 30px 30px 0 30px;
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -665,6 +666,7 @@ body {
 }
 
 @media (max-width: 1450px) {
+    /* home page  */
     /* carousel  */
     .carousel-container {
         width: 970px;
@@ -673,13 +675,18 @@ body {
     .featured-product > div {
         width: 770px;
     }
+
+    /* shop page  */
+    .product-item {
+        width: 30%;
+    }
 }
 
 @media (max-width: 1200px) {
     /* header section  */
     .header-section {
-            background-size: 100% 100%;
-            padding: 15px 0px 95px 0px;
+        background-size: 100% 100%;
+        padding: 15px 0px 95px 0px;
     }
 
     .our-watches h2.title {
@@ -699,6 +706,7 @@ body {
         margin-right: 0;
     }
 
+    /* home page  */
     /* carousel  */
     .carousel-container {
         width: 640px;
@@ -748,6 +756,14 @@ body {
         margin-top: -120px;
     }
 
+    .product-list {
+        gap: 50px 30px;
+    }
+
+    .product-item {
+        width: 40%;
+    }
+
 
 }
 
@@ -778,14 +794,13 @@ body {
         justify-content: flex-start;
         position: fixed;
         top: 0;
-        right: -250px;
-        height: 100vh;
+        right: -300px;
+        height: 600px;
         width: 250px;
         background-color: #fff;
         transition: 0.5s;
         padding-top: 20px;
         padding-left: 5px;
-        /* height: auto; */
     }
 
     .list ul > li#close {
@@ -853,6 +868,15 @@ body {
         background-position: 80% center;
         margin-top: 0;
     }
+
+    .product-list {
+        gap: 50px 20px;
+    }
+
+    .product-item {
+        width: 45%;
+    }
+
     /* footer section  */
     .footer-section {
         background-image: url('');
@@ -971,6 +995,16 @@ body {
         max-width: none;
     }
 
+    /* shop page  */
+    .product-list {
+        gap: 50px 20px;
+    }
+
+    .product-item {
+        width: 415px;
+    }
+
+
     /* footer section  */
     .follow .contact {
         flex-wrap: wrap;
@@ -1021,5 +1055,9 @@ body {
 
     .shop-banner .banner > h4 {
         font-size: 25px;
+    }
+
+    .product-item {
+        width: 90%;
     }
 }
