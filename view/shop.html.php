@@ -13,18 +13,18 @@
     <div class="product-list">
         <div class="product-item">
             <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
+                <div class="main-img-box">
+                    <img class="main-img" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
                 </div>
                 <div class="small-images">
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
                     </div>
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
                     </div>
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
                     </div>
                 </div>
             </div>
@@ -37,280 +37,21 @@
             </div>
         </div>
 
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
 
         <div class="product-item">
             <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
+                <div class="main-img-box">
+                    <img class="main-img" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
                 </div>
                 <div class="small-images">
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
                     </div>
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
                     </div>
                     <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img">
-                    <img class="img-1" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
+                        <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
                     </div>
                 </div>
             </div>
@@ -356,7 +97,6 @@
 
     </div>
 </div>
-
 
 
 

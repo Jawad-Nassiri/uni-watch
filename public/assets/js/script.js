@@ -67,10 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // shop page carousel
         const shopCarouselContainer = document.querySelector('.shop-carousel-list')
         const shopCarouselItems = document.querySelectorAll('.shop-carousel-item')
-        const shopCarouselItemWidth = document.querySelector('.shop-carousel-item').offsetWidth + 1
+        let shopCarouselItemWidth = document.querySelector('.shop-carousel-item').offsetWidth + 1
         
         const itemsClone = Array.from(shopCarouselItems).map(item => item.cloneNode(true))
         itemsClone.forEach(item => shopCarouselContainer.append(item))
+
+        window.addEventListener('resize', function(){
+            shopCarouselItemWidth = document.querySelector('.shop-carousel-item').offsetWidth + 1
+        });
 
         setInterval(() => {
             shopCarouselContainer.scrollBy({
@@ -84,7 +88,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }, 2000)
     }
-        
-        
+
+
+    // update main product image to the clicked small image
+    const productItems = document.querySelectorAll('.product-item');
+
+    productItems.forEach(product => {
+        const mainImage = product.querySelector('.main-img');
+        const smallImgBoxes = product.querySelectorAll('.img-box');
+    
+        smallImgBoxes.forEach(smallImgBox => {
+            smallImgBox.addEventListener('click', () => {
+                mainImage.style.opacity = mainImage.src !== smallImgBox.querySelector('img').src ? '0' : '1'
+                setTimeout(() => {
+                    mainImage.src = smallImgBox.querySelector('img').src;
+                    mainImage.style.opacity = '1';
+                }, 300);
+            });
+        });
+    });
         
 });
