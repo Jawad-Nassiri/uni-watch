@@ -23,10 +23,10 @@
             <ul id="nav">
                 <li id="close"><i class="fa-solid fa-xmark"></i></li>
                 <li class="list-item"><a href="http://localhost/uni-watch/view/home.html.php">Home</a></li>
-                <li class="list-item"><a href="">Watches</a></li>
-                <li class="list-item"><a href="">About</a></li>
-                <li class="list-item"><a href="">Sign in</a></li>
-                <li class="list-item"><a href="">Sign up</a></li>
+                <li class="list-item"><a href="http://localhost/uni-watch/view/shop.html.php">Watches</a></li>
+                <li class="list-item"><a href="http://localhost/uni-watch/view/about.html.php">About</a></li>
+                <li class="list-item"><a href="http://localhost/uni-watch/view/sign-in.html.php">Sign in</a></li>
+                <li class="list-item"><a href="http://localhost/uni-watch/view/sign-up.html.php">Sign up</a></li>
             </ul>
         </div>
     </div>

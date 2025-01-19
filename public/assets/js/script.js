@@ -5,9 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // highlight the active link based on the current URL
     const currentPath = location.pathname;
-    let currentPageItem = Array.from(document.querySelectorAll('#nav li a')).find((navItem) => {
-        return navItem.pathname === currentPath; 
-    });
+    console.log(currentPath)
+    let currentPageItem = Array.from(document.querySelectorAll('#nav li a')).find(navItem => navItem.pathname === currentPath);
     currentPageItem.style.cssText = 'background:#b60213; color:white;'
 
 

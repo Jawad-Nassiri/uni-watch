@@ -600,6 +600,105 @@ body {
 }
 
 
+/* sign-up && sign-in forms start  */
+.sign-up-container,
+.sign-in-container {
+    width: 100%;
+    height: auto;
+    padding: 100px 0 100px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-up-form,
+.sign-in-form {
+    width: 50%;
+    height: auto;
+}
+
+.sign-up-title,
+.sign-in-title {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding: 30px 0;
+}
+
+.sign-up,
+.sign-in{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 10px 20px;
+    gap: 30px;
+}
+
+.sign-up > input,
+.sign-in > input {
+    width: 90%;
+    height: 70px;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    padding-left: 25px;
+    font-size: 20px;
+    color: gray;
+}
+
+.sign-up-submit,
+.sign-in-submit{
+    width: 170px;
+    height: 60px;
+    background-color: #b60213;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    text-align: center;
+    margin: 0px 0 20px 45px;
+    align-self: flex-start;
+}
+
+.sign-up-submit:hover,
+.sign-in-submit:hover {
+    background: #fff;
+}
+
+.sign-up-submit:hover > input,
+.sign-in-submit:hover > input {
+    color: #000;
+}
+
+.sign-up-submit > input,
+.sign-in-submit > input {
+    padding: 20px 50px;
+    font-weight: bold;
+    font-size: 18px;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sign-up-bg-container {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.sign-up-bg {
+    background-image: url('../images/map-img.png');
+    width: 100%;
+    height: 370px;
+    background-size: cover;
+}
+
 
 /* footer section start  */
 .footer-section {
