@@ -4,7 +4,6 @@ function addLink($controller, $method, $id = null) {
     return ROOT . "$controller/$method" . ($id ? "/$id" : "");
 }
 
-
 function debug($var) {
     echo "<pre>";
     var_dump($var);

@@ -26,7 +26,7 @@
                 <li class="list-item"><a href="http://localhost/uni-watch/view/shop.html.php">Watches</a></li>
                 <li class="list-item"><a href="http://localhost/uni-watch/view/about.html.php">About</a></li>
                 <li class="list-item"><a href="http://localhost/uni-watch/view/sign-in.html.php">Sign in</a></li>
-                <li class="list-item"><a href="http://localhost/uni-watch/view/sign-up.html.php">Sign up</a></li>
+                <li class="list-item"><a href="http://localhost/uni-watch/sign_up/sign_UpForm">Sign up</a></li>
             </ul>
         </div>
     </div>

@@ -6,7 +6,12 @@
         </div>
         <form class="sign-in" method="post" action="#">
             <input type="text" class="sign-in-username" name="username" placeholder="Username">
-            <input type="password" class="sign-in-password" name="password" placeholder="Password">
+            <p class="error-message sign-in-username-error"></p>
+            <div class="sign-in-password">
+                <input type="password" class="sign-in-password-input" name="password" placeholder="Password">
+                <i class="fa-solid fa-eye-slash" id="eye"></i>
+            </div>
+            <p class="error-message sign-in-password-error"></p>
             <div class="sign-in-submit">
                 <input type="submit" value="Send">
             </div>
