@@ -25,11 +25,21 @@
                 <li class="list-item"><a href="http://localhost/uni-watch/view/home.html.php">Home</a></li>
                 <li class="list-item"><a href="http://localhost/uni-watch/view/shop.html.php">Watches</a></li>
                 <li class="list-item"><a href="http://localhost/uni-watch/view/about.html.php">About</a></li>
-                <li class="list-item"><a href="http://localhost/uni-watch/view/sign-in.html.php">Sign in</a></li>
-                <li class="list-item"><a href="http://localhost/uni-watch/sign_up/sign_UpForm">Sign up</a></li>
+                <?php if(!isset($_SESSION['user_id'])): ?>
+                    <li class="list-item"><a href="http://localhost/uni-watch/view/sign-in.html.php">Sign in</a></li>
+                    <li class="list-item"><a href="http://localhost/uni-watch/sign_up/sign_UpForm">Sign up</a></li>
+                <?php else: ?>
+                    <li class="list-item"><a href="/uni-watch/sign_up/logout">Logout</a></li>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <li class="list-item">
+                            <i class="fa-solid fa-user"></i>
+                            <?= htmlspecialchars($_SESSION['username']); ?>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <li class="list-item"><a id="card" href=""><i class="fa-solid fa-basket-shopping"></i></a></li>
             </ul>
         </div>
     </div>
-
-
     

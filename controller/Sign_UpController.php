@@ -22,10 +22,9 @@ class Sign_UpController extends BaseController {
         $formHandler->handleSignUpRequest($this->sign_up);
         $errors = [];
 
-
         if ($formHandler->isSubmitted()) {
             if ($formHandler->isValid()) {
-                $this->saveFormData($this->sign_up);                
+                $this->saveFormData($this->sign_up);              
                 header('Location: /uni-watch/view/home.html.php');
                 exit();
             } else {
@@ -37,21 +36,33 @@ class Sign_UpController extends BaseController {
     }
 
     private function saveFormData(Sign_Up $sign_up) {
-    $Sign_UpRepo = new Sign_UpRepository();
+        $Sign_UpRepo = new Sign_UpRepository();
 
-    $insertedId = $Sign_UpRepo->saveSign_UpForm($sign_up);
+        $insertedId = $Sign_UpRepo->saveSign_UpForm($sign_up);
 
-    if ($insertedId !== false) {
-        $sign_up->setId((int)$insertedId);
+        if ($insertedId !== false) {
+            $sign_up->setId((int)$insertedId);
 
-        $_SESSION['username'] = $sign_up->getUsername();
-        $_SESSION['user_id'] = $sign_up->getId(); 
+            $_SESSION['username'] = $sign_up->getUsername();
+            $_SESSION['user_id'] = $sign_up->getId();
 
-        echo 'You have successfully registered!';
-        return true;
-    } else {
-        echo 'There was an error during the registration process. Please try again.';
-        return false;
+            echo 'You have successfully registered!';
+            return true;
+        } else {
+            echo 'There was an error during the registration process. Please try again.';
+            return false;
+        }
     }
-}
+
+
+
+    // logout method 
+    public function logout() {
+        session_unset(); 
+        session_destroy(); 
+    
+        header('Location: /uni-watch/view/home.html.php'); 
+        exit();
+    }
+    
 }

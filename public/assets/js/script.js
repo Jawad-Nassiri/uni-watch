@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // shop page 
     if (location.pathname.includes('shop')) {
 
-        // shop page carousel
+        // shop carousel
         const shopCarouselContainer = document.querySelector('.shop-carousel-list')
         const shopCarouselItems = document.querySelectorAll('.shop-carousel-item')
         let shopCarouselItemWidth = document.querySelector('.shop-carousel-item').offsetWidth + 1
@@ -110,45 +110,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // sign up page 
     if (location.pathname.includes('sign_up')) {
 
-            const usernameInput = document.querySelector('.sign-up > input[name="username"]');
-            const emailInput = document.querySelector('.sign-up > input[name="email"]');
-            const passwordInput = document.querySelector('.sign-up-password-input');
-        
-            const usernameErrorMessage = document.querySelector('.error-message.username-error');
-            const emailErrorMessage = document.querySelector('.error-message.email-error');
-            const passwordErrorMessage = document.querySelector('.error-message.password-error');
+        const usernameInput = document.querySelector('.sign-up > input[name="username"]');
+        const emailInput = document.querySelector('.sign-up > input[name="email"]');
+        const passwordInput = document.querySelector('.sign-up-password-input');
+    
+        const usernameErrorMessage = document.querySelector('.error-message.username-error');
+        const emailErrorMessage = document.querySelector('.error-message.email-error');
+        const passwordErrorMessage = document.querySelector('.error-message.password-error');
 
-        
-            // email validation
-            emailInput.addEventListener('keyup', () => {
-                const value = emailInput.value;
-                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                if (!emailPattern.test(value)) {
-                    emailInput.style.border = '3px solid #b60213';
-                    emailErrorMessage.textContent = 'Please enter a valid email';
-                    emailErrorMessage.style.color = '#b60213';
-                } else {
-                    emailInput.style.border = '3px solid green';
-                    emailErrorMessage.textContent = 'Email is valid';
-                    emailErrorMessage.style.color = 'green';
-                }
-            });
-
-            // username validation
+    
+        // username validation
+        usernameInput.addEventListener('keyup', () => {
             usernameValidation(usernameInput, usernameErrorMessage);
-        
-            // password validation
+        });
+
+        // email validation
+        emailInput.addEventListener('keyup', () => {
+            emilValidation(emailInput, emailErrorMessage)
+        });
+
+        // password validation
+        passwordInput.addEventListener('keyup', () => {
             passwordValidation(passwordInput, passwordErrorMessage)
+        });
 
-            // function to add show/hide password functionality
-            togglePasswordVisibility('.sign-up-password > input[name="password"]', '#eye')
+        // function to add show/hide password functionality
+        togglePasswordVisibility('.sign-up-password > input[name="password"]', '#eye')
 
+        document.querySelector('input[type="submit"]').onclick = () => {
+            if(usernameErrorMessage.innerHTML === 'Username already exists. Please choose another one.') {
+                console.log('yes')
+            }
+        }
             
     }
 
     if (location.pathname.includes('sign-in')) {
-
-        
+    
         const signInUsernameInputElement = document.querySelector('.sign-in-username')
         const signInPasswordInputElement = document.querySelector('.sign-in-password-input')
 
@@ -199,100 +197,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // username validation function 
     function usernameValidation(inputElement, errMessageElement) {
-        inputElement.addEventListener('keyup', () => {
-            const value = inputElement.value;
-            if (value.length < 3) {
-                inputElement.style.border = '3px solid #b60213';
-                errMessageElement.textContent = 'Username must be at least 3 characters';
-                errMessageElement.style.color = '#b60213';
-            } else {
-                inputElement.style.border = '3px solid green';
-                errMessageElement.textContent = 'Username is valid';
-                errMessageElement.style.color = 'green';
-            }
-        });
+        const value = inputElement.value;
+        if (value.length < 3) {
+            inputElement.style.border = '3px solid #b60213';
+            errMessageElement.textContent = 'Username must be at least 3 characters';
+            errMessageElement.style.color = '#b60213';
+        } else {
+            inputElement.style.border = '3px solid green';
+            errMessageElement.textContent = 'Username is valid';
+            errMessageElement.style.color = 'green';
+        }
+    }
+
+      // email validation function 
+    function emilValidation(inputElement, errMessageElement) {
+        const value = inputElement.value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(value)) {
+            inputElement.style.border = '3px solid #b60213';
+            errMessageElement.textContent = 'Please enter a valid email';
+            errMessageElement.style.color = '#b60213';
+        } else {
+            inputElement.style.border = '3px solid green';
+            errMessageElement.textContent = 'Email is valid';
+            errMessageElement.style.color = 'green';
+        }
     }
 
     // password validation function
     function passwordValidation(inputElement, errMessageElement) {
-        inputElement.addEventListener('keyup', () => {
-            const value = inputElement.value;
-            if (value.length < 6) {
-                inputElement.style.border = '3px solid #b60213';
-                errMessageElement.textContent = 'Password must be at least 6 characters';
-                errMessageElement.style.color = '#b60213';
-            } else {
-                inputElement.style.border = '3px solid green';
-                errMessageElement.textContent = 'Password is valid';
-                errMessageElement.style.color = 'green';
-            }
-        });
+        const value = inputElement.value;
+        if (value.length < 6) {
+            inputElement.style.border = '3px solid #b60213';
+            errMessageElement.textContent = 'Password must be at least 6 characters';
+            errMessageElement.style.color = '#b60213';
+        } else {
+            inputElement.style.border = '3px solid green';
+            errMessageElement.textContent = 'Password is valid';
+            errMessageElement.style.color = 'green';
+        }
     }
     
 
 
         
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// usernameInput.addEventListener('keyup', () => {
-//     const value = usernameInput.value;
-//     if (value.length < 3) {
-//         usernameInput.style.border = '3px solid #b60213';
-//         usernameErrorMessage.textContent = 'Username must be at least 3 characters';
-//         usernameErrorMessage.style.color = '#b60213';
-//     } else {
-//         usernameInput.style.border = '3px solid green';
-//         usernameErrorMessage.textContent = 'Username is valid';
-//         usernameErrorMessage.style.color = 'green';
-//     }
-// });
 
 
 

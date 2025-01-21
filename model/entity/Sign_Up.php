@@ -6,6 +6,8 @@ class Sign_Up extends BaseEntity {
     private $username;
     private $email;
     private $password;
+    private $role;
+
 
     public function getUsername() {
         return $this->username;
@@ -31,6 +33,14 @@ class Sign_Up extends BaseEntity {
 
     public function setPassword($password) {
         $this->password = $password;
+    }
+
+    public function getRole() {
+        return $this->role;
+    }
+
+    public function setRole($role) {
+        $this->role = $role;
     }
 
 }

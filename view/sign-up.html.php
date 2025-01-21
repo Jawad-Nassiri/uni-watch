@@ -5,7 +5,7 @@
         <div class="sign-up-title">
             <h1>Sign Up</h1>
         </div>
-        <form class="sign-up" method="post" action="#">
+        <form class="sign-up" method="post" action="/uni-watch/sign_up/sign_UpForm">
 
             <input type="text" class="sign-up-username" name="username" placeholder="Username" value="<?= $_POST['username'] ?? ''; ?>">
             <p class="error-message username-error">

@@ -68,6 +68,8 @@
 
 <div class="read_bt see-more"><a href="#">See More</a></div>
 
+
+<!-- shop carousel  -->
 <div class="shop-carousel-container">
     <div class="shop-carousel-list">
         
