@@ -5,7 +5,7 @@ namespace Form;
 use model\repository\Sign_UpRepository;
 use model\entity\Sign_Up;
 
-class Sign_upHandleRequest extends BaseHandleRequest {
+class Sign_UpHandleRequest extends BaseHandleRequest {
 
     public function handleSignUpRequest(Sign_Up $sign_up) {
 

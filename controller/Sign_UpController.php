@@ -6,7 +6,7 @@
 namespace controller;
 
 use controller\BaseController;
-use Form\Sign_upHandleRequest;
+use Form\Sign_UpHandleRequest;
 use model\entity\Sign_Up;
 use model\repository\Sign_UpRepository;
 
@@ -18,14 +18,14 @@ class Sign_UpController extends BaseController {
     }
     public function sign_UpForm() {
 
-        $formHandler = new Sign_upHandleRequest();
+        $formHandler = new Sign_UpHandleRequest();
         $formHandler->handleSignUpRequest($this->sign_up);
         $errors = [];
 
         if ($formHandler->isSubmitted()) {
             if ($formHandler->isValid()) {
                 $this->saveFormData($this->sign_up);              
-                header('Location: /uni-watch/view/home.html.php');
+                redirection('/uni-watch/home/index');
                 exit();
             } else {
                 $errors = $formHandler->getErrorsForm();
@@ -61,7 +61,7 @@ class Sign_UpController extends BaseController {
         session_unset(); 
         session_destroy(); 
     
-        header('Location: /uni-watch/view/home.html.php'); 
+        redirection('/uni-watch/home/index'); 
         exit();
     }
     

@@ -7,13 +7,13 @@
         </div>
         <form class="sign-up" method="post" action="/uni-watch/sign_up/sign_UpForm">
 
-            <input type="text" class="sign-up-username" name="username" placeholder="Username" value="<?= $_POST['username'] ?? ''; ?>">
+            <input type="text" class="sign-up-username" name="username" placeholder="Username">
             <p class="error-message username-error">
                 <?= !empty($errors['username']) ? $errors['username'] : ''; ?>
             </p>
 
 
-            <input type="email" class="sign-up-email" name="email" placeholder="Email" value="<?= $_POST['email'] ?? ''; ?>">
+            <input type="email" class="sign-up-email" name="email" placeholder="Email">
             <p class="error-message email-error">
                 <?= !empty($errors['email']) ? $errors['email'] : ''; ?>
             </p>

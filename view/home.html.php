@@ -1,4 +1,3 @@
-<?php require "../public/header.html.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,4 +148,3 @@
 
 </body>
 </html>
-<?php require "../public/footer.html.php" ?>

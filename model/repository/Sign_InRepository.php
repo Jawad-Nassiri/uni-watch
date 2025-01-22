@@ -5,10 +5,9 @@ namespace model\repository;
 use PDOException;
 
 class Sign_InRepository extends BaseRepository {
-
     public function getUserByUsername($username) {
         try {
-            $sql = "SELECT * FROM user WHERE username = :username LIMIT 1";
+            $sql = "SELECT * FROM user WHERE username = :username";
             $stmt = $this->connection->prepare($sql); 
             $stmt->bindParam(':username', $username); 
             $stmt->execute();

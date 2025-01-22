@@ -83,6 +83,11 @@ body {
     transition: 0.3s all ease;
 }
 
+.fa-solid.fa-user {
+    color: #b60213;
+    font-size: 20px;
+}
+
 .list ul > li a:hover {
     background-color: #b60213;
     color: #fff;
