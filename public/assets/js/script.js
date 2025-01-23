@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
     }
 
-    if (location.pathname.includes('sign-in')) {
+    if (location.pathname.includes('sign_in')) {
     
         const signInUsernameInputElement = document.querySelector('.sign-in-username')
         const signInPasswordInputElement = document.querySelector('.sign-in-password-input')
@@ -157,10 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const signInPasswordErrMessage = document.querySelector('.sign-in-password-error')
 
         // username validation
-        usernameValidation(signInUsernameInputElement, signInUsernameErrMessage)
+        signInUsernameInputElement.onkeyup = () => {
+            usernameValidation(signInUsernameInputElement, signInUsernameErrMessage)
+        }
 
         // password validation
-        passwordValidation(signInPasswordInputElement, signInPasswordErrMessage)
+        signInPasswordInputElement.onkeyup = () => {
+            passwordValidation(signInPasswordInputElement, signInPasswordErrMessage)
+        }
 
         // function to add show/hide password functionality
         togglePasswordVisibility('.sign-in-password > input[name="password"]', '#eye')
@@ -239,11 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             errMessageElement.textContent = 'Password is valid';
             errMessageElement.style.color = 'green';
         }
-    }
-    
-
-
-        
+    }   
 });
 
 

@@ -11,8 +11,14 @@ html {
     text-decoration: none;
 }
 
-input::placeholder {
-    color: #262626;
+input::placeholder,
+textarea::placeholder {
+    color: gray;
+}
+
+.add-product > input:focus,
+.add-product > textarea:focus {
+    border: 2px solid #b60213 !important;
 }
 
 body {
@@ -613,9 +619,10 @@ body {
 }
 
 
-/* sign-up && sign-in forms start  */
+/* sign up && sign in && add product forms start  */
 .sign-up-container,
-.sign-in-container {
+.sign-in-container,
+.add-product-container {
     width: 100%;
     height: auto;
     padding: 50px 0 100px 50px;
@@ -625,13 +632,15 @@ body {
 }
 
 .sign-up-form,
-.sign-in-form {
+.sign-in-form,
+.add-product-form {
     width: 50%;
     height: auto;
 }
 
 .sign-up-title,
-.sign-in-title {
+.sign-in-title,
+.add-product-title {
     width: 100%;
     text-align: center;
     color: #fff;
@@ -640,7 +649,8 @@ body {
 }
 
 .sign-up,
-.sign-in{
+.sign-in,
+.add-product{
     width: 90%;
     display: flex;
     align-items: center;
@@ -653,8 +663,11 @@ body {
 
 .sign-up > input,
 .sign-in > input,
+.add-product > input,
+.add-product textarea,
 .sign-up-password > input,
-.sign-in-password > input {
+.sign-in-password > input,
+.add-product-submit > input {
     width: 90%;
     height: 70px;
     outline: none;
@@ -663,6 +676,21 @@ body {
     padding-left: 25px;
     font-size: 20px;
     color: #262626;
+}
+
+.add-product > input[type="number"] {
+    padding-right: 30px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: 30px; 
+    width: 30px
+}
+
+.add-product textarea {
+    height: 120px !important;
+    padding-top: 15px;
 }
 
 .sign-up-password,
@@ -695,30 +723,36 @@ body {
 }
 
 .sign-up-submit,
-.sign-in-submit{
+.sign-in-submit,
+.add-product-submit{
     width: 170px;
     height: 60px;
     background-color: #b60213;
     border-radius: 30px;
     font-weight: bold;
     transition: all 0.5s ease;
-    text-align: center;
     margin: 0px 0 20px 45px;
     align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sign-up-submit:hover,
-.sign-in-submit:hover {
+.sign-in-submit:hover,
+.add-product-submit:hover {
     background: #fff;
 }
 
 .sign-up-submit:hover > input,
-.sign-in-submit:hover > input {
+.sign-in-submit:hover > input,
+.add-product-submit:hover > input {
     color: #000;
 }
 
 .sign-up-submit > input,
-.sign-in-submit > input {
+.sign-in-submit > input,
+.add-product-submit > input {
     padding: 20px 50px;
     font-weight: bold;
     font-size: 18px;
@@ -839,13 +873,15 @@ body {
         width: 1100px;
     }
 
-    /* sign-up && sign-in forms start  */
+    /* sign up && sign in && add product forms start  */
 
     .sign-up-bg-container {
         width: 55%;
     }
 
-    .sign-up-form, .sign-in-form {
+    .sign-up-form,
+    .sign-in-form,
+    .add-product-form {
         width: 45%;
     }
 
@@ -870,13 +906,15 @@ body {
         width: 30%;
     }
 
-    /* sign-up && sign-in forms start  */
+    /* sign up && sign in && add product forms start  */
 
     .sign-up-bg {
         background-position: -100px 0;
     }
 
-    .sign-up, .sign-in {
+    .sign-up,
+    .sign-in,
+    .add-product {
         width: 100%;
         padding: 10px 0px;
     }
@@ -970,9 +1008,11 @@ body {
         flex: 0 0 25%;
     }
 
-    /* sign-up && sign-in forms start  */
+    /* sign up && sign in && add product forms start  */
 
-    .sign-up-container, .sign-in-container {
+    .sign-up-container,
+    .sign-in-container,
+    .add-product-container {
         padding: 50px 0 100px 20px;
     }
 
@@ -982,8 +1022,10 @@ body {
 
     .sign-up > input,
     .sign-in > input,
+    .add-product > input,
     .sign-up-password > input,
-    .sign-in-password > input {
+    .sign-in-password > input,
+    .add-product > textarea {
         height: 60px;
     }
 
@@ -1134,13 +1176,15 @@ body {
         right: 260px;
     }
 
-    /* sign-up && sign-in forms start  */
+    /* sign up && sign in && add product forms start  */
 
     .sign-up-bg-container {
         width: 35%;
     }
 
-    .sign-up-form, .sign-in-form {
+    .sign-up-form,
+    .sign-in-form,
+    .add-product-form {
         width: 65%;
     }
 
@@ -1249,17 +1293,21 @@ body {
         flex: 0 0 50%;
     }
 
-    /* sign-up && sign-in forms start  */
+    /* sign up && sign in && add product forms start  */
 
     .sign-up-bg-container {
         display: none;
     }
 
-    .sign-up-form, .sign-in-form {
+    .sign-up-form,
+    .sign-in-form,
+    .add-product-form {
         width: 85%;
     }
 
-    .sign-up-title, .sign-in-title {
+    .sign-up-title,
+    .sign-in-title
+    .add-product-title {
         font-size: 25px;
     }
 

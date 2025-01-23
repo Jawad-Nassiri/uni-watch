@@ -1,30 +1,29 @@
-<?php require '../public/header.html.php'?>
 <div class="add-product-container">
     <div class="add-product-form">
         <div class="add-product-title">
             <h1>Add Product</h1>
         </div>
-        <form class="add-product" method="post" action="/uni-watch/admin_add_product/add_product">
+        <form class="add-product" method="post" action="/uni-watch/Admin_add_product/addProduct">
 
-            <input type="text" class="product-title" name="product-title" placeholder="Product Title">
-            <p class="error-message product-title-error"></p>
+            <input type="text" class="product-title" name="product-title" placeholder="Watch Title">
+            <p class="error-message product-title-error"><?= isset($errors['title']) ? $errors['title'] : '' ?></p>
 
-            <input type="text" class="product-brand" name="product-brand" placeholder="Product Brand">
-            <p class="error-message product-brand-error"></p>
+            <input type="text" class="product-brand" name="product-brand" placeholder="Watch Brand">
+            <p class="error-message product-brand-error"><?= isset($errors['brand']) ? $errors['brand'] : '' ?></p>
 
-            <textarea class="product-description" name="product-description" placeholder="Product Description"></textarea>
-            <p class="error-message product-description-error"></p>
+            <textarea class="product-description" name="product-description" placeholder="Watch Description"><?= isset($_POST['product-description']) ? $_POST['product-description'] : '' ?></textarea>
+            <p class="error-message product-description-error"><?= isset($errors['description']) ? $errors['description'] : '' ?></p>
 
-            <input type="text" class="product-photo" name="product-photo" placeholder="Product Photo Name">
+            <input type="text" class="product-price" name="product-price" placeholder="Watch Price: 19.99">
+            <p class="error-message product-price-error"><?= isset($errors['price']) ? $errors['price'] : '' ?></p>
+
+            <input type="text" class="product-photo" name="product-color" placeholder="Watch color">
+            <p class="error-message product-photo-error"></p>
+            
+            <input type="text" class="product-photo" name="product-photo" placeholder="Watch Photo url">
             <p class="error-message product-photo-error"></p>
 
-            <input type="text" class="product-photo" name="product-photo" placeholder="Product Photo Name">
-            <p class="error-message product-photo-error"></p>
-
-            <input type="number" class="product-price" name="product-price" placeholder="Product Price">
-            <p class="error-message product-price-error"></p>
-
-            <input type="number" class="product-stock" name="product-stock" placeholder="Product Stock">
+            <input type="number" class="product-stock" name="product-stock" placeholder="Watch Stock: 100">
             <p class="error-message product-stock-error"></p>
 
             <div class="add-product-submit">
@@ -38,4 +37,17 @@
     </div>
 </div>
 
-<?php require '../public/footer.html.php'?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
