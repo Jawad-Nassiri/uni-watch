@@ -18,6 +18,7 @@ class Sign_InController extends BaseController {
                 
                 $_SESSION['user_id'] = $user['id']; 
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
 
                 redirection('/uni-watch/home/index');
                 exit();

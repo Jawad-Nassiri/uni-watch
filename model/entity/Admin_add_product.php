@@ -7,9 +7,8 @@ class Admin_add_product extends BaseEntity {
     private $title;
     private $brand;
     private $description;
+    private $image;
     private $price;
-    private $color;
-    private $photo;
     private $stock;
 
 
@@ -36,29 +35,20 @@ class Admin_add_product extends BaseEntity {
     public function setDescription($description){
         $this->description = $description;
     }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function setImage($image){
+        $this->image = $image;
+    }
     public function getPrice() {
         return $this->price;
     }
 
     public function setPrice($price){
         $this->price = $price;
-    }
-
-    public function getColor() {
-        return $this->color;
-    }
-
-    public function setColor($color){
-        $this->color = $color;
-    }
-
-
-    public function getPhoto() {
-        return $this->photo;
-    }
-
-    public function setPhoto($photo){
-        $this->photo = $photo;
     }
 
 

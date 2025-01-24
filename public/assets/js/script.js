@@ -58,6 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.addEventListener('scroll', () => {
             currentIndex = Math.round(carousel.scrollLeft / itemWidth);
         });
+
+        // redirection to the admin dashboard 
+        const adminElementLink = document.querySelector('.list-item.admin');
+        const angleElement = document.querySelector('.fa-solid.fa-angle-down');
+        let angleUp = false;
+
+        let adminDashboardLink = document.querySelector('.admin-dashboard');
+
+        if (!adminDashboardLink) {
+            adminDashboardLink = document.createElement('a');
+            adminDashboardLink.classList.add('admin-dashboard');
+            adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
+            adminDashboardLink.textContent = 'Admin Dashboard';
+            adminDashboardLink.style.display = 'none';
+            adminElementLink.appendChild(adminDashboardLink);
+        }
+
+        angleElement.onclick = () => {
+            if (!angleUp) {
+                angleElement.className = 'fa-solid fa-angle-up';
+                adminDashboardLink.style.display = 'block'; 
+                angleUp = true;
+            } else {
+                angleElement.className = 'fa-solid fa-angle-down';
+                adminDashboardLink.style.display = 'none';
+                angleUp = false;
+            }
+        };
+
     }
 
 

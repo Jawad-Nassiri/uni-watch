@@ -94,6 +94,24 @@ body {
     font-size: 20px;
 }
 
+.fa-solid.fa-angle-down,
+.fa-solid.fa-angle-up {
+    cursor: pointer;
+    position: relative;
+}
+
+.admin-dashboard {
+    position: absolute;
+    right: 80px;
+    top: 63px;
+    text-transform: lowercase;
+    color: #000;
+}
+
+.list-item.admin {
+    user-select: none;
+}
+
 .list ul > li a:hover {
     background-color: #b60213;
     color: #fff;
@@ -1126,6 +1144,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
     .feedback-title .title {
         font-size: 50px;
+    }
+
+    .admin-dashboard {
+        top: 288px;
     }
 
     /* shop page  */
