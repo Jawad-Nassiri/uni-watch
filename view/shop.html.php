@@ -1,4 +1,3 @@
-<?php require "../public/header.html.php" ?>
 
 <div class="shop-banner">
     <div class="banner">
@@ -8,63 +7,29 @@
     </div>
 </div>
 
-
+<!-- Products Section -->
 <div class="product-container">
     <div class="product-list">
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img-box">
-                    <img class="main-img" src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch">
+        <?php if (!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+                <div class="product-box">
+                    <div class="product-img-box">
+                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="<?= htmlspecialchars($product->getTitle()); ?>">
                     </div>
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
+                    <div class="product-details">
+                        <p class="product-tag"><?= htmlspecialchars($product->getCategory()); ?></p>
+                        <h4 class="product-name"><?= htmlspecialchars($product->getTitle()); ?></h4>
+                        <p class="product-price">$<?= htmlspecialchars($product->getPrice()); ?></p>
                     </div>
                 </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-
-        <div class="product-item">
-            <div class="images">
-                <div class="main-img-box">
-                    <img class="main-img" src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                </div>
-                <div class="small-images">
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch">
-                    </div>
-                    <div class="img-box">
-                        <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details">
-                <h5>CHV-M17G30-K9</h5>
-                <p>€215</p>
-            </div>
-            <div class="card-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="no-products">No products available at the moment.</p>
+        <?php endif; ?>
     </div>
 </div>
+
+
 
 <div class="read_bt see-more"><a href="#">See More</a></div>
 
@@ -99,7 +64,3 @@
 
     </div>
 </div>
-
-
-
-<?php require "../public/footer.html.php" ?>

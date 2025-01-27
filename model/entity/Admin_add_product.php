@@ -6,8 +6,9 @@ namespace model\entity;
 class Admin_add_product extends BaseEntity {
     private $title;
     private $brand;
+    private $category;
     private $description;
-    private $image;
+    private $image_path;
     private $price;
     private $stock;
 
@@ -28,6 +29,14 @@ class Admin_add_product extends BaseEntity {
         $this->brand = $brand;
     }
 
+    public function getCategory() {
+        return $this->category;
+    }
+
+    public function setCategory($category){
+        $this->category = $category;
+    }
+
     public function getDescription() {
         return $this->description;
     }
@@ -36,12 +45,12 @@ class Admin_add_product extends BaseEntity {
         $this->description = $description;
     }
 
-    public function getImage() {
-        return $this->image;
+    public function getImagePath() {
+        return $this->image_path;
     }
 
-    public function setImage($image){
-        $this->image = $image;
+    public function setImagePath($image_path){
+        $this->image_path = $image_path;
     }
     public function getPrice() {
         return $this->price;

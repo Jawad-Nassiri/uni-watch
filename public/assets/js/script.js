@@ -12,6 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+
+    // redirection to the admin dashboard 
+    const adminElementLink = document.querySelector('.list-item.admin');
+    const angleElement = document.querySelector('.fa-solid.fa-angle-down');
+    let angleUp = false;
+
+    let adminDashboardLink = document.querySelector('.admin-dashboard');
+
+    if (!adminDashboardLink) {
+        adminDashboardLink = document.createElement('a');
+        adminDashboardLink.classList.add('admin-dashboard');
+        adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
+        adminDashboardLink.textContent = 'Admin Dashboard';
+        adminDashboardLink.style.display = 'none';
+        adminElementLink.appendChild(adminDashboardLink);
+    }
+
+    angleElement.onclick = () => {
+        if (!angleUp) {
+            angleElement.className = 'fa-solid fa-angle-up';
+            adminDashboardLink.style.display = 'block'; 
+            angleUp = true;
+        } else {
+            angleElement.className = 'fa-solid fa-angle-down';
+            adminDashboardLink.style.display = 'none';
+            angleUp = false;
+        }
+    };
+
     // home page 
     if(location.pathname.includes('home')) {
         //home page carousel 
@@ -59,34 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = Math.round(carousel.scrollLeft / itemWidth);
         });
 
-        // redirection to the admin dashboard 
-        const adminElementLink = document.querySelector('.list-item.admin');
-        const angleElement = document.querySelector('.fa-solid.fa-angle-down');
-        let angleUp = false;
-
-        let adminDashboardLink = document.querySelector('.admin-dashboard');
-
-        if (!adminDashboardLink) {
-            adminDashboardLink = document.createElement('a');
-            adminDashboardLink.classList.add('admin-dashboard');
-            adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
-            adminDashboardLink.textContent = 'Admin Dashboard';
-            adminDashboardLink.style.display = 'none';
-            adminElementLink.appendChild(adminDashboardLink);
-        }
-
-        angleElement.onclick = () => {
-            if (!angleUp) {
-                angleElement.className = 'fa-solid fa-angle-up';
-                adminDashboardLink.style.display = 'block'; 
-                angleUp = true;
-            } else {
-                angleElement.className = 'fa-solid fa-angle-down';
-                adminDashboardLink.style.display = 'none';
-                angleUp = false;
-            }
-        };
-
     }
 
 
@@ -117,25 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         }, 2000)
-
-
-        // update main product image to the clicked small image
-        const productItems = document.querySelectorAll('.product-item');
-
-        productItems.forEach(product => {
-            const mainImage = product.querySelector('.main-img');
-            const smallImgBoxes = product.querySelectorAll('.img-box');
-        
-            smallImgBoxes.forEach(smallImgBox => {
-                smallImgBox.addEventListener('click', () => {
-                    mainImage.style.opacity = mainImage.src !== smallImgBox.querySelector('img').src ? '0' : '1'
-                    setTimeout(() => {
-                        mainImage.src = smallImgBox.querySelector('img').src;
-                        mainImage.style.opacity = '1';
-                    }, 300);
-                });
-            });
-        });
 
     }
 

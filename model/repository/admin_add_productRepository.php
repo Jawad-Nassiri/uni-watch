@@ -7,31 +7,33 @@ use model\entity\Admin_add_product;
 
 class Admin_add_productRepository extends BaseRepository {
     
-    // Insert products into watch and watch_variation tables by admin
+    // Insert products into product table by admin
     public function addProductByAdmin(Admin_add_product $admin_add_product) {
         try {
 
-            $sqlWatch = "INSERT INTO watch(title, brand, description, image, price, stock) VALUES (:title, :brand, :description, :image, :price, :stock)";
+            $sql = "INSERT INTO product(title, brand, category, description, image_path, price, stock) VALUES (:title, :brand, :category, :description, :image_path, :price, :stock)";
                         
-            $stmtWatch = $this->connection->prepare($sqlWatch);
+            $stmt = $this->connection->prepare($sql);
 
             $title = $admin_add_product->getTitle();
             $brand = $admin_add_product->getBrand();
+            $category = $admin_add_product->getCategory();
             $description = $admin_add_product->getDescription();
-            $image = $admin_add_product->getImage();
+            $imagePath = $admin_add_product->getImagePath();
             $price = $admin_add_product->getPrice();
             $stock = $admin_add_product->getStock();
 
 
-            $stmtWatch->bindParam(":title", $title);
-            $stmtWatch->bindParam(":brand", $brand);
-            $stmtWatch->bindParam(":description", $description);
-            $stmtWatch->bindParam(":image", $image);
-            $stmtWatch->bindParam(":price", $price);
-            $stmtWatch->bindParam(":stock", $stock);
+            $stmt->bindParam(":title", $title);
+            $stmt->bindParam(":brand", $brand);
+            $stmt->bindParam(":category", $category);
+            $stmt->bindParam(":description", $description);
+            $stmt->bindParam(":image_path", $imagePath);
+            $stmt->bindParam(":price", $price);
+            $stmt->bindParam(":stock", $stock);
 
 
-            $stmtWatch->execute();
+            $stmt->execute();
             return true;
 
         } catch (PDOException $e) {
