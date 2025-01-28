@@ -31,7 +31,7 @@
 
 
 
-<div class="read_bt see-more"><a href="#">See More</a></div>
+<button class="read_bt see-more" id="see-more-product" data-offset="9"><p>See More</p></button>
 
 
 <!-- shop carousel  -->

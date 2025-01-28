@@ -19,4 +19,25 @@ class ProductController extends BaseController {
             ]);
         }
     }
+
+
+     // Method for loading more products via AJAX
+    public function loadMoreProducts() {
+        if (isset($_GET['offset']) && isset($_GET['limit'])) {
+            $offset = (int)$_GET['offset'];
+            $limit = (int)$_GET['limit'];
+
+            
+            $productRepository = new ProductRepository();
+            $products = $productRepository->getProductsByOffset($limit, $offset);
+
+            if ($products !== false) {
+                echo json_encode(['products' => $products]);
+            } else {
+                echo json_encode(['products' => []]);
+            }
+        } else {
+            echo json_encode(['error' => 'Invalid parameters']);
+        }
+    }
 }

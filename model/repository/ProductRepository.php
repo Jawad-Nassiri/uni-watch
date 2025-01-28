@@ -48,16 +48,15 @@ class ProductRepository extends BaseRepository {
     
             $products = [];
             foreach ($productsData as $productData) {
-                $product = new Admin_add_product();
-                $product->setTitle($productData['title']);
-                $product->setBrand($productData['brand']);
-                $product->setCategory($productData['category']);
-                $product->setDescription($productData['description']);
-                $product->setImagePath($productData['image_path']);
-                $product->setPrice($productData['price']);
-                $product->setStock($productData['stock']);
-    
-                $products[] = $product;
+                $products[] = [
+                    'title' => $productData['title'],
+                    'brand' => $productData['brand'],
+                    'category' => $productData['category'],
+                    'description' => $productData['description'],
+                    'image_path' => $productData['image_path'],
+                    'price' => $productData['price'],
+                    'stock' => $productData['stock']
+                ];
             }
     
             return $products;
