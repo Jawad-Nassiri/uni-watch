@@ -13,7 +13,7 @@
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <div class="product-box">
-                    <div class="product-img-box">
+                    <div class="product-img-box" data-id="<?= htmlspecialchars($product->getId());?>">
                         <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="<?= htmlspecialchars($product->getTitle()); ?>">
                     </div>
                     <div class="product-details">

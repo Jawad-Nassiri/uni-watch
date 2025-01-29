@@ -17,6 +17,7 @@ class ProductRepository extends BaseRepository {
             $products = [];
             foreach ($productsData as $productData) {
                 $product = new Admin_add_product();
+                $product->setId($productData['id']);
                 $product->setTitle($productData['title']);
                 $product->setBrand($productData['brand']);
                 $product->setCategory($productData['category']);
@@ -49,6 +50,7 @@ class ProductRepository extends BaseRepository {
             $products = [];
             foreach ($productsData as $productData) {
                 $products[] = [
+                    'id' => $productData['id'],
                     'title' => $productData['title'],
                     'brand' => $productData['brand'],
                     'category' => $productData['category'],
@@ -65,5 +67,27 @@ class ProductRepository extends BaseRepository {
             return false;
         }
     }
+
+    // get product by id 
+    public function getProductById($id) {
+        try {
+            $sql = "SELECT * FROM product WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+    
+            $product = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+            if ($product) {
+                return $product;
+            } else {
+                return false;
+            }
+        } catch(PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            return false;
+        }
+    }
+    
     
 }

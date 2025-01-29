@@ -12,37 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    const basketIcon = document.querySelector('.list-item.basket-icon');
+    const body = document.querySelector('body');
+    const cartDetailBox = document.querySelector('.cart-detail-box');
+    
+    basketIcon.addEventListener('mouseenter', () => {
+        body.style.filter = 'blur(5px)';
+        cartDetailBox.style.filter = 'none';
+    });
+    
+    basketIcon.addEventListener('mouseleave', () => {
+        body.style.filter = 'none'; 
+    });
+    
 
-    // redirection to the admin dashboard 
-    // const adminElementLink = document.querySelector('.list-item.admin');
-    // const angleElement = document.querySelector('.fa-solid.fa-angle-down');
-    // let angleUp = false;
-
-    // let adminDashboardLink = document.querySelector('.admin-dashboard');
-
-    // if (!adminDashboardLink) {
-    //     adminDashboardLink = document.createElement('a');
-    //     adminDashboardLink.classList.add('admin-dashboard');
-    //     adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
-    //     adminDashboardLink.textContent = 'Admin Dashboard';
-    //     adminDashboardLink.style.display = 'none';
-    //     adminElementLink.appendChild(adminDashboardLink);
-    // }
-
-    // angleElement.onclick = () => {
-    //     if (!angleUp) {
-    //         angleElement.className = 'fa-solid fa-angle-up';
-    //         adminDashboardLink.style.display = 'block'; 
-    //         angleUp = true;
-    //     } else {
-    //         angleElement.className = 'fa-solid fa-angle-down';
-    //         adminDashboardLink.style.display = 'none';
-    //         angleUp = false;
-    //     }
-    // };
 
     // home page 
-    if(location.pathname.includes('home')) {
+    if(location.pathname == '/uni-watch/home/index') {
         //home page carousel 
         const carousel = document.querySelector('.carousel');
         const prevBtn = document.querySelector('.prev');
@@ -88,12 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = Math.round(carousel.scrollLeft / itemWidth);
         });
 
+        // redirection to the admin page method 
+        redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+
+
     }
 
 
 
     // shop page 
-    if (location.pathname.includes('product')) {
+    if (location.pathname == '/uni-watch/product/allProducts') {
 
         // shop carousel
         const shopCarouselContainer = document.querySelector('.shop-carousel-list')
@@ -135,18 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
                         data.products.forEach(product => {
                             const productBox = document.createElement('div');
                             productBox.classList.add('product-box');
-                            productBox.innerHTML = `
-                                <div class="product-img-box">
-                                    <img src="/uni-watch/public/assets/images/watches/${product.image_path}" alt="${product.title}">
-                                </div>
-                                <div class="product-details">
-                                    <p class="product-tag">${product.category}</p>
-                                    <h4 class="product-name">${product.title}</h4>
-                                    <p class="product-price">$${product.price}</p>
-                                </div>
+                        
+                            const productImgBox = document.createElement('div');
+                            productImgBox.classList.add('product-img-box');
+                            productImgBox.setAttribute('data-id', `${product.id}`);
+                        
+                            const productImage = document.createElement('img');
+                            productImage.src = `/uni-watch/public/assets/images/watches/${product.image_path}`;
+                            productImage.alt = product.title;
+                        
+                            productImgBox.appendChild(productImage);
+                        
+                            const productDetails = document.createElement('div');
+                            productDetails.classList.add('product-details');
+                            productDetails.innerHTML = `
+                                <p class="product-tag">${product.category}</p>
+                                <h4 class="product-name">${product.title}</h4>
+                                <p class="product-price">$${product.price}</p>
                             `;
+                        
+                            productBox.appendChild(productImgBox);
+                            productBox.appendChild(productDetails);
+                        
                             productList.appendChild(productBox);
                         });
+                        
         
                         button.setAttribute('data-offset', offset + limit);
         
@@ -160,7 +163,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => console.error('Error loading more products:', error));
         });
+
+        // get the product id 
+        const productContainer = document.querySelector('.product-list');
+
+        productContainer.addEventListener('click', (event) => {
+            const productBox = event.target.closest('.product-img-box');
+
+            if (productBox) {
+                const productId = productBox.getAttribute('data-id');
+                fetch(`/uni-watch/detail/productDetail?productId=${productId}`)
+                window.location.href = `/uni-watch/detail/productDetail?productId=${productId}`;
+            }
+        });
+
         
+        // redirection to the admin page method 
+        redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
 
     }
 
@@ -202,30 +221,79 @@ document.addEventListener('DOMContentLoaded', () => {
             
     }
 
-    if (location.pathname.includes('detail'))  {
+    if (location.pathname == '/uni-watch/detail/productDetail')  {
 
-        const increaseBtn = document.querySelector('.inc.ctnbutton')
-        const decreaseBtn = document.querySelector('.dec.ctnbutton')
-        const detailInputQuantity = document.querySelector('#detail-quantity')
-
-        decreaseBtn.disabled = true;
-        
+        const increaseBtn = document.querySelector('.inc.ctnbutton');
+        const decreaseBtn = document.querySelector('.dec.ctnbutton');
+        const detailInputQuantity = document.querySelector('#detail-quantity');
+    
+        decreaseBtn.classList.add('disabled'); 
+    
         increaseBtn.onclick = () => {
-            detailInputQuantity.value = parseInt(detailInputQuantity.value) + 1;
-
-            if (parseInt(detailInputQuantity.value) >= 100) {
-                increaseBtn.disabled = true;
+            let currentValue = parseInt(detailInputQuantity.value);
+            detailInputQuantity.value = currentValue + 1;
+    
+            if (currentValue + 1 >= 100) {
+                increaseBtn.classList.add('disabled');
+            } else {
+                increaseBtn.classList.remove('disabled');
             }
-
-            decreaseBtn.disabled = false;
-        }
-
+    
+            decreaseBtn.classList.remove('disabled');
+        };
+    
         decreaseBtn.onclick = () => {
-            detailInputQuantity.value--;
-        }
+            let currentValue = parseInt(detailInputQuantity.value);
+            if (currentValue > 0) {
+                detailInputQuantity.value = currentValue - 1;
+            }
+    
+            if (currentValue - 1 <= 1) {
+                decreaseBtn.classList.add('disabled');
+            } else {
+                decreaseBtn.classList.remove('disabled');
+            }
+    
+            increaseBtn.classList.remove('disabled');
+        };
 
+        detailInputQuantity.onkeyup = () => {
+            const quantity = Number(detailInputQuantity.value);
+        
+            if (quantity >= 100) {
+                increaseBtn.classList.add('disabled');
+            } else {
+                increaseBtn.classList.remove('disabled');
+            }
+        
+            if (quantity <= 1) {
+                decreaseBtn.classList.add('disabled');
+            } else {
+                decreaseBtn.classList.remove('disabled');
+            }
+        };
+
+        // const addToCartBtn = document.querySelector('.add-to-cart-btn')
+        // const productContainerElement = document.querySelector('.detail-box')
+
+        // const productId = productContainerElement.getAttribute('data-id')
+        
+        // addToCartBtn.onclick = () => {
+        //     fetch(`/uni-watch/basket/productDetail?productId=${productId}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if(data.product) {
+        //         }
+        //     })
+
+        // }
+
+
+        // redirection to the admin page method 
+        redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
 
     }
+
 
 
     if (location.pathname.includes('sign_in')) {
@@ -324,6 +392,31 @@ document.addEventListener('DOMContentLoaded', () => {
             errMessageElement.style.color = 'green';
         }
     }   
+
+
+
+    function redirectionToAdminDashboard(adminTagSelector, angleSelector, adminDashboardSelector) {
+        let adminTagElement = document.querySelector(adminTagSelector);
+        let angleElement = document.querySelector(angleSelector);
+        let adminDashboardLink = document.querySelector(adminDashboardSelector);
+        let angleUp = false;
+    
+        if (!adminDashboardLink) {
+            adminDashboardLink = document.createElement('a');
+            adminDashboardLink.classList.add('admin-dashboard');
+            adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
+            adminDashboardLink.textContent = 'Admin Dashboard';
+            adminDashboardLink.style.display = 'none';
+            adminTagElement.appendChild(adminDashboardLink);
+        }
+    
+        angleElement.onclick = () => {
+            angleUp = !angleUp;
+            angleElement.className = angleUp ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down';
+            adminDashboardLink.style.display = angleUp ? 'block' : 'none';
+        };
+    }
+    
 });
 
 

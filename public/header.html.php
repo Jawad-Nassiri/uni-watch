@@ -45,7 +45,13 @@
                 <?php endif; ?>
 
             <?php endif; ?>
-            <li class="list-item"><a id="card" href="/uni-watch/card/shop"><i class="fa-solid fa-basket-shopping"></i></a></li>
+            <li class="list-item basket-icon">
+                <a id="card" href="/uni-watch/card/shop">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </a>
+
+                <div class="cart-detail-box"></div>
+            </li>
         </ul>
     </div>
 </div>
