@@ -45,13 +45,90 @@
                 <?php endif; ?>
 
             <?php endif; ?>
-            <li class="list-item basket-icon">
-                <a id="card" href="/uni-watch/card/shop">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                </a>
-
-                <div class="cart-detail-box"></div>
-            </li>
         </ul>
+        <li class="list-item basket-icon">
+            <a id="card" href="#">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </a>
+            <div class="cart-detail-box">
+                <div class="title">
+                    <p class="my-cart">My Shopping Cart</p>
+                    <p class="product-quantity">10 <span>Product</span></p>
+                </div>
+                <div class="product-detail-container">
+                    <div class="product-box">
+                        <div class="delete-icon-container">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                        <div class="product-details-container">
+                            <p class="product-name">my product name</p>
+                            <div class="product-price">$140</div>
+                        </div>
+                        <div class="product-img-container">
+                            <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="product-box">
+                        <div class="delete-icon-container">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                        <div class="product-details-container">
+                            <p class="product-name">my product name</p>
+                            <div class="product-price">$140</div>
+                        </div>
+                        <div class="product-img-container">
+                            <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="">
+                        </div>
+                    </div> 
+
+                    <div class="product-box">
+                        <div class="delete-icon-container">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                        <div class="product-details-container">
+                            <p class="product-name">my product name</p>
+                            <div class="product-price">$140</div>
+                        </div>
+                        <div class="product-img-container">
+                            <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="">
+                        </div>
+                    </div> 
+
+                    <div class="product-box">
+                        <div class="delete-icon-container">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                        <div class="product-details-container">
+                            <p class="product-name">my product name</p>
+                            <div class="product-price">$140</div>
+                        </div>
+                        <div class="product-img-container">
+                            <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="">
+                        </div>
+                    </div> 
+                </div>
+                <div class="total-price-container">
+                    <p class="total-price">Your Basket Is Empty :- (</p>
+                </div>
+                <div class="button-container">
+                    <button class="go-to-basket">See shopping cart</button>
+                </div>
+            </div>
+        </li>
     </div>
 </div>
+
+
+    <!-- <div class="product-box">
+        <div class="delete-icon-container">
+            <i class="fa-regular fa-trash-can"></i>
+        </div>
+        <div class="product-details-container">
+            <p class="product-name">my product name</p>
+            <div class="product-price">$140</div>
+        </div>
+        <div class="product-img-container">
+            <img src="/uni-watch/public/assets/images/watches/w-4.png" alt="">
+        </div>
+    </div>  -->

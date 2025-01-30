@@ -12,18 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    const basketIcon = document.querySelector('.list-item.basket-icon');
-    const body = document.querySelector('body');
+
+
+    // filter the body after clicking on the basket icon 
+    const basketIcon = document.querySelector('#card');
     const cartDetailBox = document.querySelector('.cart-detail-box');
-    
-    basketIcon.addEventListener('mouseenter', () => {
-        body.style.filter = 'blur(5px)';
-        cartDetailBox.style.filter = 'none';
+    let isHidden = true
+
+
+    basketIcon.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        cartDetailBox.style.display = isHidden ? 'block' : 'none';
+        isHidden = !isHidden;
+        document.body.classList.toggle('blur-effect')
+    })
+
+    document.addEventListener('click', (evt) => {
+        if (!cartDetailBox.contains(evt.target) && !basketIcon.contains(evt.target)) {
+            cartDetailBox.style.display = 'none';
+            document.body.classList.remove('blur-effect');
+            isHidden = true;
+        }
     });
     
-    basketIcon.addEventListener('mouseleave', () => {
-        body.style.filter = 'none'; 
-    });
+    
+
     
 
 
@@ -221,8 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
     }
 
+    // detail page 
     if (location.pathname == '/uni-watch/detail/productDetail')  {
 
+        // Handles increment, decrement, and manual input for quantity with min/max limits.
         const increaseBtn = document.querySelector('.inc.ctnbutton');
         const decreaseBtn = document.querySelector('.dec.ctnbutton');
         const detailInputQuantity = document.querySelector('#detail-quantity');
@@ -273,26 +288,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // const addToCartBtn = document.querySelector('.add-to-cart-btn')
-        // const productContainerElement = document.querySelector('.detail-box')
-
-        // const productId = productContainerElement.getAttribute('data-id')
-        
-        // addToCartBtn.onclick = () => {
-        //     fetch(`/uni-watch/basket/productDetail?productId=${productId}`)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if(data.product) {
-        //         }
-        //     })
-
-        // }
 
 
-        // redirection to the admin page method 
-        redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+        // retrieve the product detail and show them in the box product detail 
+    //     const addToCartBtn = document.querySelector('.add-to-cart-btn')
+    //     const productContainerElement = document.querySelector('.detail-box')
+
+    //     const productId = productContainerElement.getAttribute('data-id')
+
+    //     addToCartBtn.onclick = () => {
+    //         fetch(`/uni-watch/basket/productDetail?productId=${productId}`)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 if (data.product) {
+    //                     addProductToCartBox(data.product);
+    //                 }
+    //             })
+    //     }
+
+    //     // redirection to the admin page method 
+    //     redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
 
     }
+
+    // Dynamically adds the product details to the cart box
+    // function addProductToCartBox(product) {
+    //     const cartDetailBox = document.querySelector('.cart-detail-box');
+    //     const totalPriceContainer = cartDetailBox.querySelector('.total-price-container');
+        
+    //     let productDetailContainer = cartDetailBox.querySelector('.product-detail-container');
+    
+    //     if (!productDetailContainer) {
+    //         productDetailContainer = document.createElement('div');
+    //         productDetailContainer.classList.add('product-detail-container');
+    //         cartDetailBox.appendChild(productDetailContainer); 
+    //     }
+
+    
+    //     if (totalPriceContainer) {  
+    //         cartDetailBox.insertBefore(productDetailContainer, totalPriceContainer);
+    //     }
+        
+    //     const productElement = document.createElement('div');
+    //     productElement.classList.add('product-box');
+    //     productElement.innerHTML = `
+    //         <div class="delete-icon-container">
+    //             <i class="fa-regular fa-trash-can"></i>
+    //         </div>
+    //         <div class="product-details-container">
+    //             <p class="product-name">${product.title}</p>
+    //             <div class="product-price">$${product.price}</div>
+    //         </div>
+    //         <div class="product-img-container">
+    //             <img src="/uni-watch/public/assets/images/watches/${product.image_path}" alt="${product.title}">
+    //         </div>
+    //     `;
+    
+    //     productDetailContainer.appendChild(productElement);
+    // }
+    
+    
 
 
 
@@ -364,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-      // email validation function 
+    // email validation function 
     function emilValidation(inputElement, errMessageElement) {
         const value = inputElement.value;
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;

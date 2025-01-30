@@ -5,8 +5,9 @@ namespace controller;
 use model\repository\ProductRepository;
 
 class BasketController extends BaseController {
+
     // get product detail 
-    public function productDetail() {
+        public function productDetail() {
         if (isset($_GET['productId'])) {
             $productId = (int)$_GET['productId'];
 
