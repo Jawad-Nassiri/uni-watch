@@ -64,20 +64,20 @@
                     </div>
                     <div class="product-detail-container">
                         <?php if (!empty($_SESSION['cart'])): ?>
-                            <?php foreach ($_SESSION['cart'] as $product): ?>
+                            <?php foreach ($_SESSION['cart'] as $item): ?>
                                 <div class="product-box">
                                     <div class="delete-icon-container">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </div>
                                     <div class="product-details-container">
-                                        <p class="product-name"><?= htmlspecialchars($product['title']); ?></p>
+                                        <p class="product-name"><?= htmlspecialchars($item['title']); ?></p>
                                         <div class="product-price">
-                                            <p class="price">$<?= htmlspecialchars($product['price']); ?></p>
-                                            <input type="number" class="input-quantity" value="<?= $product['quantity'] ?>" min="1" max="<?= $product['stock'] ?>">
+                                            <p class="price">$<?= htmlspecialchars($item['price']); ?></p>
+                                            <input type="number" class="input-quantity" value="<?= $item['quantity'] ?>" min="1" max="<?= $product['stock'] ?>">
                                         </div>
                                     </div>
                                     <div class="product-img-container">
-                                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product['image_path']); ?>" alt="<?= htmlspecialchars($product['title']); ?>">
+                                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($item['image_path']); ?>" alt="<?= htmlspecialchars($item['title']); ?>">
                                     </div>
                                 </div>
                             <?php endforeach; ?>

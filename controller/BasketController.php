@@ -1,6 +1,7 @@
 <?php
 
 namespace controller;
+
 use model\repository\ProductRepository;
 
 class BasketController extends BaseController {
@@ -11,14 +12,17 @@ class BasketController extends BaseController {
             $productId = (int)$_GET['productId'];
             $productQuantity = (int)$_GET['quantity'];  
 
-            
             $productRepository = new ProductRepository();
             $product = $productRepository->getProductById($productId);
+
+            if (!$product) {
+                echo json_encode(['status' => 'error', 'message' => 'Product not found']);
+                exit;
+            }
 
             if (!isset($_SESSION['cart'])) {
                 $_SESSION['cart'] = [];
             }
-
 
             if (isset($_SESSION['cart'][$productId])) {
                 echo json_encode(['status' => 'error', 'message' => 'This product is already in your cart.']);
@@ -33,15 +37,22 @@ class BasketController extends BaseController {
                     'image_path' => $product['image_path'],
                     'price' => $product['price'],
                     'stock' => $product['stock'],
-                    'quantity' => $productQuantity 
+                    'quantity' => $productQuantity
                 ];
+
+                echo json_encode([
+                    'status' => 'success',
+                    'success' => 'Product added to cart',
+                    'cartCount' => count($_SESSION['cart']),
+                    'product' => $_SESSION['cart'][$productId]
+                ]);
+                exit;
             }
-            exit;
         }
 
         echo json_encode(['status' => 'error', 'message' => 'No product ID or quantity provided']);
         exit;
-    }
+    }  
 }
 
 

@@ -7,26 +7,20 @@ use model\repository\ProductRepository;
 class DetailController extends BaseController {
     // get product detail 
     public function productDetail() {
-        if (isset($_GET['productId'])) {
-            $productId = (int)$_GET['productId'];
+        if (isset($_GET['id'])) {
+            $productId = (int)$_GET['id'];
 
             $productRepository = new ProductRepository();
             $product = $productRepository->getProductById($productId);
 
 
             if ($product !== false) {
-                $this->render('detail.html.php', [
-                    'product' => $product
-                ]);
+                return $this->render('detail.html.php', ['product' => $product]);
             } else {
-                $this->render('detail.html.php', [
-                    'error' => 'Product not found'
-                ]);
+                echo 'Product not found';
             }
         } else {
-            $this->render('detail.html.php', [
-                'error' => 'Invalid parameters'
-            ]);
+            echo 'Invalid parameters';
         }
     }
 }

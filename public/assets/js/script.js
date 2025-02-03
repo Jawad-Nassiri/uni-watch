@@ -34,10 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isHidden = true;
         }
     });
-    
-    
 
-    
 
 
     // home page 
@@ -139,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             const productBox = document.createElement('div');
                             productBox.classList.add('product-box');
                         
-                            const productImgBox = document.createElement('div');
+                            const productImgBox = document.createElement('a');
                             productImgBox.classList.add('product-img-box');
-                            productImgBox.setAttribute('data-id', `${product.id}`);
+                            productImgBox.setAttribute('href', `/uni-watch/detail/productDetail?id=${product.id}`);
                         
                             const productImage = document.createElement('img');
                             productImage.src = `/uni-watch/public/assets/images/watches/${product.image_path}`;
@@ -177,37 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(error => console.error('Error loading more products:', error));
         });
 
-
-
-        //! send a request to the server with the product id
-        // const productContainer = document.querySelector('.product-list');
-
-        // productContainer.addEventListener('click', (event) => {
-        //     const productBox = event.target.closest('.product-img-box');
-
-        //     if (productBox) {
-        //         const productId = productBox.getAttribute('data-id');
-        //         fetch(`/uni-watch/detail/productDetail?productId=${productId}`)
-        //         window.location.href = `/uni-watch/detail/productDetail?productId=${productId}`;
-        //     }
-        // });
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        const productContainer = document.querySelector('.product-list'); 
-
-        productContainer.onclick = (evt) => {
-            const productBox = evt.target.closest('.product-img-box')
-
-            if(productBox) {
-                const productId = productBox.getAttribute('data-id');
-
-                fetch(`/uni-watch/detail/productDetail?productId=${productId}`)
-                .then(response => response.json())
-                .then(data => () {
-                    console.log(data);
-                })
-                .catch(error => console.log('Error:', error));
-            }
-        }
 
         
         // redirection to the admin page method 
@@ -254,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // detail page 
-    if (location.pathname == '/uni-watch/detail/productDetail')  {
+    if (location.pathname.includes('detail'))  {
 
         // Handles increment, decrement, and manual input for quantity with min/max limits.
         const increaseBtn = document.querySelector('.inc.ctnbutton');
@@ -306,15 +272,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 decreaseBtn.classList.remove('disabled');
             }
         };
+        
 
 
 
         // retrieve the product detail and show them in the box product detail 
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
         const addToCartBtn = document.querySelector('.add-to-cart-btn');
-        const productContainerElement = document.querySelector('.detail-box');
+        const productQuantity = document.querySelector('.title .product-quantity');
         const quantityInput = document.querySelector('#detail-quantity');
+        const cartContainer = document.querySelector('.product-detail-container');
 
-        const productId = productContainerElement.getAttribute('data-id');
 
         addToCartBtn.onclick = () => {
             const quantity = quantityInput.value;
@@ -322,7 +291,31 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`/uni-watch/basket/productDetail?productId=${productId}&quantity=${quantity}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.message)
+
+                    productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
+
+                    const productBox = document.createElement('div');
+                    productBox.classList.add('product-box');
+                    productBox.innerHTML = `
+                        <div class="delete-icon-container">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </div>
+                        <div class="product-details-container">
+                            <p class="product-name">${data.product.title}</p>
+                            <div class="product-price">
+                                <p class="price">$${data.product.price}</p>
+                                <input type="number" class="input-quantity" value="${data.product.quantity}" min="1" max="100">
+                            </div>
+                        </div>
+                        <div class="product-img-container">
+                            <img src="/uni-watch/public/assets/images/watches/${data.product.image_path}" alt="${data.product.title}">
+                        </div>
+                    `;
+                    
+                    cartContainer.append(productBox)
+                })
+                .catch(error => {
+                    console.error("Error:", error);
                 });
         };
 

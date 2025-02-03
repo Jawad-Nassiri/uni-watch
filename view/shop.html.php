@@ -13,9 +13,9 @@
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <div class="product-box">
-                    <div class="product-img-box" data-id="<?= htmlspecialchars($product->getId());?>">
+                    <a href="/uni-watch/detail/productDetail?id=<?= htmlspecialchars($product->getId());?>" class="product-img-box">
                         <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="<?= htmlspecialchars($product->getTitle()); ?>">
-                    </div>
+                    </a>
                     <div class="product-details">
                         <p class="product-tag"><?= htmlspecialchars($product->getCategory()); ?></p>
                         <h4 class="product-name"><?= htmlspecialchars($product->getTitle()); ?></h4>

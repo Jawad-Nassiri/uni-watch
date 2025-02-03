@@ -1,5 +1,6 @@
+
 <div class="detail-container">
-    <div class="detail-box" data-id="<?= htmlspecialchars($product['id']); ?>">
+    <div class="detail-box">
         <div class="left-box">
             <div class="img-box">
                 <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product['image_path']); ?>" alt="<?= htmlspecialchars($product['title']); ?>">
@@ -31,5 +32,7 @@
         </div>
     </div>
 </div>
+
+
 
 
