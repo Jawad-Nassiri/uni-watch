@@ -59,17 +59,16 @@ class BasketController extends BaseController {
 
 
     // delete a product from the cart box 
-
     public function deleteProduct() {
         if (isset($_GET['productId'])) {
             $productId = (int)$_GET['productId'];
 
             if (isset($_SESSION['cart'][$productId])) {
+                
                 $_SESSION['totalPrice'] -= $_SESSION['cart'][$productId]['price'] * $_SESSION['cart'][$productId]['quantity'];
                 unset($_SESSION['cart'][$productId]);
 
                 $cartCount = count($_SESSION['cart']);
-
 
                 echo json_encode([
                     'status' => 'success',

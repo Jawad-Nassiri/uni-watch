@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 shopCarouselContainer.scrollLeft = 0
             }
 
-        }, 2000)
+        }, 3000)
 
 
         // fetch product 3 by 3 by clicking on the see more button 
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
                         setTimeout(() => {
                             successAlertBox.remove();
-                        }, 2000);
+                        }, 3000);
         
                         productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
         
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         productBox.classList.add('product-box');
                         productBox.innerHTML = `
                             <div class="delete-icon-container">
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can" data-id= "${data.product.id}"></i>
                             </div>
                             <div class="product-details-container">
                                 <p class="product-name">${data.product.title}</p>
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
                         setTimeout(() => {
                             unsuccessAlertBox.remove();
-                        }, 2000);
+                        }, 3000);
                     }
                 })
                 .catch(error => {
@@ -375,14 +375,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // delete a product from the cart box 
     document.querySelector('.product-detail-container').onclick = (evt) => {
-        if(evt.target.classList.contains('fa-regular')) {
+        if(evt.target.classList.contains('fa-trash-can')) {
             const item = evt.target
             const productId = item.getAttribute('data-id')
 
             fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data.cartCount, data.totalPrice)
                 if(data.status ==='success') {
                     const successAlertBox = document.createElement('div');
                     successAlertBox.className = 'success';
@@ -397,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
                     setTimeout(() => {
                         successAlertBox.remove();
-                    }, 2000);
+                    }, 3000);
 
                     item.closest('.product-box').remove()
 
@@ -423,43 +422,6 @@ document.addEventListener('DOMContentLoaded', () => {
         productQuantity.innerHTML = `${cartCount} <span>Product(s)</span>`;
     }
 
-
-
-
-
-
-    // document.querySelectorAll('.fa-regular.fa-trash-can').forEach((item) => {
-
-        
-    //     item.onclick = () => {
-    //         const productId = item.getAttribute('data-id')
-
-    //         fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
-    //             .then(response => response.json())
-    //             .then(data => {
-    //                 if (data.status ==='success') {
-    //                     const successAlertBox = document.createElement('div');
-    //                     successAlertBox.className = 'success';
-    //                     successAlertBox.innerHTML = `
-    //                         <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-    //                         <div class="massage-content">
-    //                             <span>Success</span>
-    //                             <p>Item deleted successfully !</p>
-    //                         </div>
-    //                     `;
-    //                     document.body.appendChild(successAlertBox);
-        
-    //                     setTimeout(() => {
-    //                         successAlertBox.remove();
-    //                     }, 2000);
-
-
-    //                     item.closest('.product-box').remove(); 
-    //                 }
-    //             })
-    //             .catch(error => console.error('Error deleting product:', error));
-    //     }
-    // })
 
     
     

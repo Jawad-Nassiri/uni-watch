@@ -51,7 +51,7 @@
                 <a id="card" href="#">
                     <i class="fa-solid fa-basket-shopping"></i>
                 </a>
-
+                
                 <div class="cart-detail-box">
                     <div class="title">
                         <p class="my-cart">My Shopping Cart</p>
