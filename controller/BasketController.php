@@ -22,10 +22,11 @@ class BasketController extends BaseController {
 
             if (!isset($_SESSION['cart'])) {
                 $_SESSION['cart'] = [];
+                $_SESSION['totalPrice'] = 0;
             }
 
             if (isset($_SESSION['cart'][$productId])) {
-                echo json_encode(['status' => 'error', 'message' => 'This product is already in your cart.']);
+                echo json_encode(['status' => 'error']);
                 exit;
             } else {
                 $_SESSION['cart'][$productId] = [
@@ -40,11 +41,13 @@ class BasketController extends BaseController {
                     'quantity' => $productQuantity
                 ];
 
+                $_SESSION['totalPrice'] += $product['price'] * $productQuantity;
+
                 echo json_encode([
                     'status' => 'success',
-                    'success' => 'Product added to cart',
                     'cartCount' => count($_SESSION['cart']),
-                    'product' => $_SESSION['cart'][$productId]
+                    'product' => $_SESSION['cart'][$productId],
+                    'totalPrice' => $_SESSION['totalPrice']
                 ]);
                 exit;
             }
@@ -53,6 +56,36 @@ class BasketController extends BaseController {
         echo json_encode(['status' => 'error', 'message' => 'No product ID or quantity provided']);
         exit;
     }  
+
+
+    // delete a product from the cart box 
+
+    public function deleteProduct() {
+        if (isset($_GET['productId'])) {
+            $productId = (int)$_GET['productId'];
+
+            if (isset($_SESSION['cart'][$productId])) {
+                $_SESSION['totalPrice'] -= $_SESSION['cart'][$productId]['price'] * $_SESSION['cart'][$productId]['quantity'];
+                unset($_SESSION['cart'][$productId]);
+
+                $cartCount = count($_SESSION['cart']);
+
+
+                echo json_encode([
+                    'status' => 'success',
+                    'cartCount' => $cartCount,
+                    'totalPrice' => $_SESSION['totalPrice']
+                ]);
+                exit;
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Product not found in the cart']);
+                exit;
+            }
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'No product ID provided']);
+            exit;
+        }
+    }
 }
 
 

@@ -15,7 +15,6 @@
 
 <body>
 
-
     <div class="header-section">
         <div class="logo-container">
             <img src="/uni-watch/public/assets/images/logo.png" alt="logo">
@@ -53,7 +52,6 @@
                     <i class="fa-solid fa-basket-shopping"></i>
                 </a>
 
-
                 <div class="cart-detail-box">
                     <div class="title">
                         <p class="my-cart">My Shopping Cart</p>
@@ -67,13 +65,12 @@
                             <?php foreach ($_SESSION['cart'] as $item): ?>
                                 <div class="product-box">
                                     <div class="delete-icon-container">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <i class="fa-regular fa-trash-can" data-id="<?= htmlspecialchars($item['id']); ?>"></i>
                                     </div>
                                     <div class="product-details-container">
                                         <p class="product-name"><?= htmlspecialchars($item['title']); ?></p>
                                         <div class="product-price">
                                             <p class="price">$<?= htmlspecialchars($item['price']); ?></p>
-                                            <input type="number" class="input-quantity" value="<?= $item['quantity'] ?>" min="1" max="<?= $product['stock'] ?>">
                                         </div>
                                     </div>
                                     <div class="product-img-container">
@@ -83,15 +80,19 @@
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
+
                     <div class="total-price-container">
-                        <p class="total-price">Your Basket Is Empty :- (</p>
+                        <?php if (!empty($_SESSION['cart']) && isset($_SESSION['totalPrice']) && $_SESSION['totalPrice'] > 0 ): ?>
+                            <p class="total-price">Total Price: $<?= number_format($_SESSION['totalPrice'], 2); ?></p>
+                        <?php else: ?>
+                            <p class="total-price">Your Basket Is Empty !</p>
+                        <?php endif; ?>
                     </div>
+
                     <div class="button-container">
                         <button class="go-to-basket">See shopping cart</button>
                     </div>
                 </div>
-
-
 
             </li>
         </div>

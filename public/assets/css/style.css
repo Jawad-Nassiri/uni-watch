@@ -38,18 +38,109 @@ body.blur-effect::after {
     z-index: 5;
 }
 
+/* success message  */
+.success {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 5px;
+    z-index: 10;
+    box-shadow: rgba(253, 253, 253, 0.12) 0px 2px 4px 0px, rgba(253, 253, 253, 0.32) 0px 2px 16px 0px;
+    overflow: hidden;
+}
+
+.success .success-status {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #45c55c;
+    color: #fff;
+    margin-right: 10px
+}
+
+.success .success-status i {
+    font-size: 40px;
+}
+
+.success .massage-content {
+    width: 75%;
+}
+
+.success .massage-content span {
+    font-size: 20px;
+}
+
+.success .massage-content p {
+    color: rgb(172, 164, 164)
+}
+
+/* unsuccess message  */
+
+.unsuccess {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 5px;
+    z-index: 10;
+    box-shadow: rgba(253, 253, 253, 0.12) 0px 2px 4px 0px, rgba(253, 253, 253, 0.32) 0px 2px 16px 0px;
+    overflow: hidden;
+}
+
+.unsuccess .unsuccess-status {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fc5c5b;
+    color: #fff;
+    margin-right: 10px
+}
+
+.unsuccess .unsuccess-status i {
+    font-size: 40px;
+}
+
+.unsuccess .massage-content {
+    width: 75%;
+}
+
+.unsuccess .massage-content span {
+    font-size: 20px;
+}
+
+.unsuccess .massage-content p {
+    color: rgb(172, 164, 164)
+}
+
 
 /* header section start  */
 
 .header-section {
-    background-image: url("../images/header-bg.png");
+    /* background-image: url("../images/header-bg.png"); */
     background-size: 100%;
-    padding: 10px 0px 37px 0px;
+    padding: 15px 0;
     width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #fff
 }
 
 .list {
@@ -143,6 +234,10 @@ body.blur-effect::after {
     overflow-y: scroll;
 }
 
+.delete-icon-container {
+    width: 20%;
+}
+
 .delete-icon-container i {
     font-size: 20px;
     transition: all 0.3s ease;
@@ -152,7 +247,6 @@ body.blur-effect::after {
     color: #b60213;
     cursor: pointer;
 }
-
 
 .cart-detail-box .product-box {
     width: 100%;
@@ -167,6 +261,7 @@ body.blur-effect::after {
 .product-details-container {
     text-align: left;
     padding-top: 35px;
+    width: 50%;
 }
 
 .product-details-container .product-price {
@@ -181,15 +276,8 @@ body.blur-effect::after {
     margin-top: 4px;
 }
 
-.cart-detail-box .input-quantity{
-    width: 60px;
-    height: 30px;
-    padding-left: 10px;
-    font-size: 16px;
-    border-radius: 3px;
-}
-
 .cart-detail-box .product-img-container {
+    max-width: 30%;
     width: 100px;
     height: 80px;
     background: #262626;
@@ -265,7 +353,6 @@ body.blur-effect::after {
 
 .admin-dashboard {
     position: absolute;
-    right: 80px;
     top: 63px;
     text-transform: lowercase;
     color: #000;
@@ -1168,6 +1255,19 @@ hr.style-detail {
 /* media query start  */
 
 @media (max-width: 1800px) {
+
+      /* header  */
+
+    .header-section {
+        padding: 15px 0;
+    }
+
+    /* success && unsuccess message  */
+    .success,
+    .unsuccess {
+        top: 27%;
+    }
+
     .carousel-container {
         width: 1290px;
     }
@@ -1202,6 +1302,10 @@ hr.style-detail {
 
 @media (max-width: 1450px) {
     /* header  */
+
+    .header-section {
+        padding: 15px 0;
+    }
 
     .list-item.basket-icon a i{
         right: 99%;
@@ -1283,8 +1387,7 @@ hr.style-detail {
 @media (max-width: 1200px) {
     /* header section  */
     .header-section {
-        background-size: 100% 100%;
-        padding: 15px 0px 95px 0px;
+        padding: 15px 0;
     }
 
     .our-watches h2.title {
@@ -1486,6 +1589,13 @@ hr.style-detail {
         left: 170px;
         bottom: 35px;
         padding-right: 40px;
+    }
+
+     /* success && unsuccess message  */
+    .success,
+    .unsuccess {
+        width: 350px;
+        top: 15%;
     }
 
      /* home page  */
@@ -1832,6 +1942,12 @@ hr.style-detail {
 
     .cart-detail-box .product-box {
         padding: 0 5px;
+    }
+
+     /* success && unsuccess message  */
+    .success,
+    .unsuccess {
+        width: 300px;
     }
 
     /* home page  */
