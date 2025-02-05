@@ -1650,15 +1650,16 @@ hr.style-detail {
     }
 
     .product-list {
-        gap: 50px;
+        gap: 29px;
     }
 
-    .product-box {
-        width: 350px;
+    .product-list .product-box{
+        width: 50%;
+        max-width: 350px;
     }
 
     .product-img-box {
-        width: 350px;
+        max-width: 350px;
         height: 350px;
     }
 
@@ -1872,17 +1873,19 @@ hr.style-detail {
 
     .product-list {
         gap: 30px;
-        padding: 0 15px;
+        padding: 0 50px;
     }
 
-    .product-box {
-        width: 300px;
+    .product-list .product-box {
+        width: 100%;
+        max-width: 450px;
     }
 
     .product-img-box {
-        width: 300px;
-        height: 300px;
+        max-width: 450px;
+        max-height: 450px;
     }
+
 
     .shop-carousel-item {
         flex: 0 0 50%;
@@ -1989,21 +1992,6 @@ hr.style-detail {
         padding: 0 20px;
     }
 
-    .product-box {
-        width: 100%;
-        max-width: 430px;
-    }
-
-    .product-img-box {
-        width: 100%;
-        max-width: 430px;
-        height: auto;
-    }
-
-
-    .shop-carousel-item {
-        flex: 0 0 100%;
-    }
 
     /* detail page  */
     .detail-box {
