@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // redirection to the cart page 
+    document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/view/cart.html.php'}
+
+
 
     // home page 
     if(location.pathname == '/uni-watch/home/index') {
@@ -190,6 +194,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    if(location.pathname.includes('cart')) {
+        // show the help content 
+            const titles = document.querySelectorAll(".help .titles > div");
+            const contents = document.querySelectorAll(".help .content .content-box");
+        
+            titles.forEach((title, index) => {
+                title.addEventListener("click", function () {
+                    contents.forEach(content => content.classList.remove("active"));
+        
+                    titles.forEach(title => title.style.color = "");
+        
+                    contents[index].classList.add("active");
+        
+                    title.style.color = "#b60213";
+                });
+            })    
+            
+            
+        // Handles increment, decrement, and manual input for quantity with min/max limits.
+        handleQuantityChange('.inc.ctnbutton', '.dec.ctnbutton', '#detail-quantity')
+
+    }
+
     // sign up page 
     if (location.pathname.includes('sign_up')) {
 
@@ -226,55 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (location.pathname.includes('detail'))  {
 
         // Handles increment, decrement, and manual input for quantity with min/max limits.
-        const increaseBtn = document.querySelector('.inc.ctnbutton');
-        const decreaseBtn = document.querySelector('.dec.ctnbutton');
-        const detailInputQuantity = document.querySelector('#detail-quantity');
-    
-        decreaseBtn.classList.add('disabled'); 
-    
-        increaseBtn.onclick = () => {
-            let currentValue = parseInt(detailInputQuantity.value);
-            detailInputQuantity.value = currentValue + 1;
-    
-            if (currentValue + 1 >= 100) {
-                increaseBtn.classList.add('disabled');
-            } else {
-                increaseBtn.classList.remove('disabled');
-            }
-    
-            decreaseBtn.classList.remove('disabled');
-        };
-    
-        decreaseBtn.onclick = () => {
-            let currentValue = parseInt(detailInputQuantity.value);
-            if (currentValue > 0) {
-                detailInputQuantity.value = currentValue - 1;
-            }
-    
-            if (currentValue - 1 <= 1) {
-                decreaseBtn.classList.add('disabled');
-            } else {
-                decreaseBtn.classList.remove('disabled');
-            }
-    
-            increaseBtn.classList.remove('disabled');
-        };
+        handleQuantityChange('.inc.ctnbutton', '.dec.ctnbutton', '#detail-quantity')
 
-        detailInputQuantity.onkeyup = () => {
-            const quantity = Number(detailInputQuantity.value);
-        
-            if (quantity >= 100) {
-                increaseBtn.classList.add('disabled');
-            } else {
-                increaseBtn.classList.remove('disabled');
-            }
-        
-            if (quantity <= 1) {
-                decreaseBtn.classList.add('disabled');
-            } else {
-                decreaseBtn.classList.remove('disabled');
-            }
-        };
 
 
 
@@ -548,6 +528,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 adminDashboardLink.style.display = angleUp ? 'block' : 'none';
             };
         
+    }
+
+
+
+    // Handles increment, decrement, and manual input for quantity with min/max limits.
+    function handleQuantityChange(increaseBtnElement, decreaseBtnElement, inputQuantityElement) {
+        const increaseBtn = document.querySelector(increaseBtnElement);
+        const decreaseBtn = document.querySelector(decreaseBtnElement);
+        const detailInputQuantity = document.querySelector(inputQuantityElement);
+
+
+        decreaseBtn.classList.add('disabled'); 
+
+        increaseBtn.onclick = () => {
+            let currentValue = parseInt(detailInputQuantity.value);
+            detailInputQuantity.value = currentValue + 1;
+    
+            if (currentValue + 1 >= 100) {
+                increaseBtn.classList.add('disabled');
+            } else {
+                increaseBtn.classList.remove('disabled');
+            }
+    
+            decreaseBtn.classList.remove('disabled');
+        };
+    
+        decreaseBtn.onclick = () => {
+            let currentValue = parseInt(detailInputQuantity.value);
+            if (currentValue > 0) {
+                detailInputQuantity.value = currentValue - 1;
+            }
+    
+            if (currentValue - 1 <= 1) {
+                decreaseBtn.classList.add('disabled');
+            } else {
+                decreaseBtn.classList.remove('disabled');
+            }
+    
+            increaseBtn.classList.remove('disabled');
+        };
+
+        detailInputQuantity.onkeyup = () => {
+            const quantity = Number(detailInputQuantity.value);
+        
+            if (quantity >= 100) {
+                increaseBtn.classList.add('disabled');
+            } else {
+                increaseBtn.classList.remove('disabled');
+            }
+        
+            if (quantity <= 1) {
+                decreaseBtn.classList.add('disabled');
+            } else {
+                decreaseBtn.classList.remove('disabled');
+            }
+        };
     }
     
 });
