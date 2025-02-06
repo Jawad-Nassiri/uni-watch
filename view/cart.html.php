@@ -31,36 +31,41 @@
             </div>
 
             <div class="cart-item-container">
+                <?php if (!empty($cartItems)): ?>
+                    <?php foreach ($cartItems as $cartItem): ?>
+                        <div class="cart-items">
+                            <div class="image">
+                                <div><img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>
+                            </div>
 
-                <div class="cart-items">
-                    <div class="image">
-                        <div><img src="/uni-watch/public/assets/images/watches/w-10.png" alt="watch"></div>
-                    </div>
+                            <div class="name">
+                                <span><?= htmlspecialchars($cartItem["title"]); ?></span>
+                            </div>
 
-                    <div class="name">
-                        <span>product name</span>
-                    </div>
+                            <div class="cart-price">
+                                <span>$<?= number_format($cartItem["price"], 2); ?></span>
+                            </div>
 
-                    <div class="cart-price">
-                        <span>product price</span>
-                    </div>
-                    
-                    <div class="cart-plus-minus quantity">
-                        <div class="dec ctnbutton">_</div>
-                        <input id="detail-quantity" name="quantity" value="1" type="text">
-                        <div class="inc ctnbutton">+</div>
-                    </div>
+                            <div class="cart-plus-minus quantity">
+                                <div class="dec ctnbutton">_</div>
+                                <input id="detail-quantity" name="quantity" value="<?= (int)$cartItem["quantity"]; ?>" type="text" min="1" readonly>
+                                <div class="inc ctnbutton">+</div>
+                            </div>
 
-                    <div class="total">
-                        <span>total price</span>
-                    </div>
+                            <div class="total">
+                                <span>$<?= number_format($cartItem["price"] * $cartItem["quantity"], 2); ?></span>
+                            </div>
 
-                    <div class="delete">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
+                            <div class="delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h5 class="empty-message">Your cart is empty.</h5>
+                <?php endif; ?>
+            </div>
 
-            </div> 
 
             <div class="subtotal-container">
 
@@ -71,7 +76,7 @@
 
                 <div class="subtotal">
                     <div class="total">
-                        <h1>Subtotal : $3130.00</h1>
+                        <h1><?php echo "Subtotal : $" . number_format(!empty($totalPrice) ? $totalPrice : 0, 2) ?></h1>
                     </div>
                     <div class="checkout">
                         <i class="fa-regular fa-credit-card"></i>

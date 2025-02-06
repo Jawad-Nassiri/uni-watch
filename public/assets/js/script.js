@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // redirection to the cart page 
-    document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/view/cart.html.php'}
+    document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/cart/cartDetail'}
 
 
 
@@ -185,16 +185,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
+        const adminTagElement = document.querySelector('.list-item.admin');
 
         if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard');
         }
 
 
     }
 
-    if(location.pathname.includes('cart')) {
+
+    // cart page 
+    if(location.pathname.includes('/cart')) {
         // show the help content 
             const titles = document.querySelectorAll(".help .titles > div");
             const contents = document.querySelectorAll(".help .content .content-box");
@@ -213,9 +215,93 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
         // Handles increment, decrement, and manual input for quantity with min/max limits.
-        handleQuantityChange('.inc.ctnbutton', '.dec.ctnbutton', '#detail-quantity')
+        const increaseBtns = document.querySelectorAll('.inc.ctnbutton');
+        const decreaseBtns = document.querySelectorAll('.dec.ctnbutton');
+        const inputQuantityElements = document.querySelectorAll('#detail-quantity');
 
+        increaseBtns.forEach((increaseBtn, index) => {
+            const decreaseBtn = decreaseBtns[index];
+            const inputQuantity = inputQuantityElements[index];
+
+            if(increaseBtn && decreaseBtn && inputQuantity) {
+                handleQuantityChange(increaseBtn, decreaseBtn, inputQuantity);
+            }
+        });
+
+
+        // calculate the product price in the cart page
+        const productPriceElements = document.querySelectorAll('.cart-price > span');
+        const productInputElements = document.querySelectorAll('#detail-quantity');
+        const productTotalPriceElements = document.querySelectorAll('.cart-items .total > span');
+        let subtotal = document.querySelector('.subtotal .total h1')
+
+        updateSubtotal()
+        function updateSubtotal() {
+            let total = 0;
+        
+            productTotalPriceElements.forEach((productTotalPriceElement, index) => {
+                console.log(index, productTotalPriceElement.textContent);
+                const productTotalPrice = parseFloat(productTotalPriceElement.textContent.replace('$', ''));
+                total += productTotalPrice;
+            });
+        
+            subtotal.textContent = `Subtotal : $${total.toFixed(2)}`;
+        }
+        
+
+        // increase btn calculation 
+        increaseBtns.forEach((increaseBtn, index) => {
+            const productInputElement = productInputElements[index];
+            const productPrice = parseFloat(productPriceElements[index].textContent.replace('$', ''));
+
+            increaseBtn.addEventListener('click', () => {
+                let inputValue = Number(productInputElement.value);
+                // the input value increase is done in the handleQuantityChange function
+                // inputValue++;
+                productInputElement.value = inputValue;
+
+                const productTotalPrice = productPrice * inputValue;
+                productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
+
+
+                updateSubtotal()
+            });
+        });
+
+
+
+        // decrease btn calculation 
+        decreaseBtns.forEach((decreaseBtn, index) => {
+            const productInputElement = productInputElements[index];
+            const productPrice = parseFloat(productPriceElements[index].textContent.replace('$', ''));
+            
+            decreaseBtn.addEventListener('click', () => {
+                    let inputValue = Number(productInputElement.value);
+                    // the input value decrease is done in the handleQuantityChange function
+                    // inputValue--;
+                    productInputElement.value = inputValue;
+        
+                    const productTotalPrice = productPrice * inputValue;
+                    productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
+
+                    updateSubtotal()
+            });
+        });
+
+
+
+        // change the icon basket background when the user is on the cart page 
+        document.querySelector('.list-item.basket-icon > a i').style.cssText = ' background: #b60213; color: #fff';
+
+
+        // hide the delete icon from the detail box when the user is on the cart page
+        document.querySelectorAll('.delete-icon-container .fa-trash-can').forEach(icon => icon.style.display = 'none');
+
+        
+        
+        
     }
+
 
     // sign up page 
     if (location.pathname.includes('sign_up')) {
@@ -253,7 +339,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (location.pathname.includes('detail'))  {
 
         // Handles increment, decrement, and manual input for quantity with min/max limits.
-        handleQuantityChange('.inc.ctnbutton', '.dec.ctnbutton', '#detail-quantity')
+        const increaseBtn = document.querySelector('.inc.ctnbutton');
+        const decreaseBtn = document.querySelector('.dec.ctnbutton');
+        const detailInputQuantity = document.querySelector('#detail-quantity');
+
+        if(increaseBtn && decreaseBtn &&  detailInputQuantity) {
+            handleQuantityChange(increaseBtn, decreaseBtn, detailInputQuantity)
+        }
 
 
 
@@ -313,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         cartContainer.append(productBox);
 
                         if (data.cartCount > 0 && data.totalPrice > 0) {
-                            totalPriceElement.textContent = `Total Price: $${data.totalPrice}`;
+                            totalPriceElement.textContent = `Total Price: $${data.totalPrice.toFixed(2)}`;
                         } else {
                             totalPriceElement.textContent = "Your Basket Is Empty!";
                         }
@@ -354,8 +446,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // delete a product from the cart box 
+    // const isCartPage = location.pathname.includes('/cart');
+
+
     document.querySelector('.product-detail-container').onclick = (evt) => {
         if(evt.target.classList.contains('fa-trash-can')) {
+
+            // disable delete icon which is in the box when the user is on the cart page 
+            // if(isCartPage) {
+            //     evt.preventDefault()
+            //     return
+            // }
+
+
             const item = evt.target
             const productId = item.getAttribute('data-id')
 
@@ -532,56 +635,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Handles increment, decrement, and manual input for quantity with min/max limits.
+    // handles increment, decrement, and manual input for quantity with min/max limits.
     function handleQuantityChange(increaseBtnElement, decreaseBtnElement, inputQuantityElement) {
-        const increaseBtn = document.querySelector(increaseBtnElement);
-        const decreaseBtn = document.querySelector(decreaseBtnElement);
-        const detailInputQuantity = document.querySelector(inputQuantityElement);
 
+        let currentValue = parseInt(inputQuantityElement.value);
 
-        decreaseBtn.classList.add('disabled'); 
+        if(currentValue === 1) {
+            decreaseBtnElement.classList.add('disabled'); 
+        }
 
-        increaseBtn.onclick = () => {
-            let currentValue = parseInt(detailInputQuantity.value);
-            detailInputQuantity.value = currentValue + 1;
+        increaseBtnElement.onclick = () => {
+            currentValue = parseInt(inputQuantityElement.value);
+            inputQuantityElement.value = currentValue + 1;
     
             if (currentValue + 1 >= 100) {
-                increaseBtn.classList.add('disabled');
+                increaseBtnElement.classList.add('disabled');
             } else {
-                increaseBtn.classList.remove('disabled');
+                increaseBtnElement.classList.remove('disabled');
             }
     
-            decreaseBtn.classList.remove('disabled');
+            decreaseBtnElement.classList.remove('disabled');
         };
+
     
-        decreaseBtn.onclick = () => {
-            let currentValue = parseInt(detailInputQuantity.value);
+        decreaseBtnElement.onclick = () => {
+            currentValue = parseInt(inputQuantityElement.value);
             if (currentValue > 0) {
-                detailInputQuantity.value = currentValue - 1;
+                inputQuantityElement.value = currentValue - 1;
             }
     
             if (currentValue - 1 <= 1) {
-                decreaseBtn.classList.add('disabled');
+                decreaseBtnElement.classList.add('disabled');
             } else {
-                decreaseBtn.classList.remove('disabled');
+                decreaseBtnElement.classList.remove('disabled');
             }
     
-            increaseBtn.classList.remove('disabled');
+            increaseBtnElement.classList.remove('disabled');
         };
 
-        detailInputQuantity.onkeyup = () => {
-            const quantity = Number(detailInputQuantity.value);
+        inputQuantityElement.onkeyup = () => {
+            const quantity = Number(inputQuantityElement.value);
         
             if (quantity >= 100) {
-                increaseBtn.classList.add('disabled');
+                increaseBtnElement.classList.add('disabled');
             } else {
-                increaseBtn.classList.remove('disabled');
+                increaseBtnElement.classList.remove('disabled');
             }
         
             if (quantity <= 1) {
-                decreaseBtn.classList.add('disabled');
+                decreaseBtnElement.classList.add('disabled');
             } else {
-                decreaseBtn.classList.remove('disabled');
+                decreaseBtnElement.classList.remove('disabled');
             }
         };
     }
