@@ -71,6 +71,7 @@
                                         <p class="product-name"><?= htmlspecialchars($item['title']); ?></p>
                                         <div class="product-price">
                                             <p class="price">$<?= htmlspecialchars($item['price']); ?></p>
+                                            <p class="product-quantity">Qty: <?= $item['quantity']; ?></p>
                                         </div>
                                     </div>
                                     <div class="product-img-container">

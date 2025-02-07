@@ -33,7 +33,7 @@
             <div class="cart-item-container">
                 <?php if (!empty($cartItems)): ?>
                     <?php foreach ($cartItems as $cartItem): ?>
-                        <div class="cart-items">
+                        <div class="cart-items" data-id="<?= $cartItem["id"]; ?>">
                             <div class="image">
                                 <div><img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>
                             </div>
@@ -57,12 +57,12 @@
                             </div>
 
                             <div class="delete">
-                                <i class="fa-solid fa-trash-can"></i>
+                                <i class="fa-solid fa-trash"></i>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h5 class="empty-message">Your cart is empty.</h5>
+                    <h5 class="empty-message">Your cart is empty !</h5>
                 <?php endif; ?>
             </div>
 
@@ -94,7 +94,7 @@
             </div>
 
             <div class="titles">
-                <div class="delivery">
+                <div class="delivery active">
                     <h3>free delivery and returns</h3>
                 </div>
 

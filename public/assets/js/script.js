@@ -20,12 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let isHidden = true
 
 
-    basketIcon.addEventListener('click', (evt) => {
+    const toggleCartDetail = (evt) => {
         evt.preventDefault();
         cartDetailBox.style.display = isHidden ? 'block' : 'none';
         isHidden = !isHidden;
         document.body.classList.toggle('blur-effect')
-    })
+    }
+
+    basketIcon.addEventListener('click', toggleCartDetail);
 
     document.addEventListener('click', (evt) => {
         if (!cartDetailBox.contains(evt.target) && !basketIcon.contains(evt.target)) {
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // redirection to the cart page 
-    document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/cart/cartDetail'}
+    document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/cart/cartDetail'};
 
 
 
@@ -197,6 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // cart page 
     if(location.pathname.includes('/cart')) {
+
+        // remove the event listener from the cart detail box 
+        document.querySelector('#card').removeEventListener('click', toggleCartDetail);
+
         // show the help content 
             const titles = document.querySelectorAll(".help .titles > div");
             const contents = document.querySelectorAll(".help .content .content-box");
@@ -204,17 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
             titles.forEach((title, index) => {
                 title.addEventListener("click", function () {
                     contents.forEach(content => content.classList.remove("active"));
-        
-                    titles.forEach(title => title.style.color = "");
-        
                     contents[index].classList.add("active");
         
-                    title.style.color = "#b60213";
+                    titles.forEach(title => title.classList.remove('active'));
+                    titles[index].classList.add('active');
                 });
             })    
             
             
-        // Handles increment, decrement, and manual input for quantity with min/max limits.
+        // handles increment, decrement, and manual input for quantity with min/max limits.
         const increaseBtns = document.querySelectorAll('.inc.ctnbutton');
         const decreaseBtns = document.querySelectorAll('.dec.ctnbutton');
         const inputQuantityElements = document.querySelectorAll('#detail-quantity');
@@ -229,19 +233,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
+        // disable the increase btn when the quantity is 100 
+        inputQuantityElements.forEach((inputQuantityElement, index) => {
+            if(Number(inputQuantityElement.value) === 100) {
+                increaseBtns[index].classList.add('disabled')
+            }
+        });
+
+
+
         // calculate the product price in the cart page
         const productPriceElements = document.querySelectorAll('.cart-price > span');
         const productInputElements = document.querySelectorAll('#detail-quantity');
         const productTotalPriceElements = document.querySelectorAll('.cart-items .total > span');
         let subtotal = document.querySelector('.subtotal .total h1')
 
-        updateSubtotal()
+
         function updateSubtotal() {
             let total = 0;
         
-            productTotalPriceElements.forEach((productTotalPriceElement, index) => {
-                console.log(index, productTotalPriceElement.textContent);
-                const productTotalPrice = parseFloat(productTotalPriceElement.textContent.replace('$', ''));
+            const productTotalPriceElements = document.querySelectorAll('.cart-items .total > span');
+
+            productTotalPriceElements.forEach((productTotalPriceElement) => {
+                const productTotalPrice = parseFloat(productTotalPriceElement.textContent.replace('$', '').replace(',', ''));
                 total += productTotalPrice;
             });
         
@@ -254,7 +268,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const productInputElement = productInputElements[index];
             const productPrice = parseFloat(productPriceElements[index].textContent.replace('$', ''));
 
+            // disable increase bnt when the quantity is 100
             increaseBtn.addEventListener('click', () => {
+
                 let inputValue = Number(productInputElement.value);
                 // the input value increase is done in the handleQuantityChange function
                 // inputValue++;
@@ -285,6 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
 
                     updateSubtotal()
+
+                    // enable the increase btn when the quantity is 100 
+                    increaseBtns[index].classList.remove('disabled')
+
             });
         });
 
@@ -294,11 +314,45 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.list-item.basket-icon > a i').style.cssText = ' background: #b60213; color: #fff';
 
 
-        // hide the delete icon from the detail box when the user is on the cart page
-        document.querySelectorAll('.delete-icon-container .fa-trash-can').forEach(icon => icon.style.display = 'none');
+        // delete product after clicking on the delete icon 
+        document.querySelector('.cart-item-container').addEventListener('click', (evt) => {
+            if (evt.target.classList.contains('fa-trash')) {
+                const cartItemContainer = evt.target.closest('.cart-items');
+                const productId = cartItemContainer.getAttribute('data-id');
+        
+                fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // remove the product from the cart 
+                            cartItemContainer.remove();
 
+                            // if there are no products in the cart, show the message
+                            if(data.cartCount === 0) {
+                                const messageElement = document.createElement('h5')
+                                messageElement.className = 'empty-message'
+                                messageElement.textContent = 'Your basket is empty !';
+                                document.querySelector('.cart-item-container').appendChild(messageElement);
+                            }
+
+                            // update the total price 
+                            document.querySelector('.subtotal .total h1').textContent = `Subtotal : $${data.totalPrice.toFixed(2)}`;
+
+                            successBoxGenerator('Item deleted successfully !');
+                        }
+                    })
+                    .catch(error => console.error('Error deleting product:', error));
+            }
+        });
+
+
+        //!
+        const checkoutElement = document.querySelector('.subtotal .checkout');
+        const inputElements = document.querySelectorAll('.cart-items #detail-quantity');
         
-        
+        checkoutElement.onclick = () => {
+            
+        }
         
     }
 
@@ -369,20 +423,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(data => {
         
                     if (data.status === 'success') {
-                        const successAlertBox = document.createElement('div');
-                        successAlertBox.className = 'success';
-                        successAlertBox.innerHTML = `
-                            <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-                            <div class="massage-content">
-                                <span>Success</span>
-                                <p>Item successfully added to your cart !</p>
-                            </div>
-                        `;
-                        document.body.appendChild(successAlertBox);
+
+                        successBoxGenerator('Item successfully added to your cart !');
+                        // const successAlertBox = document.createElement('div');
+                        // successAlertBox.className = 'success';
+                        // successAlertBox.innerHTML = `
+                        //     <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
+                        //     <div class="massage-content">
+                        //         <span>Success</span>
+                        //         <p>Item successfully added to your cart !</p>
+                        //     </div>
+                        // `;
+                        // document.body.appendChild(successAlertBox);
         
-                        setTimeout(() => {
-                            successAlertBox.remove();
-                        }, 3000);
+                        // setTimeout(() => {
+                        //     successAlertBox.remove();
+                        // }, 3000);
         
                         productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
         
@@ -396,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p class="product-name">${data.product.title}</p>
                                 <div class="product-price">
                                     <p class="price">$${data.product.price}</p>
+                                    <p class="product-quantity">Qty: ${data.product.quantity}</p>
                                 </div>
                             </div>
                             <div class="product-img-container">
@@ -446,18 +503,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // delete a product from the cart box 
-    // const isCartPage = location.pathname.includes('/cart');
-
-
     document.querySelector('.product-detail-container').onclick = (evt) => {
         if(evt.target.classList.contains('fa-trash-can')) {
-
-            // disable delete icon which is in the box when the user is on the cart page 
-            // if(isCartPage) {
-            //     evt.preventDefault()
-            //     return
-            // }
-
 
             const item = evt.target
             const productId = item.getAttribute('data-id')
@@ -466,20 +513,23 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if(data.status ==='success') {
-                    const successAlertBox = document.createElement('div');
-                    successAlertBox.className = 'success';
-                    successAlertBox.innerHTML = `
-                        <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-                        <div class="massage-content">
-                            <span>Success</span>
-                            <p>Item deleted successfully !</p>
-                        </div>
-                    `;
-                    document.body.appendChild(successAlertBox);
+
+                    successBoxGenerator('Item deleted successfully !');
+
+                    // const successAlertBox = document.createElement('div');
+                    // successAlertBox.className = 'success';
+                    // successAlertBox.innerHTML = `
+                    //     <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
+                    //     <div class="massage-content">
+                    //         <span>Success</span>
+                    //         <p>Item deleted successfully !</p>
+                    //     </div>
+                    // `;
+                    // document.body.appendChild(successAlertBox);
     
-                    setTimeout(() => {
-                        successAlertBox.remove();
-                    }, 3000);
+                    // setTimeout(() => {
+                    //     successAlertBox.remove();
+                    // }, 3000);
 
                     item.closest('.product-box').remove()
 
@@ -644,6 +694,7 @@ document.addEventListener('DOMContentLoaded', () => {
             decreaseBtnElement.classList.add('disabled'); 
         }
 
+
         increaseBtnElement.onclick = () => {
             currentValue = parseInt(inputQuantityElement.value);
             inputQuantityElement.value = currentValue + 1;
@@ -689,12 +740,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     }
-    
+
+
+    // success box generator function
+    function successBoxGenerator(message) {
+        const successAlertBox = document.createElement('div');
+        successAlertBox.className = 'success';
+        successAlertBox.innerHTML = `
+            <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
+            <div class="massage-content">
+                <span>Success</span>
+                <p>${message}</p>
+            </div>
+        `;
+        document.body.appendChild(successAlertBox);
+
+        setTimeout(() => {
+            successAlertBox.remove();
+        }, 3000);
+    }
 });
-
-
-
-
 
 
 
