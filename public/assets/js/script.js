@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p class="product-name">${data.product.title}</p>
                                 <div class="product-price">
                                     <p class="price">$${data.product.price}</p>
-                                    <p class="product-quantity">Qty: ${data.product.quantity}</p>
+                                    <p class="product-quantity"><i class="fa-solid fa-xmark"></i>${data.product.quantity}</p>
                                 </div>
                             </div>
                             <div class="product-img-container">
