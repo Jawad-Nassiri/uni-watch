@@ -1,5 +1,3 @@
-<?php include "../public/header.html.php" ?>
-
 <div class="payment-container">
     <div class="payment-box">
         <div class="info-container">
@@ -22,13 +20,13 @@
                 </div>
 
                 <div class="city-container">
-                        <label for="city">City</label>
-                        <input type="text" id="city" placeholder="Your city">
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="Your city">
                 </div>
 
                 <div class="address-container">
-                        <label for="address">Address</label>
-                        <input type="email" id="email" placeholder="Your address">
+                    <label for="address">Address</label>
+                    <input type="email" id="email" placeholder="Your address">
                 </div>
 
                 <div class="button-container">
@@ -43,88 +41,28 @@
             </div>
 
             <div class="product-payment-detail">
+                <?php foreach ($cartProducts as $cartProduct): ?>
                     <div class="product">
                         <div class="pro-img">
-                            <img src="/uni-watch/public/assets/images/watches/w-12.png" alt="" width="60" height="80">
+                            <img src="<?= $cartProduct['image']; ?>" alt="<?= htmlspecialchars($cartProduct['name']); ?>">
                         </div>
                         <div class="pro-name">
-                            <span>product category</span>
-                            <p>product name</p>
+                            <span style="color: #000;">Category</span> 
+                            <p><?= htmlspecialchars($cartProduct['name']); ?></p>
                         </div>
                         <div class="pro-price">
-                            <span>100<i class="fa-solid fa-xmark"></i></span>
-                            <p>pro-price</p>
+                            <span><?= $cartProduct['quantity']; ?><i class="fa-solid fa-xmark"></i></span>
+                            <p>Price: $<?= number_format($cartProduct['price'], 2); ?></p>
                         </div>
                     </div>
-
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="/uni-watch/public/assets/images/watches/w-12.png" alt="" width="60" height="80">
-                        </div>
-                        <div class="pro-name">
-                            <span>product category</span>
-                            <p>product name</p>
-                        </div>
-                        <div class="pro-price">
-                            <span>100<i class="fa-solid fa-xmark"></i></span>
-                            <p>pro-price</p>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="/uni-watch/public/assets/images/watches/w-12.png" alt="" width="60" height="80">
-                        </div>
-                        <div class="pro-name">
-                            <span>product category</span>
-                            <p>product name</p>
-                        </div>
-                        <div class="pro-price">
-                            <span>100<i class="fa-solid fa-xmark"></i></span>
-                            <p>pro-price</p>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="/uni-watch/public/assets/images/watches/w-12.png" alt="" width="60" height="80">
-                        </div>
-                        <div class="pro-name">
-                            <span>product category</span>
-                            <p>product name</p>
-                        </div>
-                        <div class="pro-price">
-                            <span>100<i class="fa-solid fa-xmark"></i></span>
-                            <p>pro-price</p>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="/uni-watch/public/assets/images/watches/w-12.png" alt="" width="60" height="80">
-                        </div>
-                        <div class="pro-name">
-                            <span>product category</span>
-                            <p>product name</p>
-                        </div>
-                        <div class="pro-price">
-                            <span>100<i class="fa-solid fa-xmark"></i></span>
-                            <p>pro-price</p>
-                        </div>
-                    </div>
+                <?php endforeach; ?>
             </div>
+
 
             <div class="payment-total">
                 <p>Total</p>
-                <p>$188.00</p>
+                <p>$<?= $payment_subtotal; ?></p>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-<?php include "../public/footer.html.php" ?>

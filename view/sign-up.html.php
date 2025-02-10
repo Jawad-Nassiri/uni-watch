@@ -27,6 +27,9 @@
                 <?= !empty($errors['password']) ? $errors['password'] : ''; ?>
             </p>
 
+            <div class="account">
+                <p>Already have an account? <a href="/uni-watch/sign_in/signInForm">Sign in</a></p>
+            </div>
 
             <div class="sign-up-submit">
                 <input type="submit" value="Send">

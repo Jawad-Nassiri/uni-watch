@@ -346,14 +346,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-        //!
-        const checkoutElement = document.querySelector('.subtotal .checkout');
-        const inputElements = document.querySelectorAll('.cart-items #detail-quantity');
+        // get the product information and send them to the server
+        const checkoutBtn = document.querySelector('.subtotal .checkout');
         
-        checkoutElement.onclick = () => {
-            
+        checkoutBtn.onclick = () => {
+
+            const proImgElements = document.querySelectorAll('.cart-items .image img');
+            const proNameElements = document.querySelectorAll('.cart-items .name span');
+            const proPriceElements = document.querySelectorAll('.cart-items .cart-price span');
+            const proQuantityElements = document.querySelectorAll('.cart-items .quantity #detail-quantity');
+            const proTotalPriceElements = document.querySelectorAll('.cart-items .total span');
+            const proSubtotalElement = document.querySelector('.subtotal .total h1');
+    
+            const cartProducts = [];
+    
+            proImgElements.forEach((img, index) => {
+                cartProducts.push({
+                    image: img.src,
+                    name: proNameElements[index].textContent.trim(),
+                    price: parseFloat(proPriceElements[index].textContent.replace('$', '')).toFixed(2),
+                    quantity: parseInt(proQuantityElements[index].value),
+                    total: parseFloat(proTotalPriceElements[index].textContent.replace('$', '')).toFixed(2)
+                });
+            });
+    
+            const data = {
+                cartProducts: cartProducts,
+                payment_subtotal: parseFloat(proSubtotalElement.textContent.replace('Subtotal : $', '').replace(',', '')).toFixed(2)
+            };
+
+            fetch('/uni-watch/payment/paymentDetail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    location.href = "/uni-watch/payment/paymentPage";
+                } else {
+                    // function unsuccess message
+                    unsuccessBoxGenerator('Please log in to proceed');
+                    
+                    setTimeout(() => {
+                        location.href = "/uni-watch/sign_up/sign_UpForm";
+                    }, 3000)
+                }
+            })
         }
-        
+
     }
 
 
@@ -363,7 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const usernameInput = document.querySelector('.sign-up > input[name="username"]');
         const emailInput = document.querySelector('.sign-up > input[name="email"]');
         const passwordInput = document.querySelector('.sign-up-password-input');
-    
         const usernameErrorMessage = document.querySelector('.error-message.username-error');
         const emailErrorMessage = document.querySelector('.error-message.email-error');
         const passwordErrorMessage = document.querySelector('.error-message.password-error');
@@ -424,21 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
                     if (data.status === 'success') {
 
+                        // function success message 
                         successBoxGenerator('Item successfully added to your cart !');
-                        // const successAlertBox = document.createElement('div');
-                        // successAlertBox.className = 'success';
-                        // successAlertBox.innerHTML = `
-                        //     <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-                        //     <div class="massage-content">
-                        //         <span>Success</span>
-                        //         <p>Item successfully added to your cart !</p>
-                        //     </div>
-                        // `;
-                        // document.body.appendChild(successAlertBox);
-        
-                        // setTimeout(() => {
-                        //     successAlertBox.remove();
-                        // }, 3000);
         
                         productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
         
@@ -469,20 +498,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         
         
                     } else {
-                        const unsuccessAlertBox = document.createElement('div');
-                        unsuccessAlertBox.className = 'unsuccess';
-                        unsuccessAlertBox.innerHTML = `
-                            <div class="unsuccess-status"><i class="fa-regular fa-circle-xmark"></i></div>
-                            <div class="massage-content">
-                                <span>Error</span>
-                                <p>Item is already in your cart !</p>
-                            </div>
-                        `;
-                        document.body.appendChild(unsuccessAlertBox);
-        
-                        setTimeout(() => {
-                            unsuccessAlertBox.remove();
-                        }, 3000);
+                        // function unsuccess message
+                        successBoxGenerator('Item is already in your cart !')
                     }
                 })
                 .catch(error => {
@@ -513,23 +530,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if(data.status ==='success') {
-
+                    // success box generator function
                     successBoxGenerator('Item deleted successfully !');
-
-                    // const successAlertBox = document.createElement('div');
-                    // successAlertBox.className = 'success';
-                    // successAlertBox.innerHTML = `
-                    //     <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-                    //     <div class="massage-content">
-                    //         <span>Success</span>
-                    //         <p>Item deleted successfully !</p>
-                    //     </div>
-                    // `;
-                    // document.body.appendChild(successAlertBox);
-    
-                    // setTimeout(() => {
-                    //     successAlertBox.remove();
-                    // }, 3000);
 
                     item.closest('.product-box').remove()
 
@@ -759,6 +761,26 @@ document.addEventListener('DOMContentLoaded', () => {
             successAlertBox.remove();
         }, 3000);
     }
+
+
+    // unsuccess box generator function
+    function unsuccessBoxGenerator(message) {
+        const unsuccessAlertBox = document.createElement('div');
+        unsuccessAlertBox.className = 'unsuccess';
+        unsuccessAlertBox.innerHTML = `
+            <div class="unsuccess-status"><i class="fa-regular fa-circle-xmark"></i></div>
+            <div class="massage-content">
+                <span>Error</span>
+                <p>${message}</p>
+            </div>
+        `;
+        document.body.appendChild(unsuccessAlertBox);
+
+        setTimeout(() => {
+            unsuccessAlertBox.remove();
+        }, 3000);
+    }
+
 });
 
 

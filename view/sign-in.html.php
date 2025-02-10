@@ -16,6 +16,10 @@
             
             <p class="error-message sign-in-general-error"><?= isset($errors['general']) ? htmlspecialchars($errors['general']) : '' ?></p>
 
+            <div class="account">
+                <p>Don't have an account? <a href="/uni-watch/sign_up/sign_UpForm">Sign Up</a></p>
+            </div>
+
             <div class="sign-in-submit">
                 <input type="submit" value="Send">
             </div>

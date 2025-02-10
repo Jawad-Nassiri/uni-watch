@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="banner_title">Watches</h1>
         <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but majority have suffered.</p>
-        <div class="read_bt"><a href="#">Buy Now</a></div>
+        <div class="read_bt"><a href="/uni-watch/product/allProducts">Buy Now</a></div>
     </div>
 </div>
 
@@ -28,7 +28,7 @@
         <h3 class="title">Uni Watch</h3>
         <p class="description">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
         <h4 class="price"><span class="dollar">$</span>100</h4>
-        <div class="read_bt"><a href="#">Buy Now</a></div>
+        <div class="read_bt"><a href="/uni-watch/product/allProducts">Buy Now</a></div>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
         <h3 class="title">Uni Watch</h3>
         <p class="description">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
         <h4 class="price"><span class="dollar">$</span>100</h4>
-        <div class="read_bt"><a href="#">Buy Now</a></div>
+        <div class="read_bt"><a href="/uni-watch/product/allProducts">Buy Now</a></div>
     </div>
 
     <div class="watch second-watch">
@@ -144,7 +144,7 @@
     </div>
 </div>
 
-<div class="read_bt see-more"><a href="#">See More</a></div>
+<div class="read_bt see-more"><a href="/uni-watch/product/allProducts">See More</a></div>
 
 </body>
 </html>

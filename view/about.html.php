@@ -107,9 +107,9 @@
                 <p>Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
             </div>
 
-            <div class="btn">
+            <a href="/uni-watch/product/allProducts" class="btn" style="color:#fff">
                 <p>Shop Now</p>
-            </div>
+            </a>
         </div>
     </div>
 
