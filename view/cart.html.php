@@ -4,7 +4,7 @@
             <div class="title">
                 <h2>
                     CART
-                </h2>
+                </h2>                
             </div>
 
             <div class="cart-item-titles">
@@ -33,7 +33,7 @@
             <div class="cart-item-container">
                 <?php if (!empty($cartItems)): ?>
                     <?php foreach ($cartItems as $cartItem): ?>
-                        <div class="cart-items" data-id="<?= $cartItem["id"]; ?>">
+                        <div class="cart-items" data-id="<?= $cartItem['id']; ?>">
                             <div class="image">
                                 <div><img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>
                             </div>

@@ -1,4 +1,3 @@
-<?php include "../public/header.html.php" ?>
 
 <div class="about">
     <div class="about-banner"></div>
@@ -167,11 +166,3 @@
 </div>
 
 
-
-
-
-
-
-
-
-<?php include "../public/footer.html.php" ?>

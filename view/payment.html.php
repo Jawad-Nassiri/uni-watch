@@ -39,10 +39,9 @@
             <div class="payment-title">
                 <h2>Detail Product</h2>
             </div>
-
             <div class="product-payment-detail">
                 <?php foreach ($cartProducts as $cartProduct): ?>
-                    <div class="product">
+                    <div class="product" data-id="<?= $cartProduct['productId'] ?>">
                         <div class="pro-img">
                             <img src="<?= $cartProduct['image']; ?>" alt="<?= htmlspecialchars($cartProduct['name']); ?>">
                         </div>
@@ -61,7 +60,7 @@
 
             <div class="payment-total">
                 <p>Total</p>
-                <p>$<?= $payment_subtotal; ?></p>
+                <p class="subtotal">$<?= $payment_subtotal; ?></p>
             </div>
         </div>
     </div>

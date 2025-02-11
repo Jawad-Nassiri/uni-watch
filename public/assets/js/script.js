@@ -101,6 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // about page 
+    if (location.pathname.includes('about')) {
+        // redirection to the admin page method 
+        const adminTagElement = document.querySelector('.list-item.admin')
+
+        if(adminTagElement) {
+            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+        }
+    }
+
+
 
     // shop page 
     if (location.pathname == '/uni-watch/product/allProducts') {
@@ -199,6 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // cart page 
     if(location.pathname.includes('/cart')) {
+
+         // redirection to the admin page method 
+        const adminTagElement = document.querySelector('.list-item.admin')
+
+        if(adminTagElement) {
+            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+        }
 
         // remove the event listener from the cart detail box 
         document.querySelector('#card').removeEventListener('click', toggleCartDetail);
@@ -351,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         checkoutBtn.onclick = () => {
 
+            const productContainerElements = document.querySelectorAll('.cart-item-container .cart-items')
             const proImgElements = document.querySelectorAll('.cart-items .image img');
             const proNameElements = document.querySelectorAll('.cart-items .name span');
             const proPriceElements = document.querySelectorAll('.cart-items .cart-price span');
@@ -362,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
             proImgElements.forEach((img, index) => {
                 cartProducts.push({
+                    productId: productContainerElements[index].getAttribute('data-id'),
                     image: img.src,
                     name: proNameElements[index].textContent.trim(),
                     price: parseFloat(proPriceElements[index].textContent.replace('$', '')).toFixed(2),
@@ -386,15 +406,83 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.status === "success") {
                     location.href = "/uni-watch/payment/paymentPage";
-                } else {
+                } else if (data.status === "notLoggedIn") {
                     // function unsuccess message
                     unsuccessBoxGenerator('Please log in to proceed');
                     
                     setTimeout(() => {
-                        location.href = "/uni-watch/sign_up/sign_UpForm";
+                        location.href = "/uni-watch/sign_in/signInForm";
+                    }, 3000)
+                } else {
+                    unsuccessBoxGenerator('Your cart is empty !');
+                    
+                    setTimeout(() => {
+                        location.href = "/uni-watch/product/allProducts";
                     }, 3000)
                 }
             })
+        }
+
+    }
+
+    // payment page 
+    if (location.pathname.includes('paymentPage')) {
+
+         // redirection to the admin page method 
+        const adminTagElement = document.querySelector('.list-item.admin')
+
+        if(adminTagElement) {
+            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
+        }
+
+
+        // send the product detail to the server and create an order 
+        document.querySelector('.info-container .button-container button').onclick = (evt) => {
+            evt.preventDefault()
+
+            const productContainers = document.querySelectorAll('.product');
+            const productQuantities = document.querySelectorAll('.product .pro-price span');
+            const subtotalPrice = document.querySelector('.payment-total .subtotal');
+
+            const paymentProducts = [];
+
+            
+            productContainers.forEach((productContainer, index) => {
+                paymentProducts.push({
+                    productId: productContainer.getAttribute('data-id'),
+                    quantity: parseInt(productQuantities[index].textContent)
+                });
+            });
+            
+            const subtotalValue = parseFloat(subtotalPrice.textContent.replace('$', '')).toFixed(2)
+
+            const data = {
+                paymentProducts: paymentProducts,
+                subtotalPrice: subtotalValue
+            };
+
+            
+            fetch('/uni-watch/payment/createOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "success") {
+                    console.log(data.status)
+                    successBoxGenerator('Order created successfully !');
+
+                    setTimeout(() => {
+                        location.href = "/uni-watch/home/index";
+                    }, 3000)
+                } else {
+                    unsuccessBoxGenerator('Failed to place the order.')
+                }
+            })
+
         }
 
     }

@@ -27,7 +27,7 @@
                 <li id="close"><i class="fa-solid fa-xmark"></i></li>
                 <li class="list-item"><a href="/uni-watch/home/index">Home</a></li>
                 <li class="list-item"><a href="/uni-watch/product/allProducts">Watches</a></li>
-                <li class="list-item"><a href="/uni-watch/view/about.html.php">About</a></li>
+                <li class="list-item"><a href="/uni-watch/home/about">About</a></li>
                 <?php if (!isset($_SESSION['user_id'])): ?>
                     <li class="list-item"><a href="/uni-watch/sign_in/signInForm">Sign in</a></li>
                     <li class="list-item"><a href="/uni-watch/sign_up/sign_UpForm">Sign up</a></li>
