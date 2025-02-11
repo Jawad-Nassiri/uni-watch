@@ -38,8 +38,268 @@
 </div>
 
 
+<!-- admin product list  -->
+<div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>iPhone 13</td>
+                    <td>Apple</td>
+                    <td>Smartphones</td>
+                    <td>Latest iPhone model with...</td>
+                    <td>$999</td>
+                    <td>50</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Galaxy S22</td>
+                    <td>Samsung</td>
+                    <td>Smartphones</td>
+                    <td>Premium Android smartphone...</td>
+                    <td>$899</td>
+                    <td>35</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>MacBook Pro</td>
+                    <td>Apple</td>
+                    <td>Laptops</td>
+                    <td>16-inch laptop with...</td>
+                    <td>$1999</td>
+                    <td>25</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Surface Laptop</td>
+                    <td>Microsoft</td>
+                    <td>Laptops</td>
+                    <td>Sleek and powerful Windows...</td>
+                    <td>$1299</td>
+                    <td>40</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>iPad Pro</td>
+                    <td>Apple</td>
+                    <td>Tablets</td>
+                    <td>12.9-inch tablet with...</td>
+                    <td>$1099</td>
+                    <td>30</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Dell XPS 15</td>
+                    <td>Dell</td>
+                    <td>Laptops</td>
+                    <td>Premium Windows laptop...</td>
+                    <td>$1799</td>
+                    <td>20</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>AirPods Pro</td>
+                    <td>Apple</td>
+                    <td>Audio</td>
+                    <td>Wireless earbuds with...</td>
+                    <td>$249</td>
+                    <td>100</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Galaxy Tab S8</td>
+                    <td>Samsung</td>
+                    <td>Tablets</td>
+                    <td>Premium Android tablet...</td>
+                    <td>$699</td>
+                    <td>45</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>ThinkPad X1</td>
+                    <td>Lenovo</td>
+                    <td>Laptops</td>
+                    <td>Business laptop with...</td>
+                    <td>$1499</td>
+                    <td>15</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td>Pixel 6 Pro</td>
+                    <td>Google</td>
+                    <td>Smartphones</td>
+                    <td>Android phone with...</td>
+                    <td>$899</td>
+                    <td>55</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
