@@ -1051,72 +1051,96 @@ textarea::-webkit-scrollbar {
 }
 
 /* admin product list start  */
+
 .table-container {
     width: 80%;
     max-height: 600px;
     overflow-y: auto;
-    margin: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin: 100px auto 150px auto;
     border-radius: 8px;
     background-color: black;
-    margin: 100px auto 150px auto;
-    /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
         display: none;
     }
-    /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
 table {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     width: 100%;
     border-collapse: collapse;
     background-color: black;
     color: white;
     table-layout: fixed;
+    border-spacing: 0;
 }
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #333;
-    overflow: hidden;
-}
-
-td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Column widths */
-th:nth-child(1), td:nth-child(1) { width: 5%; }  /* ID */
-th:nth-child(2), td:nth-child(2) { width: 12%; } /* Title */
-th:nth-child(3), td:nth-child(3) { width: 10%; } /* Brand */
-th:nth-child(4), td:nth-child(4) { width: 12%; } /* Category */
-th:nth-child(5), td:nth-child(5) { width: 25%; } /* Description */
-th:nth-child(6), td:nth-child(6) { width: 8%; }  /* Price */
-th:nth-child(7), td:nth-child(7) { width: 8%; }  /* Stock */
-th:nth-child(8), td:nth-child(8) { width: 20%; } /* Actions */
 
 thead {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: black;
+    background-color: #000;
 }
 
 th {
-    background-color: black;
+    background-color: #000;
     color: #b60213;
     border: 1px solid #333;
     font-weight: bold;
+    position: relative;
+    padding: 12px 5px;
 }
+
+th::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid #333;
+}
+
+th::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid #333;
+}
+
+td {
+    padding: 12px 5px;
+    border: 1px solid #333;
+    text-align: center;
+    background: #000;
+}
+
+td:nth-child(2),
+td:nth-child(5) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td:nth-child(5) {
+    text-align: left;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 5%; }
+th:nth-child(2), td:nth-child(2) { width: 12%; }
+th:nth-child(3), td:nth-child(3) { width: 10%; }
+th:nth-child(4), td:nth-child(4) { width: 12%; }
+th:nth-child(5), td:nth-child(5) { width: 25%; }
+th:nth-child(6), td:nth-child(6) { width: 8%; }
+th:nth-child(7), td:nth-child(7) { width: 8%; }
+th:nth-child(8), td:nth-child(8) { width: 20%; }
 
 .action-buttons {
     display: flex;
     gap: 8px;
+    justify-content: center;
 }
 
 .btn {
@@ -1131,10 +1155,12 @@ th {
 
 .btn-edit {
     background-color: #088178;
+    width: 45%;
 }
 
 .btn-delete {
     background-color: #b60213;
+    width: 45%;
 }
 
 .btn:hover {
@@ -1142,26 +1168,84 @@ th {
     transform: scale(1.05);
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .table-container {
+        width: 95%;
+        margin: 50px auto 75px auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    th, td {
+        padding: 10px 3px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .table-container {
-        margin: 10px;
+        width: 100%;
+        margin: 20px auto;
         overflow-x: auto;
     }
 
     table {
         table-layout: auto;
+        min-width: 800px; 
     }
 
     th, td {
         padding: 8px 10px;
-        min-width: 120px;
+        min-width: 80px;
+        font-size: 13px;
+    }
+
+    td:nth-child(5) { 
+        min-width: 150px;
     }
 
     .action-buttons {
         flex-direction: column;
         gap: 4px;
     }
+
+    .btn {
+        width: 90%;
+        padding: 4px 6px;
+        font-size: 11px;
+    }
 }
+
+@media screen and (max-width: 576px) {
+    .table-container {
+        margin: 10px auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th, td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    td:nth-child(5) { /* Description column */
+        min-width: 120px;
+    }
+
+    .btn {
+        padding: 3px 5px;
+        font-size: 10px;
+    }
+}
+
 /* detail page start */
 
 .detail-container {

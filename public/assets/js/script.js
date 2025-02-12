@@ -488,6 +488,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // admin page (product)
+    if (location.pathname.includes('admin_add_product')) {
+        const deleteBtns = document.querySelectorAll('.action-buttons .btn-delete');
+
+        deleteBtns.forEach((item) => {
+            item.onclick = () => {
+                const productId = item.getAttribute('data-id');
+                const confirmDelete = confirm("Are you sure you want to delete this product?");
+
+                if(confirmDelete) {
+                    fetch(`/uni-watch/Admin_add_product/deleteProduct?productId=${productId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.status === "success") {
+                            item.closest('tr').remove(); // Remove row immediately
+                        } else {
+                            alert('Error deleting product');
+                        }
+                    })
+                    .catch(error => console.error('Error deleting product:', error));
+                }
+            }
+        });
+
+
+
+    }
+    
+
+
     // sign up page 
     if (location.pathname.includes('sign_up')) {
 
@@ -759,17 +789,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!adminDashboardLink) {
             adminDashboardLink = document.createElement('a');
             adminDashboardLink.classList.add('admin-dashboard');
-            adminDashboardLink.href = '/uni-watch/Admin_add_product/addProduct';
+            adminDashboardLink.href = '/uni-watch/admin_add_product/addProduct';
             adminDashboardLink.textContent = 'Admin Dashboard';
             adminDashboardLink.style.display = 'none';
             adminTagElement.appendChild(adminDashboardLink);  
         }
     
-            angleElement.onclick = () => {
-                angleUp = !angleUp;
-                angleElement.className = angleUp ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down';
-                adminDashboardLink.style.display = angleUp ? 'block' : 'none';
-            };
+            if(angleElement) {
+                angleElement.onclick = () => {
+                    angleUp = !angleUp;
+                    angleElement.className = angleUp ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down';
+                    adminDashboardLink.style.display = angleUp ? 'block' : 'none';
+                };
+            }
         
     }
 

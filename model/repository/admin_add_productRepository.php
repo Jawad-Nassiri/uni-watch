@@ -44,23 +44,57 @@ class Admin_add_productRepository extends BaseRepository {
             return false;
         }
     }
+
+
+    // get all products method 
+    public function getAllProducts() {
+        try {
+            $sql = "SELECT * FROM product";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+
+            $products = $stmt->fetchAll();
+
+            return $products;
+
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            throw new \Exception("Unable to fetch products.");
+        }
+    }
+
+    // delete product method 
+    public function deleteProduct($id) {
+        try {
+             // Delete the image file
+            $sql = "SELECT image_path FROM product WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $product = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+            if ($product && isset($product['image_path'])) {
+                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/uni-watch/public/assets/images/watches/' . $product['image_path'];
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+
+
+
+            $sql = "DELETE FROM product WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+    
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+    
+        } catch(PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            throw new \Exception("Unable to delete product.");
+        }
+    }
+    
 }
 
 
 
- // get all products for admin 
-    // public function getAllProductsForAdmin() {
-    //     try {
-    //         $sql = "SELECT * FROM product";
-    //         $stmt = $this->connection->prepare($sql);
-    //         $stmt->execute();
-
-    //         $products = $stmt->fetchAll();
-
-    //         return $products;
-
-    //     } catch (PDOException $e) {
-    //         error_log("Database error: " . $e->getMessage());
-    //         throw new \Exception("Unable to fetch products.");
-    //     }
-    // }
