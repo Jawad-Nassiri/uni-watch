@@ -833,6 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         decreaseBtnElement.onclick = () => {
             currentValue = parseInt(inputQuantityElement.value);
+
             if (currentValue > 0) {
                 inputQuantityElement.value = currentValue - 1;
             }
@@ -846,21 +847,27 @@ document.addEventListener('DOMContentLoaded', () => {
             increaseBtnElement.classList.remove('disabled');
         };
 
-        inputQuantityElement.onkeyup = () => {
-            const quantity = Number(inputQuantityElement.value);
+
+        //! optional for the quantity 
+        // let increaseInterval;
+        // increaseBtnElement.addEventListener('mousedown', () => {
+        //     increaseInterval = setInterval(() => {
+        //         inputQuantityElement.value = parseInt(inputQuantityElement.value) + 1;
+        //     }, 100); 
+        // });
+
+        // increaseBtnElement.addEventListener('mouseup', () => {
+        //     clearInterval(increaseInterval);
+        // });
         
-            if (quantity >= 100) {
-                increaseBtnElement.classList.add('disabled');
-            } else {
-                increaseBtnElement.classList.remove('disabled');
-            }
-        
-            if (quantity <= 1) {
-                decreaseBtnElement.classList.add('disabled');
-            } else {
-                decreaseBtnElement.classList.remove('disabled');
-            }
-        };
+        // increaseBtnElement.addEventListener('mouseleave', () => {
+        //     clearInterval(increaseInterval);
+        // });
+
+        // increaseBtnElement.addEventListener('mousedown', () => {
+        //     inputQuantityElement.value = currentValue + 1;
+        // });
+    
     }
 
 

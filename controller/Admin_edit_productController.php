@@ -35,6 +35,13 @@ class Admin_edit_productController extends BaseController {
             $stock = $_POST['product-stock'];
     
             if (!empty($_FILES['product-image']['name'])) {
+                $oldProduct = $this->repository->getProductById($productId);
+                $oldImagePath = __DIR__ . '/../public/assets/images/watches/' . $oldProduct['image_path'];
+                
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            
                 $image_path = basename($_FILES['product-image']['name']);
                 $full_path = __DIR__ . '/../public/assets/images/watches/' . $image_path;
                 move_uploaded_file($_FILES['product-image']['tmp_name'], $full_path);

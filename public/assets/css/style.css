@@ -781,13 +781,11 @@ body.blur-effect::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s ease;
 }
 
 .product-img-box:hover {
     box-shadow: 0 0 15px rgba(38, 38, 38, 0.8);
 }
-
 
 .product-details {
     color: #fff;
@@ -864,10 +862,11 @@ body.blur-effect::after {
 }
 
 
-/* sign up && sign in && add product forms start  */
+/* sign up && sign in && add product && add user forms  */
 .sign-up-container,
 .sign-in-container,
-.add-product-container {
+.add-product-container,
+.add-user-container {
     width: 100%;
     height: auto;
     padding: 50px 0 100px 50px;
@@ -878,14 +877,16 @@ body.blur-effect::after {
 
 .sign-up-form,
 .sign-in-form,
-.add-product-form {
+.add-product-form,
+.add-user-form {
     width: 50%;
     height: auto;
 }
 
 .sign-up-title,
 .sign-in-title,
-.add-product-title {
+.add-product-title,
+.add-user-title {
     width: 100%;
     text-align: center;
     color: #fff;
@@ -895,7 +896,8 @@ body.blur-effect::after {
 
 .sign-up,
 .sign-in,
-.add-product{
+.add-product,
+.add-user{
     width: 90%;
     display: flex;
     align-items: center;
@@ -906,13 +908,20 @@ body.blur-effect::after {
     gap: 15px;
 }
 
+div.edit-product-submit {
+    width: 300px
+}
+
 .sign-up > input,
 .sign-in > input,
 .add-product > input,
 .add-product textarea,
 .sign-up-password > input,
 .sign-in-password > input,
-.add-product-submit > input {
+.add-product-submit > input,
+.edit-product-submit > input,
+.add-user-container input,
+.user-role { 
     width: 90%;
     height: 70px;
     outline: none;
@@ -921,6 +930,19 @@ body.blur-effect::after {
     padding-left: 25px;
     font-size: 20px;
     color: #262626;
+}
+
+.user-role {
+    margin-bottom: 45px;
+    margin-top: 15px;
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: gray
+}
+
+.add-user-container input {
+    margin-top: 15px;
 }
 
 .add-product > .show-img {
@@ -1007,7 +1029,7 @@ textarea::-webkit-scrollbar {
 }
 
 .account p{
-    color: #fff
+    color: #fff;
 }
 
 .account p a {
@@ -1016,9 +1038,19 @@ textarea::-webkit-scrollbar {
     border-bottom: 1px solid #b60213;
 }
 
+.add-user-submit {
+    width: 200px !important;
+}
+
+.add-user-submit input {
+    margin-bottom: 15px;
+}
+
 .sign-up-submit,
 .sign-in-submit,
-.add-product-submit{
+.add-product-submit,
+.edit-product-submit,
+.add-user-submit {
     width: 170px;
     height: 60px;
     background-color: #b60213;
@@ -1034,19 +1066,25 @@ textarea::-webkit-scrollbar {
 
 .sign-up-submit:hover,
 .sign-in-submit:hover,
-.add-product-submit:hover {
+.add-product-submit:hover,
+.edit-product-submit:hover,
+.add-user-submit:hover {
     background: #fff;
 }
 
 .sign-up-submit:hover > input,
 .sign-in-submit:hover > input,
-.add-product-submit:hover > input {
+.add-product-submit:hover > input,
+.edit-product-submit:hover > input,
+.add-user-submit:hover > input {
     color: #000;
 }
 
 .sign-up-submit > input,
 .sign-in-submit > input,
-.add-product-submit > input {
+.add-product-submit > input,
+.edit-product-submit > input,
+.add-user-submit > input {
     padding: 20px 50px;
     font-weight: bold;
     font-size: 18px;
@@ -1056,6 +1094,18 @@ textarea::-webkit-scrollbar {
     color: #fff;
     cursor: pointer;
 }
+
+/* .user-role {
+    width: 90%;
+    height: 70px;
+    border-radius: 40px;
+    padding: 0 40px 0 30px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    border: 0;
+    outline: 0;
+} */
 
 .sign-up-bg-container {
     width: 50%;
@@ -2122,6 +2172,10 @@ hr.style-detail {
         top: 27%;
     }
 
+    .cart-detail-box{
+        right: -350px;
+    }
+
     .carousel-container {
         width: 1290px;
     }
@@ -2130,7 +2184,7 @@ hr.style-detail {
         width: 1100px;
     }
 
-    /* sign up && sign in && add product forms start  */
+    /* sign up && sign in && add product && add user forms  */
 
     .sign-up-bg-container {
         width: 55%;
@@ -2138,7 +2192,8 @@ hr.style-detail {
 
     .sign-up-form,
     .sign-in-form,
-    .add-product-form {
+    .add-product-form,
+    .add-user-form {
         width: 45%;
     }
 
@@ -2209,7 +2264,7 @@ hr.style-detail {
         object-fit: cover;
     }
 
-    /* sign up && sign in && add product forms start  */
+    /* sign up && sign in && add product && add user forms  */
 
     .sign-up-bg {
         background-position: -100px 0;
@@ -2217,7 +2272,8 @@ hr.style-detail {
 
     .sign-up,
     .sign-in,
-    .add-product {
+    .add-product,
+    .add-user {
         width: 100%;
         padding: 10px 0px;
     }
@@ -2352,6 +2408,11 @@ hr.style-detail {
         padding: 40px 20px;
     }
 
+    /* sign up && sign in && add product && add user forms  */
+    .user-role {
+        height: 60px;
+    }
+
     /* shop page  */
     .shop-banner {
         background-position: 85% center;
@@ -2379,11 +2440,12 @@ hr.style-detail {
         flex: 0 0 25%;
     }
 
-    /* sign up && sign in && add product forms start  */
+    /* sign up && sign in && add product && add user forms  */
 
     .sign-up-container,
     .sign-in-container,
-    .add-product-container {
+    .add-product-container,
+    .add-user-container {
         padding: 50px 0 100px 20px;
     }
 
@@ -2396,7 +2458,8 @@ hr.style-detail {
     .add-product > input,
     .sign-up-password > input,
     .sign-in-password > input,
-    .add-product > textarea {
+    .add-product > textarea,
+    .add-user-container input {
         height: 60px;
     }
 
@@ -2701,7 +2764,7 @@ hr.style-detail {
         right: 260px;
     }
 
-    /* sign up && sign in && add product forms start  */
+    /* sign up && sign in && add product && add user forms  */
 
     .sign-up-bg-container {
         width: 35%;
@@ -2709,7 +2772,8 @@ hr.style-detail {
 
     .sign-up-form,
     .sign-in-form,
-    .add-product-form {
+    .add-product-form,
+    .add-user-form {
         width: 65%;
     }
 
@@ -2895,7 +2959,7 @@ hr.style-detail {
         flex: 0 0 50%;
     }
 
-    /* sign up && sign in && add product forms start  */
+    /* sign up && sign in && add product && add user forms  */
 
     .sign-up-bg-container {
         display: none;
@@ -2903,14 +2967,16 @@ hr.style-detail {
 
     .sign-up-form,
     .sign-in-form,
-    .add-product-form {
+    .add-product-form,
+    .add-user-form {
         width: 85%;
     }
 
     .sign-up-title,
-    .sign-in-title
-    .add-product-title {
-        font-size: 25px;
+    .sign-in-title,
+    .add-product-title,
+    .add-user-title {
+        font-size: 20px;
     }
 
     /* about page  */
@@ -3012,7 +3078,7 @@ hr.style-detail {
     /* header  */
     
     .cart-detail-box{
-        width: 340px;
+        width: 320px;
         height: auto;
     }
 
@@ -3055,6 +3121,51 @@ hr.style-detail {
         gap: 20px;
     }
 
+    /* sign up && sign in && add product && add user forms  */
+    .sign-up-container,
+    .sign-in-container,
+    .add-product-container,
+    .add-user-container {
+        padding: 50px 0;
+    }
+
+    .sign-up-title,
+    .sign-in-title,
+    .add-product-title,
+    .add-user-title {
+        font-size: 18px;
+    }
+
+    .sign-up-form,
+    .sign-in-form,
+    .add-product-form,
+    .add-user-form {
+        width: 90%;
+    }
+
+    .sign-up-password,
+    .sign-in-password {
+        width: 100%;
+    }
+
+    .sign-up-container input,
+    .sign-in-container input,
+    .add-product-container input,
+    .add-user-container input,
+    .sign-up-password > input,
+    .sign-in-password > input,
+    .add-product textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    
+
+    .user-role {
+        width: 100%;
+        height: 60px;
+        font-size: 16px;
+    }
     /* shop page  */
 
     .shop-banner .banner > h4 {

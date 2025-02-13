@@ -18,7 +18,7 @@
             <div class="detail-quantity">
                 <div class="cart-plus-minus">
                     <div class="dec ctnbutton">-</div>
-                    <input id="detail-quantity" name="quantity" value="1" type="text">
+                    <input id="detail-quantity" name="quantity" value="1" type="text" readonly>
                     <div class="inc ctnbutton">+</div>
                 </div>
                 <div class="add-to-cart-btn">

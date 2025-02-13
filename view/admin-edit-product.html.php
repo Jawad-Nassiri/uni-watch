@@ -32,7 +32,7 @@
             <input type="number" class="product-stock" name="product-stock" placeholder="Watch Stock: 100"
                 value="<?= htmlspecialchars($product['stock'] ?? '') ?>">
 
-            <div class="add-product-submit">
+            <div class="edit-product-submit">
                 <input type="submit" value="Update Product">
             </div>
         </form>
