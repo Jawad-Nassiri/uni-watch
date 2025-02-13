@@ -1,18 +1,18 @@
 <?php
 namespace controller;
 
-use model\repository\admin_add_productRepository;
+use Model\repository\Admin_add_productRepository;
 use Form\Admin_add_productHandleRequest;
-use model\entity\Admin_add_product;
+use Model\entity\Admin_add_product;
 use Exception;
 
 class Admin_add_productController extends BaseController {
     private Admin_add_product $admin_add_product;
-    private admin_add_productRepository $repository;
+    private Admin_add_productRepository $repository;
 
     public function __construct() {
         $this->admin_add_product = new Admin_add_product;
-        $this->repository = new admin_add_productRepository();
+        $this->repository = new Admin_add_productRepository();
     }
 
     public function addProduct() {
