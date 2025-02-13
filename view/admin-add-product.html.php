@@ -69,7 +69,7 @@
                     <td><?= htmlspecialchars($product['stock']); ?></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-edit" onclick="location.href = '/uni-watch/Admin_edit_product/editProduct?id=<?= $product['id']; ?>'; ">Edit</button>
                             <button class="btn btn-delete" data-id="<?= $product['id']; ?>">Delete</button>
                         </div>
                     </td>

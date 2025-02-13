@@ -5,7 +5,7 @@
         <div class="add-product-title">
             <h1>Add Product</h1>
         </div>
-        <form class="add-product" method="post" action="/uni-watch/Admin_add_product/addProduct" enctype="multipart/form-data">
+        <form class="add-product" method="post" action="/uni-watch/Admin_edit_product/editProduct" enctype="multipart/form-data">
 
             <input type="text" class="product-title" name="product-title" placeholder="Watch Title">
 
