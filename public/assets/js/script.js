@@ -38,6 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+
+    // redirection to the admin pages and adding the angle icon functionality
+    document.onclick = (evt) => {
+        const adminLinks = document.getElementById('admin-links');
+        const angleIcon = document.getElementById('angle-icon');
+    
+        if (evt.target.id === "angle-icon") {
+            const isOpen = adminLinks.style.display === "block";
+            adminLinks.style.display = isOpen ? "none" : "block";
+            angleIcon.classList.toggle('fa-angle-down');
+            angleIcon.classList.toggle('fa-angle-up');
+        }
+    
+        if (adminLinks && !adminLinks.contains(evt.target) && evt.target.id !== "angle-icon") {
+            adminLinks.style.display = "none";
+            if (angleIcon) {
+                angleIcon.classList.add('fa-angle-down');
+                angleIcon.classList.remove('fa-angle-up');
+            }
+        }
+    }
+    
+
     // redirection to the cart page 
     document.querySelector('.button-container').onclick = () => {location.href = 'http://localhost/uni-watch/cart/cartDetail'};
 
@@ -90,25 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = Math.round(carousel.scrollLeft / itemWidth);
         });
 
-        // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
-        }
-
-
-    }
-
-
-    // about page 
-    if (location.pathname.includes('about')) {
-        // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
-        }
     }
 
 
@@ -196,27 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-        
-        // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin');
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard');
-        }
-
 
     }
 
 
     // cart page 
     if(location.pathname.includes('/cart')) {
-
-         // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
-        }
 
         // remove the event listener from the cart detail box 
         document.querySelector('#card').removeEventListener('click', toggleCartDetail);
@@ -428,14 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // payment page 
     if (location.pathname.includes('paymentPage')) {
 
-         // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
-        }
-
-
         // send the product detail to the server and create an order 
         document.querySelector('.info-container .button-container button').onclick = (evt) => {
             evt.preventDefault()
@@ -625,14 +606,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         
         };
-        
-
-        // redirection to the admin page method 
-        const adminTagElement = document.querySelector('.list-item.admin')
-
-        if(adminTagElement) {
-            redirectionToAdminDashboard('.list-item.admin', '.fa-solid.fa-angle-down', '.admin-dashboard')
-        }
 
     }
 
@@ -778,32 +751,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }   
 
-
-
-    function redirectionToAdminDashboard(adminTagSelector, angleSelector, adminDashboardSelector) {
-        let adminTagElement = document.querySelector(adminTagSelector);
-        let angleElement = document.querySelector(angleSelector);
-        let adminDashboardLink = document.querySelector(adminDashboardSelector);
-        let angleUp = false;
-    
-        if (!adminDashboardLink) {
-            adminDashboardLink = document.createElement('a');
-            adminDashboardLink.classList.add('admin-dashboard');
-            adminDashboardLink.href = '/uni-watch/admin_add_product/addProduct';
-            adminDashboardLink.textContent = 'Admin Dashboard';
-            adminDashboardLink.style.display = 'none';
-            adminTagElement.appendChild(adminDashboardLink);  
-        }
-    
-            if(angleElement) {
-                angleElement.onclick = () => {
-                    angleUp = !angleUp;
-                    angleElement.className = angleUp ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down';
-                    adminDashboardLink.style.display = angleUp ? 'block' : 'none';
-                };
-            }
-        
-    }
 
 
 

@@ -38,10 +38,15 @@
                         <li class="list-item admin">
                             <i class="fa-solid fa-user"></i>
                             <?= htmlspecialchars($_SESSION['username']); ?>
-
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 1): ?>
-                                <span> (admin) <i class="fa-solid fa-angle-down"></i></span>
+                                <span>
+                                    (admin) <i class="fa-solid fa-angle-down" id="angle-icon"></i>
+                                </span>
                             <?php endif; ?>
+                            <div id="admin-links">
+                                <a href="/uni-watch/admin_add_product/addProduct">Product Management</a>
+                                <a href="/uni-watch/admin_add_user/addUser_form">User Management</a>
+                            </div>
                         </li>
                     <?php endif; ?>
 
@@ -51,7 +56,7 @@
                 <a id="card" href="#">
                     <i class="fa-solid fa-basket-shopping"></i>
                 </a>
-                
+
                 <div class="cart-detail-box">
                     <div class="title">
                         <p class="my-cart">My Shopping Cart</p>
@@ -83,7 +88,7 @@
                     </div>
 
                     <div class="total-price-container">
-                        <?php if (!empty($_SESSION['cart']) && isset($_SESSION['totalPrice']) && $_SESSION['totalPrice'] > 0 ): ?>
+                        <?php if (!empty($_SESSION['cart']) && isset($_SESSION['totalPrice']) && $_SESSION['totalPrice'] > 0): ?>
                             <p class="total-price">Total Price: $<?= number_format($_SESSION['totalPrice'], 2); ?></p>
                         <?php else: ?>
                             <p class="total-price">Your Basket Is Empty !</p>

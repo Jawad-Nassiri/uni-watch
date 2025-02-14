@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 namespace controller;
 
 use controller\BaseController;

@@ -73,4 +73,17 @@ class Sign_UpRepository extends BaseRepository{
             return false;
         }
     }
+
+
+    public function getAllUsers() {
+        try {
+            $sql = "SELECT * FROM `user`";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            return false;
+        }
+    }
 }
