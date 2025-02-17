@@ -68,7 +68,7 @@
                         <?= $user['role'] == 1 ? 'Admin' : 'User'; ?>
                     </td>
                     <td>
-                        <div class="action-buttons">
+                        <div class="user-action-buttons">
                             <button class="btn btn-edit" onclick="location.href = '/uni-watch/admin_edit_user/editUser?id=<?= $user['id']; ?>'; ">Edit</button>
                             <button class="btn btn-delete" data-id="<?= $user['id']; ?>">Delete</button>
                         </div>

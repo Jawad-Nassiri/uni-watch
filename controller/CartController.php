@@ -8,6 +8,9 @@ class CartController extends BaseController {
     public function cartDetail() {
         $cartItems = $_SESSION['cart'] ?? [];
         $totalPrice = $_SESSION['totalPrice'] ?? 0;
+
+        $totalPrice = !empty($cartItems) ? ($_SESSION['totalPrice'] ?? 0) : 0; 
+
         
 
         $this->render('cart.html.php', [

@@ -471,6 +471,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // admin page (product)
     if (location.pathname.includes('admin_add_product')) {
+
+        // delete product from the product list (admin) 
         const deleteBtns = document.querySelectorAll('.action-buttons .btn-delete');
 
         deleteBtns.forEach((item) => {
@@ -483,18 +485,42 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(response => response.json())
                     .then(data => {
                         if(data.status === "success") {
-                            item.closest('tr').remove(); // Remove row immediately
+                            item.closest('tr').remove();
+                            successBoxGenerator('Item deleted successfully !');
                         } else {
-                            alert('Error deleting product');
+                            unsuccessBoxGenerator('Error deleting product');
                         }
                     })
                     .catch(error => console.error('Error deleting product:', error));
                 }
             }
         });
+    }
 
+    // admin page (user)
+    if (location.pathname.includes('admin_add_user')) {
+        // delete product from the product list (admin) 
+        const deleteBtns = document.querySelectorAll('.user-action-buttons .btn-delete');
 
+        deleteBtns.forEach((deleteBtn) => {
+            deleteBtn.onclick = () => {
+                const userId = deleteBtn.getAttribute('data-id');
+                const confirmDelete = confirm("Are you sure you want to delete this user?");
 
+                if(confirmDelete) {
+                    fetch(`/uni-watch/admin_add_user/deleteUser?userId=${userId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        deleteBtn.closest('tr').remove();
+                        if(data.status === 'success') {
+                            successBoxGenerator('User deleted successfully !');
+                        } else {
+                            unsuccessBoxGenerator('Error deleting user');
+                        }
+                    })
+                }
+            }
+        });
     }
     
 

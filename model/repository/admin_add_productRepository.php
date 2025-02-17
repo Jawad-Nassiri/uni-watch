@@ -92,9 +92,5 @@ class Admin_add_productRepository extends BaseRepository {
             error_log("Database error: " . $e->getMessage());
             throw new \Exception("Unable to delete product.");
         }
-    }
-    
+    }  
 }
-
-
-
