@@ -5,15 +5,21 @@ use Model\entity\Sign_Up;
 use Form\Admin_add_userHandleRequest;
 use Model\repository\Sign_UpRepository;
 use Model\repository\Admin_edit_userRepository;
+use controller\Admin_add_productController;
 use PDOException;
 
 class Admin_add_userController extends BaseController {
     private  Sign_Up $sign_up;
+    private Admin_add_productController $addProduct;
     public function __construct() {
         $this->sign_up = new Sign_Up;
+        $this->addProduct = new Admin_add_productController();
     }
 
     public function addUser_form() {
+
+        $this->addProduct->checkAdminAccess();
+
         $errors = [];
         $users = [];
 
@@ -42,6 +48,9 @@ class Admin_add_userController extends BaseController {
 
 
     public function deleteUser() {
+
+        $this->addProduct->checkAdminAccess();
+
         if (!isset($_GET['userId'])) {
             echo json_encode(['status' => 'error', 'message' => 'Id not found']);
             exit;

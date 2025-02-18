@@ -2,16 +2,24 @@
 
 namespace controller;
 use Model\repository\Admin_edit_userRepository;
+use controller\Admin_add_productController;
+
 
 class Admin_edit_userController extends BaseController {
     
     private $repository; 
+    private Admin_add_productController $addProduct;
+
     
     public function __construct() {
         $this->repository = new Admin_edit_userRepository();
+        $this->addProduct = new Admin_add_productController();
     }
     
     public function editUser() {
+
+        $this->addProduct->checkAdminAccess();
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
             $userId = (int)$_GET['id'];
             $user = $this->repository->getUserById($userId);

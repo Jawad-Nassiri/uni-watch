@@ -85,7 +85,7 @@
     <div class="container-fluid">
         <div class="feedback-title">
             <h2 class="title">Customers Feedback</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Amazing quality and fast delivery! The watch looks even better in person.</p>
         </div>
         <div class="comments-container">
             <div class="comments">
@@ -101,7 +101,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                        <p>Incredible craftsmanship and elegance. This watch adds a touch of class to my style and perfectly complements my professional appearance.</p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                        <p>A perfect blend of sophistication and durability. This watch is truly a timeless piece that complements my business style effortlessly.</p>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                        <p>Exceptional quality and outstanding design. This watch enhances my professional look and never fails to impress in business meetings.</p>
                     </div>
                 </div>
             </div>
@@ -146,6 +146,3 @@
 </div>
 
 <div class="read_bt see-more"><a href="/uni-watch/product/allProducts">See More</a></div>
-
-</body>
-</html>

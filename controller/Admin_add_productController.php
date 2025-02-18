@@ -16,6 +16,9 @@ class Admin_add_productController extends BaseController {
     }
 
     public function addProduct() {
+
+        $this->checkAdminAccess();
+
         $products = $this->repository->getAllProducts();
         $formHandler = new Admin_add_productHandleRequest();
         
@@ -47,6 +50,9 @@ class Admin_add_productController extends BaseController {
 
 
     public function getProduct() {
+
+        $this->checkAdminAccess();
+
         $products = $this->repository->getAllProducts();
         
         if(empty($products)) {
@@ -58,6 +64,9 @@ class Admin_add_productController extends BaseController {
 
 
     public function deleteProduct() {
+
+        $this->checkAdminAccess();
+        
         if (!isset($_GET['productId'])) {
             echo json_encode(['status' => 'error', 'message' => 'Id not found']);
             exit;
@@ -74,5 +83,13 @@ class Admin_add_productController extends BaseController {
             exit;
         }
     }
-    
+
+
+
+    public function checkAdminAccess(){
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 1) {
+            redirection("/uni-watch/home/index");
+            exit();
+        }
+    }
 }

@@ -1,16 +1,22 @@
 <?php
 namespace Controller;
-
+use controller\Admin_add_productController;
 use Model\repository\Admin_edit_productRepository;
 
 class Admin_edit_productController extends BaseController {
     private Admin_edit_productRepository $repository;
+    private Admin_add_productController $addProduct;
+
 
     public function __construct() {
         $this->repository = new Admin_edit_productRepository();
+        $this->addProduct = new Admin_add_productController();
     }
 
     public function editProduct() {
+
+        $this->addProduct->checkAdminAccess();
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
             $productId = (int)$_GET['id'];
             $product = $this->repository->getProductById($productId);

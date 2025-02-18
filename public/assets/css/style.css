@@ -1134,8 +1134,8 @@ textarea::-webkit-scrollbar {
 }
 
 .sign-up-bg {
-    /* background-image: url('../images/map-img.png'); */
-    background-image: url('../images/watches/dog.png');
+    background-image: url('../images/map-img.png');
+    /* background-image: url('../images/watches/dog.png'); */
     width: 100%;
     height: 370px;
     background-size: cover;
@@ -1287,7 +1287,8 @@ th:nth-child(8), td:nth-child(8) { width: 20%; }
         font-size: 14px;
     }
 
-    .btn {
+    /* update  */
+    tbody .btn { 
         padding: 5px 8px;
         font-size: 12px;
     }
@@ -1320,7 +1321,8 @@ th:nth-child(8), td:nth-child(8) { width: 20%; }
         gap: 4px;
     }
 
-    .btn {
+    /* update  */
+    tbody .btn {
         width: 90%;
         padding: 4px 6px;
         font-size: 11px;
@@ -1345,7 +1347,8 @@ th:nth-child(8), td:nth-child(8) { width: 20%; }
         min-width: 120px;
     }
 
-    .btn {
+    /* update  */
+    tbody .btn {
         padding: 3px 5px;
         font-size: 10px;
     }
@@ -2767,7 +2770,7 @@ hr.style-detail {
     }
 
     .service-container {
-        gap: 25px;
+        gap: 40px 10px;
     }
 
     .service {
@@ -3036,30 +3039,6 @@ hr.style-detail {
     }
 
     /* about page  */
-
-
-    /*! ///////////////////////////////////////// */
-    /* .info {
-        justify-content: center;
-        padding: 0 70px;
-        flex-direction: column;
-        gap: 30px 0;
-    }
-
-    .info-content {
-        width: 90%;
-        text-align: center
-    }  */
-
-    /*! for 18/2 to complete  */
-
-    .about-banner {
-        background: url('../images/about-page/banner1.jpg') no-repeat center center;
-        background-size: cover;
-        background-position: 90% center;
-    }
-
-    /* about page  */
     .box1, .box2, .box3 {
         width: 80%;
         height: 80%
@@ -3101,18 +3080,24 @@ hr.style-detail {
     .info {
         border-width: 3px;
         width: 90%;
+        padding: 30px 20px;
+        gap: 20px 0;
     }
 
     .info-content {
-        width: 70%;
+        width: 90%;
     }
 
     .info-content h2 {
         font-size: 25px;
     }
 
+    .info .btn {
+        width: fit-content;
+    } 
+
     .info .btn p {
-        padding: 7px 10px;
+        padding: 5px 15px;
         font-size: 16px
     }
 
@@ -3120,8 +3105,6 @@ hr.style-detail {
         width: 500px;
         padding-left: 50px
     }
-
-
 
     /* footer section  */
     .follow .contact {
@@ -3265,6 +3248,10 @@ hr.style-detail {
 
     /* about page  */
 
+    .about-info-box {
+        height: 330px;
+    }
+
     .description {
         padding: 0 15px
     }
@@ -3295,6 +3282,16 @@ hr.style-detail {
 
     .info {
         width: 95%;
+        padding: 15px 7px;
+        gap: 7px 0;
+    }
+
+    .info-content {
+        width: 95%;
+    }
+
+    .info-content h2 {
+        margin-bottom: 15px;
     }
 
     .info .btn {
@@ -3303,7 +3300,7 @@ hr.style-detail {
 
     .info .btn a p{
         padding: 5px;
-        font-size: 13px
+        font-size: 13px;
     }
 
     .service-container {

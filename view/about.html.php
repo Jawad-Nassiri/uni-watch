@@ -26,7 +26,7 @@
 
             <div class="content-box">
                 <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="content">Digital marketing plays a pivotal role in expanding your brand’s online presence. Through targeted strategies and the use of various tools, businesses can effectively reach wider audiences and increase their sales.</p>
             </div>
 
         </div>
@@ -38,8 +38,8 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="service-title">Social Media Strategy</p>
+                <p class="content">Effective social media strategies help businesses engage with their audience, increase brand visibility, and drive traffic to their websites through consistent and impactful content.</p>
             </div>
             
         </div>
@@ -51,8 +51,8 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="service-title">Tech Innovations</p>
+                <p class="content">Technology is constantly evolving, bringing new opportunities for businesses to streamline processes, enhance customer experiences, and stay ahead of the competition with cutting-edge solutions.</p>
             </div>
             
         </div>
@@ -64,8 +64,8 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="service-title">Web Development Trends</p>
+                <p class="content">Staying up to date with the latest web development trends is essential for building responsive, user-friendly websites that drive engagement and provide seamless digital experiences across all devices.</p>
             </div>
             
         </div>
@@ -77,8 +77,8 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="service-title">Website Optimization</p>
+                <p class="content">Optimizing your website for speed, performance, and user experience is crucial for improving search engine rankings, increasing conversions, and delivering a smooth browsing experience to visitors.</p>
             </div>
             
         </div>
@@ -90,8 +90,8 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Digital Marketing</p>
-                <p class="content">Lorem Khaled Ipsum is a major key to success. Eliptical talk. The key to more success is to get a massage once a week, very important, major key, cloth talk.</p>
+                <p class="service-title">Cloud Computing Solutions</p>
+                <p class="content">Cloud computing is transforming the way businesses manage data, offering scalable and secure solutions that enhance collaboration, reduce costs, and increase efficiency across all operations.</p>
             </div>
 
         </div>
@@ -103,7 +103,7 @@
         <div class="info">
             <div class="info-content">
                 <h2>make your time best</h2>
-                <p>Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
+                <p>Elevate your style with a timeless watch. Precision, elegance, and sophistication in one.</p>
             </div>
 
             <a href="/uni-watch/product/allProducts" class="btn" style="color:#fff">
@@ -134,29 +134,29 @@
                 <div class="member-box">
                     <img src="/uni-watch/public/assets/images/about-page/member/team-1.jpg" alt="">
 
-                    <h4>Mr. Mike Banding</h4>
-                    <p>Manger</p>
+                    <h4>Ms. Emma</h4>
+                    <p>Manager</p>
                 </div>
 
                 <div class="member-box">
                     <img src="/uni-watch/public/assets/images/about-page/member/team-2.jpg" alt="">
 
-                    <h4>Mr. Mike Banding</h4>
-                    <p>Manger</p>
+                    <h4>Mr. James</h4>
+                    <p>Developer</p>
                 </div>
 
                 <div class="member-box">
                     <img src="/uni-watch/public/assets/images/about-page/member/team-3.jpg" alt="">
 
-                    <h4>Mr. Mike Banding</h4>
-                    <p>Manger</p>
+                    <h4>Ms. Sophia</h4>
+                    <p>Designer</p>
                 </div>
 
                 <div class="member-box">
                     <img src="/uni-watch/public/assets/images/about-page/member/team-4.jpg" alt="">
 
-                    <h4>Mr. Mike Banding</h4>
-                    <p>Manger</p>
+                    <h4>Ms. Olivia</h4>
+                    <p>Chairman</p>
                 </div>
             </div>
         </div>
