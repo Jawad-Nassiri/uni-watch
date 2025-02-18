@@ -896,7 +896,8 @@ body.blur-effect::after {
 .add-product-container,
 .add-user-container {
     width: 100%;
-    height: auto;
+    /* height: auto; */
+    height: 65vh;
     padding: 50px 0 100px 50px;
     display: flex;
     align-items: center;
@@ -1167,7 +1168,7 @@ textarea::-webkit-scrollbar {
 }
 
 .table-container.user-list {
-    width: 50%;
+    width: 60%;
 }
 
 table {
@@ -1273,85 +1274,18 @@ th:nth-child(8), td:nth-child(8) { width: 20%; }
     transform: scale(1.05);
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 1200px) {
-    .table-container {
-        width: 95%;
-        margin: 50px auto 75px auto;
-    }
+.email-td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
-@media screen and (max-width: 992px) {
-    th, td {
-        padding: 10px 3px;
-        font-size: 14px;
-    }
-
-    /* update  */
-    tbody .btn { 
-        padding: 5px 8px;
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .table-container {
-        width: 100%;
-        margin: 20px auto;
-        overflow-x: auto;
-    }
-
-    table {
-        table-layout: auto;
-        min-width: 800px; 
-    }
-
-    th, td {
-        padding: 8px 10px;
-        min-width: 80px;
-        font-size: 13px;
-    }
-
-    td:nth-child(5) { 
-        min-width: 150px;
-    }
-
-    .action-buttons {
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    /* update  */
-    tbody .btn {
-        width: 90%;
-        padding: 4px 6px;
-        font-size: 11px;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .table-container {
-        margin: 10px auto;
-    }
-
-    table {
-        min-width: 600px;
-    }
-
-    th, td {
-        padding: 6px 8px;
-        font-size: 12px;
-    }
-
-    td:nth-child(5) { /* Description column */
-        min-width: 120px;
-    }
-
-    /* update  */
-    tbody .btn {
-        padding: 3px 5px;
-        font-size: 10px;
-    }
+.user-action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* detail page start */
@@ -2554,6 +2488,15 @@ hr.style-detail {
         width: 70%;
     }
 
+    /* admin table  */
+    .table-container {
+        width: 95%;
+        margin: 50px auto 75px auto;
+    }
+
+    .table-container.user-list {
+        width: 70%;
+    }
 }
 
 
@@ -2684,9 +2627,10 @@ hr.style-detail {
         top: 288px;
     }
 
-    .user-management {
-        /*! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    .watch-detail .description {
+        padding: 0
     }
+
 
     /* shop page  */
     .shop-banner {
@@ -2789,7 +2733,7 @@ hr.style-detail {
 
     /* footer section  */
     .footer-section {
-        background-image: url('');
+        background-image: none !important;
         background: #fff;
     }
 
@@ -2881,6 +2825,21 @@ hr.style-detail {
     hr.style-detail {
         margin: 40px 0 20px 0;
         width: 100%;
+    }
+
+    /* admin table  */
+    th, td {
+        padding: 10px 3px;
+        font-size: 14px;
+    }
+
+    tbody .btn { 
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .table-container.user-list {
+        width: 80%;
     }
 }
 
@@ -3123,6 +3082,51 @@ hr.style-detail {
     .detail-box {
         width: 80%;
     }
+
+    /* admin table  */
+
+    .table-container {
+        width: 100%;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+
+    table {
+        table-layout: auto;
+        min-width: 800px; 
+    }
+
+    th, td {
+        padding: 8px 10px;
+        min-width: 80px;
+        font-size: 13px;
+    }
+
+    td:nth-child(5) { 
+        min-width: 150px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+
+    tbody .btn {
+        width: 90%;
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+
+    .table-container.user-list {
+        width: 100%;
+    }
+
+    .user-action-buttons {
+        gap: 5px;
+    }
+
+
 }
 
 
@@ -3218,13 +3222,17 @@ hr.style-detail {
         font-size: 16px;
     }
 
-    
-
     .user-role {
         width: 100%;
         height: 60px;
         font-size: 16px;
     }
+
+    .show-img {
+        width: 100% !important;
+    }
+    
+
     /* shop page  */
 
     .shop-banner .banner > h4 {
@@ -3311,6 +3319,30 @@ hr.style-detail {
         width: 95%;
         padding: 0 0 0 15px;
         gap: 10px 0
+    }
+
+    /* admin table  */
+
+    .table-container {
+        margin: 10px auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th, td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    td:nth-child(5) {
+        min-width: 120px;
+    }
+
+    tbody .btn {
+        padding: 3px 5px;
+        font-size: 10px;
     }
 
 

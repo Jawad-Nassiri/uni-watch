@@ -63,7 +63,7 @@
                 <tr>
                     <td><?= $user['id']; ?></td>
                     <td><?= htmlspecialchars($user['username']); ?></td>
-                    <td><?= htmlspecialchars($user['email']); ?></td>
+                    <td class="email-td"><?= htmlspecialchars($user['email']); ?></td>
                     <td>
                         <?= $user['role'] == 1 ? 'Admin' : 'User'; ?>
                     </td>
