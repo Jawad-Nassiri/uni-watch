@@ -106,7 +106,7 @@
                 <p>Elevate your style with a timeless watch. Precision, elegance, and sophistication in one.</p>
             </div>
 
-            <a href="/uni-watch/product/allProducts" class="btn" style="color:#fff">
+            <a href="/uni-watch/product/allProducts" class="btn">
                 <p>Shop Now</p>
             </a>
         </div>
@@ -115,8 +115,12 @@
     <div class="description-container">
         <div class="description">
             <div class="text-content">
-                <h1>Ultimate Designs</h1>
-                <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus. <br><br>In antiquity, a paragraph often was a single thought—and often a single sentence, usually a very long one. Writers today, however, tend not to go on the way classical authors did. In academic writing, most paragraphs include at least three sentences, though rarely more than ten</p>
+                <h1>The Art of Watchmaking</h1>
+                <p>Live freely with elegance and precision. A watch is more than just a timepiece—it is a statement of style, craftsmanship, and innovation. The perfect blend of mechanics and design, every watch tells a story of dedication and artistry. Whether classic or modern, each detail is meticulously crafted to stand the test of time. <br>
+
+                Every second matters. A well-crafted watch is not just about keeping time; it represents tradition, excellence, and sophistication. The balance of precision engineering and aesthetic beauty makes each timepiece a true masterpiece. <br><br>
+
+                From ancient sundials to intricate mechanical movements, watchmaking has evolved while preserving its heritage. Today’s watches merge history with technology, ensuring that every moment is captured with unparalleled accuracy and timeless elegance.</p>
             </div>
 
             <div class="img-desc-box">

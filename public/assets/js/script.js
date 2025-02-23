@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             // update the total price 
                             document.querySelector('.subtotal .total h1').textContent = `Subtotal : $${data.totalPrice.toFixed(2)}`;
 
-                            successBoxGenerator('Item deleted successfully !');
+                            unsuccessBoxGenerator('Item deleted successfully !');
                         }
                     })
                     .catch(error => console.error('Error deleting product:', error));
@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
                     } else {
                         // function unsuccess message
-                        successBoxGenerator('Item is already in your cart !')
+                        unsuccessBoxGenerator('Item is already in your cart !')
                     }
                 })
                 .catch(error => {

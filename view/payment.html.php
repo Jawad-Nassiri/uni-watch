@@ -5,28 +5,28 @@
                 <div class="fname-lname">
                     <div class="f-name">
                         <label for="f-name">First Name</label>
-                        <input type="text" id="f-name" placeholder="Your first name">
+                        <input type="text" id="f-name" placeholder="Your first name" value="Jean">
                     </div>
 
                     <div class="l-name">
                         <label for="l-name">Last Name</label>
-                        <input type="text" id="l-name" placeholder="Your last name">
+                        <input type="text" id="l-name" placeholder="Your last name" value="Martin">
                     </div>
                 </div>
 
                 <div class="email-container">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email address">
+                    <input type="email" id="email" placeholder="Your email address" value="jean.martin@yahoo.fr">
                 </div>
 
                 <div class="city-container">
                     <label for="city">City</label>
-                    <input type="text" id="city" placeholder="Your city">
+                    <input type="text" id="city" placeholder="Your city" value="Paris">
                 </div>
 
                 <div class="address-container">
                     <label for="address">Address</label>
-                    <input type="email" id="email" placeholder="Your address">
+                    <input type="email" id="email" placeholder="Your address" value="45 Rue de Rivoli, 75001 Paris, France">
                 </div>
 
                 <div class="button-container">
