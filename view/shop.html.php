@@ -17,7 +17,7 @@
                         <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="<?= htmlspecialchars($product->getTitle()); ?>">
                     </a>
                     <div class="product-details">
-                        <p class="product-tag"><?= htmlspecialchars($product->getCategory()); ?></p>
+                        <p class="product-tag"><?= htmlspecialchars($product->getBrand()); ?></p>
                         <h4 class="product-name"><?= htmlspecialchars($product->getTitle()); ?></h4>
                         <p class="product-price">$<?= htmlspecialchars($product->getPrice()); ?></p>
                     </div>

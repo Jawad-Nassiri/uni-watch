@@ -38,7 +38,7 @@
                         <li class="list-item admin">
                             <i class="fa-solid fa-user"></i>
                             <?= htmlspecialchars($_SESSION['username']); ?>
-                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 1): ?>
+                            <?php if (isset($_SESSION['role']) && (int)$_SESSION['role'] === 1): ?>
                                 <span>
                                     (admin) <i class="fa-solid fa-angle-down" id="angle-icon"></i>
                                 </span>

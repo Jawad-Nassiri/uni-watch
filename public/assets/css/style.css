@@ -811,6 +811,11 @@ body.blur-effect::after {
     transition: all 0.5s linear;
 }
 
+.product-img-box img {
+    width: 100%;
+    height: 100%;
+}
+
 .product-img-box:hover {
     box-shadow: -1px -1px 4px #b60213;
 }

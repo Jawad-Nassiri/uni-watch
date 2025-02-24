@@ -87,7 +87,7 @@ class Admin_add_productController extends BaseController {
 
 
     public function checkAdminAccess(){
-        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 1) {
+        if (!isset($_SESSION['role']) || (int)$_SESSION['role'] !== 1) {
             redirection("/uni-watch/home/index");
             exit();
         }

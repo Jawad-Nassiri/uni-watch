@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // filter the body after clicking on the basket icon 
+    // filter the body after clicking on the basket icon
     const basketIcon = document.querySelector('#card');
     const cartDetailBox = document.querySelector('.cart-detail-box');
     let isHidden = true
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const productDetails = document.createElement('div');
                             productDetails.classList.add('product-details');
                             productDetails.innerHTML = `
-                                <p class="product-tag">${product.category}</p>
+                                <p class="product-tag">${product.brand}</p>
                                 <h4 class="product-name">${product.title}</h4>
                                 <p class="product-price">$${product.price}</p>
                             `;
