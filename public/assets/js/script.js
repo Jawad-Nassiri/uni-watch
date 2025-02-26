@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             shopCarouselContainer.scrollBy({
                 left: shopCarouselItemWidth,
                 behavior: 'smooth'
-            })
+            });
 
             if(shopCarouselContainer.scrollLeft >= shopCarouselContainer.scrollWidth / 2){
                 shopCarouselContainer.scrollLeft = 0
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             // update the total price 
                             document.querySelector('.subtotal .total h1').textContent = `Subtotal : $${data.totalPrice.toFixed(2)}`;
 
-                            unsuccessBoxGenerator('Item deleted successfully !');
+                            successBoxGenerator('Item deleted successfully !');
                         }
                     })
                     .catch(error => console.error('Error deleting product:', error));

@@ -808,7 +808,7 @@ body.blur-effect::after {
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px 4px #b60213;
-    transition: all 0.5s linear;
+    transition: all 0.3s linear;
 }
 
 .product-img-box img {
@@ -819,12 +819,6 @@ body.blur-effect::after {
 .product-img-box:hover {
     box-shadow: -1px -1px 4px #b60213;
 }
-
-
-
-
-
-
 
 .product-details {
     color: #fff;

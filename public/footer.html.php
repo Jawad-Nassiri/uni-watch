@@ -1,3 +1,4 @@
+<!-- footer  -->
 <div class="footer-section">
     <div class="contact-section">
         <div class="follow">
@@ -20,9 +21,5 @@
         <p class="copyright">© 2025 All Rights Reserved. Designed by Jawad NASIRI for Educational Purposes.</p>
     </div>
 </div>
-
-
-
-
 </body>
 </html>

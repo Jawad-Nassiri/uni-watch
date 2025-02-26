@@ -8,13 +8,12 @@
         <form class="add-product" method="post" action="/uni-watch/Admin_edit_user/editUser?id=<?= $user['id'] ?>">
             <input type="text" class="product-title" name="username" placeholder="Username"
                 value="<?= htmlspecialchars($user['username'] ?? '') ?>" readonly>
-
             <p class="error-message product-title-error"><?= isset($errors['username']) ? htmlspecialchars($errors['username']) : ''?></p>
             
             <input type="email" class="product-brand" name="email" placeholder="Email"
                 value="<?= htmlspecialchars($user['email'] ?? '') ?>" readonly>
 
-            <input type="password" class="product-category" name="password" placeholder="Password" value="000000" readonly>
+            <input type="password" class="product-category" name="password" placeholder="Password" value="<?= htmlspecialchars($user['password'] ?? '') ?>" readonly>
             <p class="error-message product-category-error"><?= isset($errors['password']) ? htmlspecialchars($errors['password']) : ''?></p>
 
             <select name="role" class="user-role">

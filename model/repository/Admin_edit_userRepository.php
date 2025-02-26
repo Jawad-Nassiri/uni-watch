@@ -22,21 +22,12 @@ class Admin_edit_userRepository extends BaseRepository {
 
 
 
-    public function editUser($id, $username, $email, $password, $role) {
-        $sql = "UPDATE user 
-                SET username = :username, email = :email, password = :password, role = :role 
-                WHERE id = :id";
+    public function editUser($id, $role) {
+        $sql = "UPDATE user SET role = :role WHERE id = :id";
     
         $stmt = $this->connection->prepare($sql);
         
-        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
-        $stmt->bindParam(':username', $username, \PDO::PARAM_STR);
-        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
-        
-        
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt->bindParam(':password', $hashedPassword, \PDO::PARAM_STR); 
-        
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);        
         $stmt->bindParam(':role', $role, \PDO::PARAM_INT);
     
         return $stmt->execute();
