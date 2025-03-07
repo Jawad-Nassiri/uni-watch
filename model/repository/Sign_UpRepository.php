@@ -9,7 +9,8 @@ class Sign_UpRepository extends BaseRepository{
 
     public function saveSign_UpForm(Sign_Up $sign_up){
         try {
-            $sql = "INSERT INTO user (username, email, password, role) VALUES (:username, :email, :password, :role)";
+            $sql = "INSERT INTO user (username, email, password, role)
+             VALUES (:username, :email, :password, :role)";
             $stmt = $this->connection->prepare($sql);
             
             $username = $sign_up->getUsername();
@@ -17,13 +18,11 @@ class Sign_UpRepository extends BaseRepository{
             $password = $sign_up->getPassword();
             $role = $sign_up->getRole();
 
-            
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':role', $role);
-
-            
+ 
             $result = $stmt->execute();
             
             if ($result) {
@@ -33,10 +32,8 @@ class Sign_UpRepository extends BaseRepository{
             return false;
         } catch (PDOException $e) {
             error_log("Database error: " . $e->getMessage());
-
             echo "Something went wrong. Please try again.";
             return false;
-
         }
     }
 

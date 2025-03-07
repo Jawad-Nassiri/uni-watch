@@ -13,6 +13,7 @@ class Sign_UpController extends BaseController {
     public function __construct() {
         $this->sign_up = new Sign_Up;
     }
+    
     public function sign_UpForm() {
 
         $formHandler = new Sign_UpHandleRequest();

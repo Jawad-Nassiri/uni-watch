@@ -37,8 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-
     // redirection to the admin pages and adding the angle icon functionality
     document.onclick = (evt) => {
         const adminLinks = document.getElementById('admin-links');
@@ -326,30 +324,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (evt.target.classList.contains('fa-trash')) {
                 const cartItemContainer = evt.target.closest('.cart-items');
                 const productId = cartItemContainer.getAttribute('data-id');
-        
-                fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            // remove the product from the cart 
+            
+                (async () => {
+                    try {
+                        let response = await fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`);
+                        let obj = await response.json();
+            
+                        if (obj.status === 'success') {
                             cartItemContainer.remove();
-
-                            // if there are no products in the cart, show the message
-                            if(data.cartCount === 0) {
-                                const messageElement = document.createElement('h5')
-                                messageElement.className = 'empty-message'
-                                messageElement.textContent = 'Your basket is empty !';
-                                document.querySelector('.cart-item-container').appendChild(messageElement);
+                            if (obj.cartCount === 0) {
+                                document.querySelector('.cart-item-container').innerHTML = '<h5 class="empty-message">Your basket is empty!</h5>';
                             }
-
-                            // update the total price 
-                            document.querySelector('.subtotal .total h1').textContent = `Subtotal : $${data.totalPrice.toFixed(2)}`;
-
-                            successBoxGenerator('Item deleted successfully !');
+                            document.querySelector('.subtotal .total h1').textContent = `Subtotal : $${obj.totalPrice.toFixed(2)}`;
+                            successBoxGenerator('Item deleted successfully!');
                         }
-                    })
-                    .catch(error => console.error('Error deleting product:', error));
+                    } catch (error) {
+                        unsuccessBoxGenerator('Error deleting product');
+                    }
+                })();
             }
+            
         });
 
 
@@ -571,16 +565,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        // retrieve the product detail and show them in the box product detail 
+        // add product to the cartContainer(box) 
         const params = new URLSearchParams(window.location.search);
         const productId = params.get("id");
         const addToCartBtn = document.querySelector('.add-to-cart-btn');
         const productQuantity = document.querySelector('.title .product-quantity');
         const quantityInput = document.querySelector('#detail-quantity');
         const cartContainer = document.querySelector('.product-detail-container');
-        const totalPriceElement = document.querySelector('.total-price-container .total-price')
-
-
+        const totalPriceElement = document.querySelector('.total-price-container .total-price');
 
         addToCartBtn.onclick = () => {
             const quantity = quantityInput.value;
@@ -588,12 +580,10 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`/uni-watch/basket/productDetail?productId=${productId}&quantity=${quantity}`)
                 .then(response => response.json())
                 .then(data => {
-        
                     if (data.status === 'success') {
-
                         // function success message 
                         successBoxGenerator('Item successfully added to your cart !');
-        
+
                         productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
         
                         const productBox = document.createElement('div');
@@ -613,6 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <img src="/uni-watch/public/assets/images/watches/${data.product.image_path}" alt="${data.product.title}">
                             </div>
                         `;
+                        
                         cartContainer.append(productBox);
 
                         if (data.cartCount > 0 && data.totalPrice > 0) {
@@ -624,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
                     } else {
                         // function unsuccess message
-                        unsuccessBoxGenerator('Item is already in your cart !')
+                        unsuccessBoxGenerator('Item is already in your cart !');
                     }
                 })
                 .catch(error => {
@@ -636,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // delete a product from the cart box 
+    // delete product from the cart box 
     document.querySelector('.product-detail-container').onclick = (evt) => {
         if(evt.target.classList.contains('fa-trash-can')) {
 
