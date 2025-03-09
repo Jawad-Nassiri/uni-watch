@@ -148,53 +148,56 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = this;
             const offset = parseInt(button.getAttribute('data-offset'));
             const limit = 3;
-        
-            fetch(`/uni-watch/product/loadMoreProducts?offset=${offset}&limit=${limit}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.products && data.products.length > 0) {
-                        const productList = document.querySelector('.product-list');
-                        
-                        data.products.forEach(product => {
-                            const productBox = document.createElement('div');
-                            productBox.classList.add('product-box');
-                        
-                            const productImgBox = document.createElement('a');
-                            productImgBox.classList.add('product-img-box');
-                            productImgBox.setAttribute('href', `/uni-watch/detail/productDetail?id=${product.id}`);
-                        
-                            const productImage = document.createElement('img');
-                            productImage.src = `/uni-watch/public/assets/images/watches/${product.image_path}`;
-                            productImage.alt = product.title;
-                        
-                            productImgBox.appendChild(productImage);
-                        
-                            const productDetails = document.createElement('div');
-                            productDetails.classList.add('product-details');
-                            productDetails.innerHTML = `
-                                <p class="product-tag">${product.brand}</p>
-                                <h4 class="product-name">${product.title}</h4>
-                                <p class="product-price">$${product.price}</p>
-                            `;
-                        
-                            productBox.appendChild(productImgBox);
-                            productBox.appendChild(productDetails);
-                        
-                            productList.appendChild(productBox);
-                        });
-                        
-        
-                        button.setAttribute('data-offset', offset + limit);
-        
-                        if (data.products.length < limit) {
+                (async () => {
+                    try{
+                        let response = await fetch(`/uni-watch/product/loadMoreProducts?offset=${offset}&limit=${limit}`);
+                        let obj = await response.json();
+
+                        if (obj.products && obj.products.length > 0) {
+                            const productList = document.querySelector('.product-list');
+                            
+                            obj.products.forEach(product => {
+                                const productBox = document.createElement('div');
+                                productBox.classList.add('product-box');
+                            
+                                const productImgBox = document.createElement('a');
+                                productImgBox.classList.add('product-img-box');
+                                productImgBox.setAttribute('href', `/uni-watch/detail/productDetail?id=${product.id}`);
+                            
+                                const productImage = document.createElement('img');
+                                productImage.src = `/uni-watch/public/assets/images/watches/${product.image_path}`;
+                                productImage.alt = product.title;
+                            
+                                productImgBox.appendChild(productImage);
+                            
+                                const productDetails = document.createElement('div');
+                                productDetails.classList.add('product-details');
+                                productDetails.innerHTML = `
+                                    <p class="product-tag">${product.brand}</p>
+                                    <h4 class="product-name">${product.title}</h4>
+                                    <p class="product-price">$${product.price}</p>
+                                `;
+                            
+                                productBox.appendChild(productImgBox);
+                                productBox.appendChild(productDetails);
+                            
+                                productList.appendChild(productBox);
+                            });
+                            
+            
+                            button.setAttribute('data-offset', offset + limit);
+            
+                            if (obj.products.length < limit) {
+                                button.style.display = 'none';
+                            }
+    
+                        } else {
                             button.style.display = 'none';
                         }
-
-                    } else {
+                    } catch (error){
                         button.style.display = 'none';
                     }
-                })
-                .catch(error => console.error('Error loading more products:', error));
+                })();
         });
 
 
@@ -378,32 +381,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 payment_subtotal: parseFloat(proSubtotalElement.textContent.replace('Subtotal : $', '').replace(',', '')).toFixed(2)
             };
 
-            fetch('/uni-watch/payment/paymentDetail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    location.href = "/uni-watch/payment/paymentPage";
-                } else if (data.status === "notLoggedIn") {
-                    // function unsuccess message
-                    unsuccessBoxGenerator('Please log in to proceed');
-                    
-                    setTimeout(() => {
-                        location.href = "/uni-watch/sign_in/signInForm";
-                    }, 3000)
-                } else {
-                    unsuccessBoxGenerator('Your cart is empty !');
-                    
-                    setTimeout(() => {
-                        location.href = "/uni-watch/product/allProducts";
-                    }, 3000)
+            (async () => {
+                try {
+                    let response = await fetch('/uni-watch/payment/paymentDetail', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }) ;
+
+                    let obj = await response.json()
+
+                        if (obj.status === "success") {
+                            location.href = "/uni-watch/payment/paymentPage";
+                        } else if (obj.status === "notLoggedIn") {
+                            // function unsuccess message
+                            unsuccessBoxGenerator('Please log in to proceed');
+                            
+                            setTimeout(() => {
+                                location.href = "/uni-watch/sign_in/signInForm";
+                            }, 3000)
+                        } else {
+                            unsuccessBoxGenerator('Your cart is empty !');
+                            
+                            setTimeout(() => {
+                                location.href = "/uni-watch/product/allProducts";
+                            }, 3000)
+                        }
+                } catch (error) {
+                    console.log(error)
                 }
-            })
+            })();
         }
 
     }
@@ -437,26 +446,51 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             
-            fetch('/uni-watch/payment/createOrder', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === "success") {
-                    console.log(data.status)
-                    successBoxGenerator('Order created successfully !');
+            // fetch('/uni-watch/payment/createOrder', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if(data.status === "success") {
+            //         console.log(data.status)
+            //         successBoxGenerator('Order created successfully !');
 
-                    setTimeout(() => {
-                        location.href = "/uni-watch/home/index";
-                    }, 3000)
-                } else {
-                    unsuccessBoxGenerator('Failed to place the order.')
+            //         setTimeout(() => {
+            //             location.href = "/uni-watch/home/index";
+            //         }, 3000)
+            //     } else {
+            //         unsuccessBoxGenerator('Failed to place the order.')
+            //     }
+            // })
+
+            (async () => {
+                try {
+                    let response = await fetch('/uni-watch/payment/createOrder', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+    
+                    let obj = await response.json()
+                    if(obj.status === "success") {
+                        successBoxGenerator('Order created successfully !');
+    
+                        setTimeout(() => {
+                            location.href = "/uni-watch/home/index";
+                        }, 3000)
+                    } else {
+                        unsuccessBoxGenerator('Failed to place the order.')
+                    }
+                } catch (error) {
+                    console.log(error)
                 }
-            })
+            })();
 
         }
 
