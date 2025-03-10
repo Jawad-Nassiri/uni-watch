@@ -445,28 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 subtotalPrice: subtotalValue
             };
 
-            
-            // fetch('/uni-watch/payment/createOrder', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(data)
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     if(data.status === "success") {
-            //         console.log(data.status)
-            //         successBoxGenerator('Order created successfully !');
-
-            //         setTimeout(() => {
-            //             location.href = "/uni-watch/home/index";
-            //         }, 3000)
-            //     } else {
-            //         unsuccessBoxGenerator('Failed to place the order.')
-            //     }
-            // })
-
             (async () => {
                 try {
                     let response = await fetch('/uni-watch/payment/createOrder', {
@@ -509,25 +487,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const confirmDelete = confirm("Are you sure you want to delete this product?");
 
                 if(confirmDelete) {
-                    fetch(`/uni-watch/Admin_add_product/deleteProduct?productId=${productId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data.status === "success") {
-                            item.closest('tr').remove();
-                            successBoxGenerator('Item deleted successfully !');
-                        } else {
-                            unsuccessBoxGenerator('Error deleting product');
+                    (async () => {
+                        try {
+                            let response = await fetch(`/uni-watch/Admin_add_product/deleteProduct?productId=${productId}`)
+                            let obj = await response.json();
+                            if(obj.status === "success") {
+                                item.closest('tr').remove();
+                                successBoxGenerator('Item deleted successfully !');
+                            } else {
+                                unsuccessBoxGenerator('Error deleting product');
+                            }
+                        } catch(error) {
+                            console.log(error)
                         }
-                    })
-                    .catch(error => console.error('Error deleting product:', error));
+                    })();
                 }
+
+
             }
         });
     }
 
     // admin page (user)
     if (location.pathname.includes('admin_add_user')) {
-        // delete product from the product list (admin) 
+        // delete user from the user list (admin) 
         const deleteBtns = document.querySelectorAll('.user-action-buttons .btn-delete');
 
         deleteBtns.forEach((deleteBtn) => {
@@ -536,16 +519,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const confirmDelete = confirm("Are you sure you want to delete this user?");
 
                 if(confirmDelete) {
-                    fetch(`/uni-watch/admin_add_user/deleteUser?userId=${userId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        deleteBtn.closest('tr').remove();
-                        if(data.status === 'success') {
-                            successBoxGenerator('User deleted successfully !');
-                        } else {
-                            unsuccessBoxGenerator('Error deleting user');
+                    (async () => {
+                        try {
+                            let response = await fetch(`/uni-watch/admin_add_user/deleteUser?userId=${userId}`)
+                            let obj = await response.json()
+
+                            if(obj.status === 'success') {
+                                deleteBtn.closest('tr').remove();
+                                successBoxGenerator('User deleted successfully !');
+                            } else {
+                                unsuccessBoxGenerator('Error deleting user');
+                            }
+                        } catch(error) {
+                            console.log(error)
                         }
-                    })
+                    })();
                 }
             }
         });
@@ -610,51 +598,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addToCartBtn.onclick = () => {
             const quantity = quantityInput.value;
-        
-            fetch(`/uni-watch/basket/productDetail?productId=${productId}&quantity=${quantity}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        // function success message 
-                        successBoxGenerator('Item successfully added to your cart !');
 
-                        productQuantity.innerHTML = `${data.cartCount} <span>Product(s)</span>`;
-        
-                        const productBox = document.createElement('div');
-                        productBox.classList.add('product-box');
-                        productBox.innerHTML = `
-                            <div class="delete-icon-container">
-                                <i class="fa-regular fa-trash-can" data-id= "${data.product.id}"></i>
-                            </div>
-                            <div class="product-details-container">
-                                <p class="product-name">${data.product.title}</p>
-                                <div class="product-price">
-                                    <p class="price">$${data.product.price}</p>
-                                    <p class="product-quantity"><i class="fa-solid fa-xmark"></i>${data.product.quantity}</p>
+                (async () => {
+                    try {
+                        let response = await fetch(`/uni-watch/basket/productDetail?productId=${productId}&quantity=${quantity}`);
+                        let obj = await response.json();
+
+                        if (obj.status === 'success') {
+                            // function success message 
+                            successBoxGenerator('Item successfully added to your cart !');
+    
+                            productQuantity.innerHTML = `${obj.cartCount} <span>Product(s)</span>`;
+            
+                            const productBox = document.createElement('div');
+                            productBox.classList.add('product-box');
+                            productBox.innerHTML = `
+                                <div class="delete-icon-container">
+                                    <i class="fa-regular fa-trash-can" data-id= "${obj.product.id}"></i>
                                 </div>
-                            </div>
-                            <div class="product-img-container">
-                                <img src="/uni-watch/public/assets/images/watches/${data.product.image_path}" alt="${data.product.title}">
-                            </div>
-                        `;
-                        
-                        cartContainer.append(productBox);
-
-                        if (data.cartCount > 0 && data.totalPrice > 0) {
-                            totalPriceElement.textContent = `Total Price: $${data.totalPrice.toFixed(2)}`;
+                                <div class="product-details-container">
+                                    <p class="product-name">${obj.product.title}</p>
+                                    <div class="product-price">
+                                        <p class="price">$${obj.product.price}</p>
+                                        <p class="product-quantity"><i class="fa-solid fa-xmark"></i>${obj.product.quantity}</p>
+                                    </div>
+                                </div>
+                                <div class="product-img-container">
+                                    <img src="/uni-watch/public/assets/images/watches/${obj.product.image_path}" alt="${obj.product.title}">
+                                </div>
+                            `;
+                            
+                            cartContainer.append(productBox);
+    
+                            if (obj.cartCount > 0 && obj.totalPrice > 0) {
+                                totalPriceElement.textContent = `Total Price: $${obj.totalPrice.toFixed(2)}`;
+                            } else {
+                                totalPriceElement.textContent = "Your Basket Is Empty!";
+                            }
+                            
+            
                         } else {
-                            totalPriceElement.textContent = "Your Basket Is Empty!";
+                            // function unsuccess message
+                            unsuccessBoxGenerator('Item is already in your cart !');
                         }
-                        
-        
-                    } else {
-                        // function unsuccess message
-                        unsuccessBoxGenerator('Item is already in your cart !');
+                    } catch(error) {
+                        console.log(error)
                     }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
+                })();
         
         };
 
@@ -671,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
             .then(response => response.json())
             .then(data => {
-                if(data.status ==='success') {
+                if(data.status === 'success') {
                     // success box generator function
                     successBoxGenerator('Item deleted successfully !');
 
@@ -684,6 +674,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
+
+
 
     // Function to update total price dynamically
     function updateTotalPrice(newTotal, cartCount) {
