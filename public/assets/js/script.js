@@ -537,6 +537,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+
+        const passwordInput = document.querySelector('input[type="password"]');
+
+        // Disable copy on the password input   
+        preventCopy(passwordInput);
+
+        // Disable cut on the password input   
+        preventCut(passwordInput);
+
+        // Disable paste on the password input   
+        preventPaste(passwordInput);
     }
     
 
@@ -568,7 +580,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // function to add show/hide password functionality
-        togglePasswordVisibility('.sign-up-password > input[name="password"]', '#eye')
+        togglePasswordVisibility('.sign-up-password > input[name="password"]', '#eye');
+
+
+        // Disable copy on the password input   
+        preventCopy(passwordInput);
+
+        // Disable cut on the password input   
+        preventCut(passwordInput);
+
+        // Disable paste on the password input   
+        preventPaste(passwordInput);
             
     }
 
@@ -716,7 +738,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // function to add show/hide password functionality
-        togglePasswordVisibility('.sign-in-password > input[name="password"]', '#eye')
+        togglePasswordVisibility('.sign-in-password > input[name="password"]', '#eye');
+
+        // Disable copy on the password input   
+        preventCopy(signInPasswordInputElement);
+
+         // Disable cut on the password input   
+         preventCut(signInPasswordInputElement);
+
+         // Disable paste on the password input   
+         preventPaste(signInPasswordInputElement);
     }
 
 
@@ -896,6 +927,28 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             unsuccessAlertBox.remove();
         }, 3000);
+    }
+
+
+    // Disable copy on the password input function
+    function preventCopy(inputElement) {
+        inputElement.addEventListener('copy', (evt) => {
+            evt.preventDefault();
+        })
+    }
+
+     // Disable cut on the password input function
+     function preventCut(inputElement) {
+        inputElement.addEventListener('cut', (evt) => {
+            evt.preventDefault();
+        })
+    }
+
+     // Disable paste on the password input function
+     function preventPaste(inputElement) {
+        inputElement.addEventListener('paste', (evt) => {
+            evt.preventDefault();
+        })
     }
 
 });
