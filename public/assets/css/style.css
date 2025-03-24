@@ -43,8 +43,7 @@ body.blur-effect::after {
     backdrop-filter: blur(5px);
     z-index: 5;
 }
-
-/* success message  */
+/* Success message */
 .success {
     width: 400px;
     height: 80px;
@@ -55,10 +54,22 @@ body.blur-effect::after {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     z-index: 10;
-    box-shadow: rgba(253, 253, 253, 0.12) 0px 2px 4px 0px, rgba(253, 253, 253, 0.32) 0px 2px 16px 0px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+}
+
+.success::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #45c55c;
+    animation: countdown 3s linear forwards;
 }
 
 .success .success-status {
@@ -69,27 +80,31 @@ body.blur-effect::after {
     justify-content: center;
     background: #45c55c;
     color: #fff;
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 .success .success-status i {
     font-size: 40px;
+    animation: pulseGrow 0.5s ease;
 }
 
 .success .massage-content {
     width: 75%;
+    animation: slideFromRight 0.5s ease;
 }
 
 .success .massage-content span {
     font-size: 20px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .success .massage-content p {
-    color: rgb(172, 164, 164)
+    color: rgb(172, 164, 164);
 }
 
-/* unsuccess message  */
-
+/* Unsuccess message */
 .unsuccess {
     width: 400px;
     height: 80px;
@@ -100,10 +115,22 @@ body.blur-effect::after {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     z-index: 10;
-    box-shadow: rgba(253, 253, 253, 0.12) 0px 2px 4px 0px, rgba(253, 253, 253, 0.32) 0px 2px 16px 0px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+}
+
+.unsuccess::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #fc5c5b;
+    animation: countdown 3s linear forwards;
 }
 
 .unsuccess .unsuccess-status {
@@ -114,23 +141,95 @@ body.blur-effect::after {
     justify-content: center;
     background: #fc5c5b;
     color: #fff;
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 .unsuccess .unsuccess-status i {
     font-size: 40px;
+    animation: shake 0.5s ease;
 }
 
 .unsuccess .massage-content {
     width: 75%;
+    animation: slideFromRight 0.5s ease;
 }
 
 .unsuccess .massage-content span {
     font-size: 20px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .unsuccess .massage-content p {
     color: rgb(172, 164, 164);
+}
+
+/* Animation keyframes */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -150%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes countdown {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@keyframes pulseGrow {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-5px);
+    }
+    40%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 

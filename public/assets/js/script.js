@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // home page 
     if(location.pathname == '/uni-watch/home/index') {
-        //home page carousel 
+        //home carousel 
         const carousel = document.querySelector('.carousel');
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
 
 
-                updateSubtotal()
+                updateSubtotal();
             });
         });
 
@@ -395,8 +395,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (obj.status === "success") {
                             location.href = "/uni-watch/payment/paymentPage";
+                            
                         } else if (obj.status === "notLoggedIn") {
-                            // function unsuccess message
+                            
                             unsuccessBoxGenerator('Please log in to proceed');
                             
                             setTimeout(() => {
@@ -894,39 +895,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // success box generator function
     function successBoxGenerator(message) {
-        const successAlertBox = document.createElement('div');
-        successAlertBox.className = 'success';
-        successAlertBox.innerHTML = `
-            <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
-            <div class="massage-content">
-                <span>Success</span>
-                <p>${message}</p>
-            </div>
-        `;
-        document.body.appendChild(successAlertBox);
 
-        setTimeout(() => {
-            successAlertBox.remove();
-        }, 3000);
+        const successBox = document.querySelector('.success')
+
+        if(!successBox) {
+            const successAlertBox = document.createElement('div');
+            successAlertBox.className = 'success';
+            successAlertBox.innerHTML = `
+                <div class="success-status"><i class="fa-regular fa-circle-check"></i></div>
+                <div class="massage-content">
+                    <span>Success</span>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.body.appendChild(successAlertBox);
+
+            setTimeout(() => {
+                successAlertBox.remove();
+            }, 3000);
+        }
+
+        
     }
 
 
     // unsuccess box generator function
     function unsuccessBoxGenerator(message) {
-        const unsuccessAlertBox = document.createElement('div');
-        unsuccessAlertBox.className = 'unsuccess';
-        unsuccessAlertBox.innerHTML = `
-            <div class="unsuccess-status"><i class="fa-regular fa-circle-xmark"></i></div>
-            <div class="massage-content">
-                <span>Error</span>
-                <p>${message}</p>
-            </div>
-        `;
-        document.body.appendChild(unsuccessAlertBox);
 
-        setTimeout(() => {
-            unsuccessAlertBox.remove();
-        }, 3000);
+        const unsuccessBox = document.querySelector('.unsuccess')
+
+        if(!unsuccessBox) {
+            const unsuccessAlertBox = document.createElement('div');
+            unsuccessAlertBox.className = 'unsuccess';
+            unsuccessAlertBox.innerHTML = `
+                <div class="unsuccess-status"><i class="fa-regular fa-circle-xmark"></i></div>
+                <div class="massage-content">
+                    <span>Error</span>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.body.appendChild(unsuccessAlertBox);
+
+            setTimeout(() => {
+                unsuccessAlertBox.remove();
+            }, 3000);
+        }
     }
 
 
