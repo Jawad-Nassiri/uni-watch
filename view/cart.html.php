@@ -25,7 +25,7 @@
                     <span>Total</span>
                 </div>
 
-                <div class="delete">
+                <div class="delete remove">
                     <span>Remove</span>
                 </div>
             </div>
@@ -33,7 +33,6 @@
             <div class="cart-item-container">
                 <?php if (!empty($cartItems)): ?>
                     <?php foreach ($cartItems as $cartItem): ?>
-                        <p><?php var_dump(empty($totalPrice)) ?></p>
                         <div class="cart-items" data-id="<?= $cartItem['id']; ?>">
                             <div class="image">
                                 <div><img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>

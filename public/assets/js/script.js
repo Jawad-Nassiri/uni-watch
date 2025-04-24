@@ -282,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 let inputValue = Number(productInputElement.value);
                 // the input value increase is done in the handleQuantityChange function
                 // inputValue++;
-                productInputElement.value = inputValue;
 
                 const productTotalPrice = productPrice * inputValue;
                 productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
@@ -303,7 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     let inputValue = Number(productInputElement.value);
                     // the input value decrease is done in the handleQuantityChange function
                     // inputValue--;
-                    productInputElement.value = inputValue;
         
                     const productTotalPrice = productPrice * inputValue;
                     productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
@@ -422,56 +420,56 @@ document.addEventListener('DOMContentLoaded', () => {
     if (location.pathname.includes('paymentPage')) {
 
         // send the product detail to the server and create an order 
-        document.querySelector('.info-container .button-container button').onclick = (evt) => {
+        document.querySelector('.info-container .button-container button').addEventListener('click', (evt) => {
             evt.preventDefault()
 
-            const productContainers = document.querySelectorAll('.product');
-            const productQuantities = document.querySelectorAll('.product .pro-price span');
-            const subtotalPrice = document.querySelector('.payment-total .subtotal');
+                const productContainers = document.querySelectorAll('.product');
+                const productQuantities = document.querySelectorAll('.product .pro-price span');
+                const subtotalPrice = document.querySelector('.payment-total .subtotal');
 
-            const paymentProducts = [];
+                const paymentProducts = [];
 
-            
-            productContainers.forEach((productContainer, index) => {
-                paymentProducts.push({
-                    productId: productContainer.getAttribute('data-id'),
-                    quantity: parseInt(productQuantities[index].textContent)
+                
+                productContainers.forEach((productContainer, index) => {
+                    paymentProducts.push({
+                        productId: productContainer.getAttribute('data-id'),
+                        quantity: parseInt(productQuantities[index].textContent)
+                    });
                 });
-            });
-            
-            const subtotalValue = parseFloat(subtotalPrice.textContent.replace('$', '')).toFixed(2)
+                
+                const subtotalValue = parseFloat(subtotalPrice.textContent.replace('$', '')).toFixed(2)
 
-            const data = {
-                paymentProducts: paymentProducts,
-                subtotalPrice: subtotalValue
-            };
+                const data = {
+                    paymentProducts: paymentProducts,
+                    subtotalPrice: subtotalValue
+                };
 
-            (async () => {
-                try {
-                    let response = await fetch('/uni-watch/payment/createOrder', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    })
-    
-                    let obj = await response.json()
-                    if(obj.status === "success") {
-                        successBoxGenerator('Order created successfully !');
-    
-                        setTimeout(() => {
-                            location.href = "/uni-watch/home/index";
-                        }, 3000)
-                    } else {
-                        unsuccessBoxGenerator('Failed to place the order.')
+                (async () => {
+                    try {
+                        let response = await fetch('/uni-watch/payment/createOrder', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        })
+        
+                        let obj = await response.json()
+                        if(obj.status === "success") {
+                            successBoxGenerator('Order created successfully !');
+        
+                            setTimeout(() => {
+                                location.href = "/uni-watch/home/index";
+                            }, 3000)
+                        } else {
+                            unsuccessBoxGenerator('Failed to place the order.')
+                        }
+                    } catch (error) {
+                        console.log(error)
                     }
-                } catch (error) {
-                    console.log(error)
-                }
-            })();
+                })();
+        }, {once: true})
 
-        }
 
     }
 

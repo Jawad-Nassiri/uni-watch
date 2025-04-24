@@ -1560,6 +1560,7 @@ hr.style-detail {
 
 .cart-detail {
     width: 100%;
+    /* background: rgb(155, 1, 245) */
 }
 
 .cart-detail .title {
@@ -2251,7 +2252,7 @@ hr.style-detail {
     }
 
     .carousel-container {
-        width: 1290px;
+        width: 1300px;
     }
 
     .featured-product > div {
@@ -2413,6 +2414,12 @@ hr.style-detail {
 
     .info .info-content {
         width: 75%;
+    }
+
+
+    /* cart page  */
+    .cart-detail-container {
+        width: 90%;
     }
 }
 
@@ -2762,6 +2769,10 @@ hr.style-detail {
     }
 
     /* about page  */
+    .about-banner {
+        background-position: calc(50% - 50px) center;
+    }
+
     .collection-container {
         gap: 20px;
         height: auto;
@@ -2946,6 +2957,21 @@ hr.style-detail {
     .table-container.user-list {
         width: 80%;
     }
+
+
+    /* cart page  */
+    .cart-detail-container {
+        width: 100%;
+    }
+
+    .subtotal-container {
+        padding: 0 25px;
+    }
+
+    .cart-detail-container .help {
+        width: 100%;
+        padding: 0 25px;
+    }
 }
 
 
@@ -3103,6 +3129,11 @@ hr.style-detail {
     }
 
     /* about page  */
+
+    .about-banner {
+        background-position: calc(50% - 170px) center;
+    }
+
     .box1, .box2, .box3 {
         width: 80%;
         height: 80%
@@ -3232,6 +3263,80 @@ hr.style-detail {
     }
 
 
+    /* cart page  */
+    .cart-item-titles {
+        width: 100%;
+        padding-right: 35px;
+        font-size: 16px
+    }
+
+    .cart-items {
+        font-size: 16px;
+    }
+
+    .cart-item-titles .name, .cart-items .name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+
+    .cart-plus-minus.quantity .ctnbutton {
+        width: 30px;
+        font-size: 16px;
+    }
+
+    .cart-plus-minus.quantity #detail-quantity {
+        width: 30px;
+        font-size: 15px;
+    }
+    
+    .cart-item-titles .quantity, .cart-items .quantity {
+        width: 20%;
+    }
+
+    .cart-item-titles .delete, .cart-items .delete {
+        width: 10%;
+    }
+
+    .subtotal-container {
+        padding: 0 15px;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .subtotal-container .subtotal .checkout {
+        float: none;
+        margin: 15px auto 0 auto;
+    }
+
+    .payment-method {
+        order: 2;
+    }
+
+    .subtotal-container .total {
+        font-size: 14px;
+    }
+
+    .cart-detail-container .help {
+        padding: 0 10px;
+    }
+
+    .help .help-title h5 {
+        font-size: 18px;
+    }
+
+    .help .titles {
+        font-size: 15px;
+        gap: 0 15px;
+        height: fit-content;
+        margin-bottom: 10px;
+    }
+
+    .help .content .content-box.active p {
+        font-size: 16px;
+    }
 }
 
 
@@ -3361,6 +3466,10 @@ hr.style-detail {
 
     /* about page  */
 
+    .about-banner {
+        background-position: calc(80% - 0px) center;
+    }
+
     .about-info-box {
         height: 330px;
     }
@@ -3450,5 +3559,58 @@ hr.style-detail {
         font-size: 10px;
     }
 
+
+    /* cart page  */
+
+    .cart-item-titles {
+        display: none;
+    }
+
+    .cart-item-container {
+        height: 300px;
+        max-height: auto;
+        display: flex;
+        gap: 15px 3%;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        justify-content: center;
+    }
+
+    .cart-items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0;
+        width: 30%;
+        height: 100%;
+        text-align: center;
+        border: 1px solid #b60213;
+        padding-top: 12px;
+    }
+
+    .cart-item-titles .image, .cart-items .image {
+        width: 100%;
+    }
+
+    .cart-item-titles .name, .cart-items .name {
+        width: 100%;
+    }
+
+    .cart-item-titles .price, .cart-items .cart-price {
+        width: 100%;
+    }
+
+    .cart-item-titles .quantity, .cart-items .quantity {
+        width: 100%;
+    }
+
+    .cart-item-titles .total, .cart-items .total {
+        width: 100%;
+    }
+
+    .cart-item-titles .delete, .cart-items .delete {
+        width: 100%;
+    }
+
+  
 
 }

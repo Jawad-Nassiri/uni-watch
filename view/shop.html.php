@@ -22,7 +22,7 @@
                         <p class="product-price">$<?= htmlspecialchars($product->getPrice()); ?></p>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach;?>
         <?php else: ?>
             <p class="no-products">No products available at the moment.</p>
         <?php endif; ?>
@@ -61,7 +61,6 @@
         <div class="shop-carousel-item">
             <img src="/uni-watch/public/assets/images/shop-carousel/shop-w6.png" alt="watch">
         </div>
-
     </div>
 </div>
 
