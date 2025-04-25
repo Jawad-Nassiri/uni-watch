@@ -8,7 +8,7 @@
 </div>
 
 <!-- Products Section -->
-<div class="product-container">
+<!-- <div class="product-container">
     <div class="product-list">
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
@@ -27,11 +27,42 @@
             <p class="no-products">No products available at the moment.</p>
         <?php endif; ?>
     </div>
+</div> -->
+
+<div class="product-grid">
+
+    <?php if (!empty($products)): ?>
+        <?php foreach ($products as $product): ?>
+            <div class="product-item">
+                <div class="product-image-container">
+                    <div class="product-image">
+                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="Watch">
+                    </div>
+                    <div class="quick-view-container">
+                        <a href="/uni-watch/detail/productDetail?id=<?= htmlspecialchars($product->getId());?>" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3><?= htmlspecialchars($product->getTitle()); ?></h3>
+                    <span class="price"><span><bdi><span>$</span><?= htmlspecialchars($product->getPrice()); ?></bdi></span></span>
+                    <?php $starCount = rand(3, 5);?>
+                    <div class="stars">
+                        <?php for ($i = 0; $i < $starCount; $i++): ?>
+                            <i class="fa-solid fa-star"></i>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach;?>
+    <?php else: ?>
+        <p class="no-products">No products available at the moment.</p>
+    <?php endif; ?>
+
 </div>
 
 
 
-<button class="read_bt see-more" id="see-more-product" data-offset="9"><p>See More</p></button>
+<button class="read_bt see-more" id="see-more-product" data-offset="12"><p>See More</p></button>
 
 
 <!-- shop carousel  -->

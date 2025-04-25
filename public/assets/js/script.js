@@ -143,45 +143,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000)
 
 
-        // fetch product 3 by 3 by clicking on the see more button 
+        // fetch product 4 by 4 by clicking on the see more button 
         document.getElementById('see-more-product').addEventListener('click', function () {
             const button = this;
             const offset = parseInt(button.getAttribute('data-offset'));
-            const limit = 3;
+            const limit = 4;
                 (async () => {
                     try{
                         let response = await fetch(`/uni-watch/product/loadMoreProducts?offset=${offset}&limit=${limit}`);
                         let obj = await response.json();
 
                         if (obj.products && obj.products.length > 0) {
-                            const productList = document.querySelector('.product-list');
+                            const productList = document.querySelector('.product-grid');
                             
                             obj.products.forEach(product => {
-                                const productBox = document.createElement('div');
-                                productBox.classList.add('product-box');
-                            
-                                const productImgBox = document.createElement('a');
-                                productImgBox.classList.add('product-img-box');
-                                productImgBox.setAttribute('href', `/uni-watch/detail/productDetail?id=${product.id}`);
-                            
-                                const productImage = document.createElement('img');
-                                productImage.src = `/uni-watch/public/assets/images/watches/${product.image_path}`;
-                                productImage.alt = product.title;
-                            
-                                productImgBox.appendChild(productImage);
-                            
-                                const productDetails = document.createElement('div');
-                                productDetails.classList.add('product-details');
-                                productDetails.innerHTML = `
-                                    <p class="product-tag">${product.brand}</p>
-                                    <h4 class="product-name">${product.title}</h4>
-                                    <p class="product-price">$${product.price}</p>
-                                `;
-                            
-                                productBox.appendChild(productImgBox);
-                                productBox.appendChild(productDetails);
-                            
-                                productList.appendChild(productBox);
+
+                                const starsCount = Math.floor(Math.random() * 3) + 3;
+                                let starsHTML = '';
+                                for (let i = 0; i < starsCount; i++) {
+                                    starsHTML += `<i class="fa-solid fa-star"></i>`;
+                                }
+
+                                console.log(product)
+                                productList.insertAdjacentHTML('beforeend', 
+                                    `
+                                        <div class="product-item">
+                                            <div class="product-image-container">
+                                                <div class="product-image">
+                                                    <img src="/uni-watch/public/assets/images/watches/${product.image_path}" alt="Watch">
+                                                </div>
+                                                <div class="quick-view-container">
+                                                    <a href="/uni-watch/detail/productDetail?id=${product.id}" class="quick-view">Quick View</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3>${product.title}</h3>
+                                                <span class="price"><span><bdi><span>$</span>${product.price}</bdi></span></span>
+                                                <div class="stars">
+                                                    ${starsHTML}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    `
+                                )
                             });
                             
             
@@ -717,7 +722,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-
+    // sign in page  
     if (location.pathname.includes('sign_in')) {
     
         const signInUsernameInputElement = document.querySelector('.sign-in-username')

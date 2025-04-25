@@ -8,7 +8,7 @@ use model\entity\Admin_add_product;
 class ProductRepository extends BaseRepository {
     public function getAllProduct() {
         try {
-            $sql = "SELECT * FROM product LIMIT 9";
+            $sql = "SELECT * FROM product LIMIT 12";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
 
