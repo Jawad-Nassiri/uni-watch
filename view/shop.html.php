@@ -7,27 +7,6 @@
     </div>
 </div>
 
-<!-- Products Section -->
-<!-- <div class="product-container">
-    <div class="product-list">
-        <?php if (!empty($products)): ?>
-            <?php foreach ($products as $product): ?>
-                <div class="product-box">
-                    <a href="/uni-watch/detail/productDetail?id=<?= htmlspecialchars($product->getId());?>" class="product-img-box">
-                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="<?= htmlspecialchars($product->getTitle()); ?>">
-                    </a>
-                    <div class="product-details">
-                        <p class="product-tag"><?= htmlspecialchars($product->getBrand()); ?></p>
-                        <h4 class="product-name"><?= htmlspecialchars($product->getTitle()); ?></h4>
-                        <p class="product-price">$<?= htmlspecialchars($product->getPrice()); ?></p>
-                    </div>
-                </div>
-            <?php endforeach;?>
-        <?php else: ?>
-            <p class="no-products">No products available at the moment.</p>
-        <?php endif; ?>
-    </div>
-</div> -->
 
 <div class="product-grid">
 
@@ -95,3 +74,6 @@
     </div>
 </div>
 
+
+
+<!-- https://preview.themeforest.net/item/luxrio-ecommerce-jewellery-wordpress-theme/full_screen_preview/56476584  -->
