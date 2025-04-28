@@ -680,25 +680,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const accordionsContainer = document.querySelector('.accordion');
 
         accordionsContainer.addEventListener('click', (event) => {
-            const button = event.target.closest('.accordion-btn');
-            if (!button) return;
-
-            const angleElem = button.querySelector('.accordion-angle');
-            const content = button.nextElementSibling;
-
-            document.querySelectorAll('.accordion-content.open').forEach(openContent => {
-                if (openContent !== content) {
-                    openContent.classList.remove('open');
-                    openContent.previousElementSibling.style.color = '#fff';
-                    openContent.previousElementSibling.querySelector('.accordion-angle').style.transform = 'rotate(0)';
+            let button = event.target.closest('.accordion-btn');
+            
+            if (button) {
+                const angleElem = button.querySelector('.accordion-angle');
+                const accordionContentElem = button.parentElement.querySelector('.accordion-content');
+                
+                if (accordionContentElem.classList.contains('open')) {
+                    button.style.color = '#fff';
+                    angleElem.style.transform = 'rotate(0)';
+                    accordionContentElem.classList.remove('open');
+                } else {
+                    button.style.color = '#b60213';
+                    angleElem.style.transform = 'rotate(180deg)';
+                    accordionContentElem.classList.add('open');
                 }
-            });
-
-            const isOpen = content.classList.toggle('open');
-            angleElem.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
-            button.style.color = isOpen ? '#b60213' : '#fff';
+            }
         });
-
     }
 
 
