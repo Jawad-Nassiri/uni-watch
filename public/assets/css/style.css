@@ -2203,6 +2203,141 @@ hr.style-detail {
     margin: 15px 0;
 }
 
+/* Terms & Privacy page start  */
+
+.fa-scale-unbalanced-flip {
+    font-size: 25px;
+    color: #5e5e5e;
+    margin-right: 7px;
+}
+
+.info-banner-container {
+    height: 550px;
+    background: url('../images/info-banner.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.breadcumb {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+}
+
+.breadcumb-title {
+    color: #fff;
+    margin: -0.3em 0 10px 0;
+    max-width: 100%;
+    width: 100%;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-size: 70px;
+}
+
+.breadcumb p {
+    color: #b60213;
+    font-size: 22px;
+    font-weight: 600
+}
+/* acordiaon  */
+
+.accordion {
+    margin: 100px auto;
+    width: 70%;
+    max-width: 850px;
+    height: auto;
+}
+
+.accordion h1 {
+    color: #fff;
+    font-size: 40px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+.breadcrumb-title {
+    font-size: 22px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.accordion-item {
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 4px 4px 1px inset;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 1.5px solid #262626;
+    border-radius: 10px;
+    padding: 10px 35px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.accordion-item:hover {
+    background: #0e0d0d;
+}
+
+.accordion-btn {
+    border: none;
+    outline: none;
+    font-size: 24px;
+    color: #fff;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    transition: all 0.5s ease;
+    height: 60px;
+}
+
+.accordion-btn:hover {
+    color: #b60213;
+    cursor: pointer;
+}
+
+.accordion-angle {
+    font-size: 22px;
+    transition: all 0.5s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1),
+                opacity 0.4s ease,
+                visibility 0s linear 0.4s,
+                padding 0.4s ease;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(156, 155, 155);
+    font-size: 18px;
+    line-height: 1.4;
+    border-top: 1px dashed #262626;
+    transform-origin: top;
+}
+
+.accordion-content.open {
+    max-height: 2200px;
+    opacity: 1;
+    visibility: visible;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: max-height 1s ease-in-out,
+                opacity 0.6s ease,
+                visibility 0s linear,
+                padding 0.4s ease;
+}
+
+strong {
+    color: #b60213;
+}
+
 
 /* footer section start  */
 .footer-section {
@@ -2618,6 +2753,15 @@ hr.style-detail {
     .table-container.user-list {
         width: 70%;
     }
+
+    /* Terms & Privacy page  */
+    .info-banner-container {
+        background-position: calc(60% - 100px)
+    }
+
+    .breadcumb {
+        left: 10%;
+    }
 }
 
 
@@ -2966,6 +3110,24 @@ hr.style-detail {
         width: 100%;
         padding: 0 25px;
     }
+
+    /* Terms & Privacy page  */
+    .accordion {
+        width: 80%;
+    }
+
+    .info-banner-container {
+        background-position: calc(65% - 100px)
+    }
+
+    .breadcumb {
+        left: 5%;
+    }
+
+    .breadcumb-title {
+        font-size: 50px;
+    }
+
 }
 
 
@@ -3320,6 +3482,28 @@ hr.style-detail {
     .help .content .content-box.active p {
         font-size: 16px;
     }
+
+    /* Terms & Privacy page  */
+
+    .accordion {
+        width: 90%;
+    }
+
+    .info-banner-container {
+        background-position: calc(70% - 100px)
+    }
+
+    .breadcumb {
+        left: 3%;
+    }
+
+    .breadcumb-title {
+        font-size: 30px;
+    }
+
+    .accordion-item {
+        padding: 10px;
+    }
 }
 
 
@@ -3597,6 +3781,27 @@ hr.style-detail {
         width: 100%;
     }
 
+    /* Terms & Privacy page  */
+    .accordion {
+        width: 95%;
+    }
+
+    .info-banner-container {
+        background-position: calc(70% - 220px)
+    }
+
+    .breadcumb {
+        left: 2%;
+    }
+
+    .breadcumb-title, 
+    .breadcumb p {
+        display: none;
+    }
+
+    .accordion h1 {
+        font-size: 30px;
+    }
   
 
 }

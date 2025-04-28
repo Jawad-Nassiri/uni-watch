@@ -676,6 +676,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    if (location.pathname.includes('terms&privacy'))  {
+        const accordionsContainer = document.querySelector('.accordion');
+
+        accordionsContainer.addEventListener('click', (event) => {
+            const button = event.target.closest('.accordion-btn');
+            if (!button) return;
+
+            const angleElem = button.querySelector('.accordion-angle');
+            const content = button.nextElementSibling;
+
+            document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                if (openContent !== content) {
+                    openContent.classList.remove('open');
+                    openContent.previousElementSibling.style.color = '#fff';
+                    openContent.previousElementSibling.querySelector('.accordion-angle').style.transform = 'rotate(0)';
+                }
+            });
+
+            const isOpen = content.classList.toggle('open');
+            angleElem.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+            button.style.color = isOpen ? '#b60213' : '#fff';
+        });
+
+    }
+
+
 
     // delete product from the cart box 
     document.querySelector('.product-detail-container').onclick = (evt) => {
