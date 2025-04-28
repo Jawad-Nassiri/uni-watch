@@ -2338,6 +2338,13 @@ strong {
     color: #b60213;
 }
 
+.accordion-content .social-media i{
+    color: #fff;
+    font-size: 32px;
+    margin: 0 5px;
+    text-align: left;
+}
+
 
 /* footer section start  */
 .footer-section {

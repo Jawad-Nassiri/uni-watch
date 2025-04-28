@@ -225,12 +225,12 @@
                         Follow us on social media for updates, promotions, and customer support. You can reach us on:
                     </p><br>
             
-                    <p>
-                        <a href="#">Facebook</a><br>
-                        <a href="#">Twitter</a><br>
-                        <a href="#">Likedin</a><br>
-                        <a href="#">Instagram</a><br>
-                        <a href="#">Youtube</a><br>
+                    <p class="social-media">
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-square-facebook"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-square-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
                     </p><br>
                 </div>
             </div>

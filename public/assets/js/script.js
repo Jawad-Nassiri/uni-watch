@@ -676,6 +676,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+
+    // terms&privacy page 
     if (location.pathname.includes('terms&privacy'))  {
         const accordionsContainer = document.querySelector('.accordion');
 

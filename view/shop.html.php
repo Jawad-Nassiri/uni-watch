@@ -75,5 +75,3 @@
 </div>
 
 
-
-<!-- https://preview.themeforest.net/item/luxrio-ecommerce-jewellery-wordpress-theme/full_screen_preview/56476584  -->

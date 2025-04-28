@@ -12,7 +12,7 @@
             </div>
             <div class="contact">
                 <a href="/uni-watch/view/terms&privacy.php"><i class="fa-solid fa-scale-unbalanced-flip"></i>Terms & Privacy</a>
-                <a href=""><img src="/uni-watch/public/assets/images/social-media/mail-icon.png" alt="">emo@gmail.com</a>
+                <a href=""><img src="/uni-watch/public/assets/images/social-media/mail-icon.png" alt="">support@uniwatch.com</a>
                 <a href=""><img src="/uni-watch/public/assets/images/social-media/call-icon.png" alt="">Call +01 1234567890</a>
             </div>
         </div>
