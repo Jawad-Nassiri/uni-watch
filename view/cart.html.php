@@ -94,8 +94,8 @@
             </div>
 
             <div class="titles">
-                <div class="delivery active">
-                    <h3>free delivery and returns</h3>
+                <div class="delivery">
+                    <h3 class="active">free delivery and returns</h3>
                 </div>
 
                 <div class="payment">

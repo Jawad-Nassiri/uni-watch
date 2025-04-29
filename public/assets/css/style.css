@@ -1810,7 +1810,7 @@ hr.style-detail {
     transition: all 0.3s ease;
 }
 
-.help .titles > div.active {
+ h3.active {
     color: #b60213;
 }
 

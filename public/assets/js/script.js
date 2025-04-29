@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#card').removeEventListener('click', toggleCartDetail);
 
         // show the help content 
-            const titles = document.querySelectorAll(".help .titles > div");
+            const titles = document.querySelectorAll(".titles h3");
             const contents = document.querySelectorAll(".help .content .content-box");
         
             titles.forEach((title, index) => {
