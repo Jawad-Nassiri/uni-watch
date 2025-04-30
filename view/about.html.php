@@ -26,7 +26,9 @@
 
             <div class="content-box">
                 <p class="service-title">Digital Marketing</p>
-                <p class="content">Digital marketing plays a pivotal role in expanding your brand’s online presence. Through targeted strategies and the use of various tools, businesses can effectively reach wider audiences and increase their sales.</p>
+                <p class="content">
+                    Le marketing digital m’aide à promouvoir les montres de ma boutique en ligne. En utilisant des stratégies ciblées, je peux attirer plus de visiteurs, augmenter la notoriété de la marque et booster les ventes.
+                </p>
             </div>
 
         </div>
@@ -38,10 +40,12 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Social Media Strategy</p>
-                <p class="content">Effective social media strategies help businesses engage with their audience, increase brand visibility, and drive traffic to their websites through consistent and impactful content.</p>
+                <p class="service-title">Stratégie Réseaux Sociaux</p>
+                <p class="content">
+                    J’utilise une stratégie sur les réseaux sociaux pour mettre en valeur les montres, interagir avec les clients, et attirer du trafic vers le site. Un contenu régulier et attractif permet d’augmenter la visibilité de la marque.
+                </p>
             </div>
-            
+
         </div>
 
         <div class="service">
@@ -51,10 +55,12 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Tech Innovations</p>
-                <p class="content">Technology is constantly evolving, bringing new opportunities for businesses to streamline processes, enhance customer experiences, and stay ahead of the competition with cutting-edge solutions.</p>
+                <p class="service-title">Innovations Technologiques</p>
+                <p class="content">
+                    J'intègre des solutions modernes pour améliorer l'expérience utilisateur sur le site, comme des carrousels interactifs et un affichage dynamique des produits, afin d'offrir une navigation fluide et intuitive.
+                </p>
             </div>
-            
+  
         </div>
 
         <div class="service">
@@ -64,8 +70,10 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Web Development Trends</p>
-                <p class="content">Staying up to date with the latest web development trends is essential for building responsive, user-friendly websites that drive engagement and provide seamless digital experiences across all devices.</p>
+                <p class="service-title">Tendances du Développement Web</p>
+                <p class="content">
+                    Mon site suit les tendances actuelles du développement web, avec un design responsive, une navigation claire et une structure optimisée pour offrir une expérience fluide sur tous les appareils.
+                </p>
             </div>
             
         </div>
@@ -77,10 +85,12 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Website Optimization</p>
-                <p class="content">Optimizing your website for speed, performance, and user experience is crucial for improving search engine rankings, increasing conversions, and delivering a smooth browsing experience to visitors.</p>
+                <p class="service-title">Optimisation du Site Web</p>
+                <p class="content">
+                    J’ai optimisé mon site pour garantir une navigation rapide et fluide, avec un bon temps de chargement et une structure pensée pour offrir la meilleure expérience possible aux visiteurs.
+                </p>
             </div>
-            
+     
         </div>
 
         <div class="service">
@@ -90,8 +100,10 @@
             </div>
 
             <div class="content-box">
-                <p class="service-title">Cloud Computing Solutions</p>
-                <p class="content">Cloud computing is transforming the way businesses manage data, offering scalable and secure solutions that enhance collaboration, reduce costs, and increase efficiency across all operations.</p>
+                <p class="service-title">Solutions Cloud</p>
+                <p class="content">
+                    L’utilisation de solutions cloud permet de sécuriser les données du site et d’assurer une meilleure accessibilité, tout en garantissant stabilité et performance pour les utilisateurs.
+                </p>
             </div>
 
         </div>
