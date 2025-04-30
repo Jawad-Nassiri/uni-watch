@@ -26,7 +26,7 @@
         <img class="img-1" src="/uni-watch/public/assets/images/watches/w-7home.png" alt="watch">
     </div>
     <div class="watch-detail">
-        <h3 class="title">Uni Watch</h3>
+        <h3 class="title">M39 Prestige Edition</h3>
         <p class="description">Experience precision and elegance with Uni Watch, crafted for style and performance. Designed for every moment, it blends sophistication with reliability.</p>
         <h4 class="price"><span class="dollar">$</span>120.00</h4>
         <div class="read_bt"><a href="/uni-watch/product/allProducts">Check Out Store</a></div>
@@ -35,7 +35,7 @@
 
 <div class="watch-product second">
     <div class="watch-detail">
-        <h3 class="title">Uni Watch</h3>
+        <h3 class="title">M41 Heritage Classic</h3>
         <p class="description">A perfect blend of style and function, Uni Watch offers timeless design with exceptional durability. Stay ahead with elegance and precision.</p>
         <h4 class="price"><span class="dollar">$</span>89.99</h4>
         <div class="read_bt"><a href="/uni-watch/product/allProducts">Check Out Store</a></div>

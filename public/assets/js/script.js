@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     starsHTML += `<i class="fa-solid fa-star"></i>`;
                                 }
 
-                                console.log(product)
+                                
                                 productList.insertAdjacentHTML('beforeend', 
                                     `
                                         <div class="product-item">
@@ -192,9 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
                             button.setAttribute('data-offset', offset + limit);
             
-                            if (obj.products.length < limit) {
+                            if ((offset + limit) >= obj.total) {
                                 button.style.display = 'none';
                             }
+
     
                         } else {
                             button.style.display = 'none';
@@ -217,18 +218,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#card').removeEventListener('click', toggleCartDetail);
 
         // show the help content 
-            const titles = document.querySelectorAll(".titles h3");
-            const contents = document.querySelectorAll(".help .content .content-box");
-        
-            titles.forEach((title, index) => {
-                title.addEventListener("click", function () {
-                    contents.forEach(content => content.classList.remove("active"));
-                    contents[index].classList.add("active");
-        
-                    titles.forEach(title => title.classList.remove('active'));
-                    titles[index].classList.add('active');
-                });
-            })    
+        const titles = document.querySelectorAll(".titles h3");
+        const contents = document.querySelectorAll(".help .content .content-box");
+    
+        titles.forEach((title, index) => {
+            title.addEventListener("click", function () {
+                contents.forEach(content => content.classList.remove("active"));
+                contents[index].classList.add("active");
+    
+                titles.forEach(title => title.classList.remove('active'));
+                titles[index].classList.add('active');
+            });
+        })    
             
             
         // handles increment, decrement, and manual input for quantity with min/max limits.

@@ -88,4 +88,21 @@ class ProductRepository extends BaseRepository {
             return false;
         }
     }
+
+    // get the product count 
+    public function getTotalProductCount() {
+        try {
+            $sql = "SELECT COUNT(*) as total FROM product";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+    
+            return (int)$result['total'];
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            return 0;
+        }
+    }
+    
+    
 }

@@ -30,7 +30,7 @@ class Admin_add_productController extends BaseController {
                 $result = $this->repository->addProductByAdmin($admin_add_product);
                 
                 if ($result) {
-                    redirection('/uni-watch/home/index');
+                    redirection('/uni-watch/admin_add_product/addProduct');
                     exit;
                 } else {
                     $errors['general'] = "Failed to add the product. Please try again.";
