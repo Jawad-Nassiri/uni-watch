@@ -338,6 +338,7 @@ body.blur-effect::after {
 
 .delete-icon-container {
     width: 20%;
+    text-align: center;
 }
 
 .delete-icon-container i {
@@ -385,6 +386,7 @@ body.blur-effect::after {
 .cart-detail-box .price{
     font-size: 18px;
     margin-top: 4px;
+    color: gray;
 }
 
 .cart-detail-box .product-img-container {

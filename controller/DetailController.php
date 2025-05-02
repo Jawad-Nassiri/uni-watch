@@ -14,7 +14,7 @@ class DetailController extends BaseController {
             $product = $productRepository->getProductById($productId);
 
 
-            if ($product !== false) {
+            if ($product) {
                 return $this->render('detail.html.php', ['product' => $product]);
             } else {
                 echo 'Product not found';

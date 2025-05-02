@@ -9,7 +9,7 @@ class ProductController extends BaseController {
         $productRepository = new ProductRepository();
         $products = $productRepository->getAllProduct();
 
-        if ($products !== false) {
+        if ($products) {
             $this->render('shop.html.php', [
                 'products' => $products
             ]);
