@@ -35,7 +35,7 @@
                     <?php foreach ($cartItems as $cartItem): ?>
                         <div class="cart-items" data-id="<?= $cartItem['id']; ?>">
                             <div class="image">
-                                <div><img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>
+                                <div><img src="<?= IMG_ROOT ?>watches/<?= htmlspecialchars($cartItem["image_path"]); ?>" alt="watch"></div>
                             </div>
 
                             <div class="name">
@@ -71,7 +71,7 @@
 
                 <div class="payment-method">
                     <h5> Accepted Payment Methods </h5>
-                    <img alt="Payment Methods" src="/uni-watch/public/assets/images/cart.png">
+                    <img alt="Payment Methods" src="<?= IMG_ROOT ?>cart.png">
                 </div>
 
                 <div class="subtotal">

@@ -17,7 +17,7 @@
 
     <div class="header-section">
         <div class="logo-container">
-            <img src="/uni-watch/public/assets/images/logo.png" alt="logo">
+            <img src="<?= IMG_ROOT ?>logo.png" alt="logo">
         </div>
         <div id="open" class="open-icon">
             <i class="fa-solid fa-bars"></i>
@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                     <div class="product-img-container">
-                                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($item['image_path']); ?>" alt="<?= htmlspecialchars($item['title']); ?>">
+                                        <img src="<?= IMG_ROOT ?>watches/<?= htmlspecialchars($item['image_path']); ?>" alt="<?= htmlspecialchars($item['title']); ?>">
                                     </div>
                                 </div>
                             <?php endforeach; ?>

@@ -23,7 +23,7 @@
 
 <div class="watch-product">
     <div class="watch first-watch">
-        <img class="img-1" src="/uni-watch/public/assets/images/watches/w-7home.png" alt="watch">
+        <img class="img-1" src="<?= IMG_ROOT ?>watches/w-7home.png" alt="watch">
     </div>
     <div class="watch-detail">
         <h3 class="title">M39 Prestige Edition</h3>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="watch second-watch">
-        <img src="/uni-watch/public/assets/images/watches/w-9home.png" alt="watch">
+        <img src="<?= IMG_ROOT ?>watches/w-9home.png" alt="watch">
     </div>
 </div>
 
@@ -62,14 +62,14 @@
             
             <div class="carousel">
                 <div class="carousel-track">
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-1.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-2.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-3.png" alt="watch"></div>
-                    <div class="carousel-item"><img src="/uni-watch/public/assets/images/watches/w-4.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-1.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-2.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-3.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-4.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-1.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-2.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-3.png" alt="watch"></div>
+                    <div class="carousel-item"><img src="<?= IMG_ROOT ?>watches/w-4.png" alt="watch"></div>
                 </div>
             </div>
             
@@ -91,7 +91,7 @@
             <div class="comments">
                 <div class="customer">
                     <div class="detail">
-                        <img src="/uni-watch/public/assets/images/customers/client-1.png" alt="client">
+                        <img src="<?= IMG_ROOT ?>customers/client-1.png" alt="client">
                         <h5>Albert Coleman</h5>
                         <span>Businessman</span>
                         <div class="ratting">
@@ -109,7 +109,7 @@
             <div class="comments">
                 <div class="customer">
                     <div class="detail">
-                        <img src="/uni-watch/public/assets/images/customers/client-2.png" alt="client">
+                        <img src="<?= IMG_ROOT ?>customers/client-2.png" alt="client">
                         <h5>Joe Wilson</h5>
                         <span>Geologist</span>
                         <div class="ratting">
@@ -127,7 +127,7 @@
             <div class="comments">
                 <div class="customer">
                     <div class="detail">
-                        <img src="/uni-watch/public/assets/images/customers/client-3.png" alt="client">
+                        <img src="<?= IMG_ROOT ?>customers/client-3.png" alt="client">
                         <h5>Joe Wilson</h5>
                         <span>Businessman</span>
                         <div class="ratting">

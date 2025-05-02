@@ -3,7 +3,7 @@
     <div class="detail-box">
         <div class="left-box">
             <div class="img-box">
-                <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product['image_path']); ?>" alt="<?= htmlspecialchars($product['title']); ?>">
+                <img src="<?= IMG_ROOT ?>watches/<?= htmlspecialchars($product['image_path']); ?>" alt="<?= htmlspecialchars($product['title']); ?>">
             </div>
         </div>
         <div class="product-detail-box">

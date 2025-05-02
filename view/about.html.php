@@ -4,15 +4,15 @@
 
     <div class="collection-container">
         <div class="box1">
-            <img src="/uni-watch/public/assets/images/about-page/about-01.jpg" alt="watch">
+            <img src="<?= IMG_ROOT ?>about-page/about-01.jpg" alt="watch">
         </div>
 
         <div class="box2">
-            <img src="/uni-watch/public/assets/images/about-page/about-02.jpg" alt="watch">
+            <img src="<?= IMG_ROOT ?>about-page/about-02.jpg" alt="watch">
         </div>
 
         <div class="box3">
-            <img src="/uni-watch/public/assets/images/about-page/about-03.jpg" alt="watch">
+            <img src="<?= IMG_ROOT ?>about-page/about-03.jpg" alt="watch">
         </div>
     </div>
 
@@ -136,7 +136,7 @@
             </div>
 
             <div class="img-desc-box">
-                <img src="/uni-watch/public/assets/images/about-page/a-01.jpg" alt="">
+                <img src="<?= IMG_ROOT ?>about-page/a-01.jpg" alt="">
             </div>
         </div>
 
@@ -148,28 +148,28 @@
 
             <div class="team">
                 <div class="member-box">
-                    <img src="/uni-watch/public/assets/images/about-page/member/team-1.jpg" alt="">
+                    <img src="<?= IMG_ROOT ?>about-page/member/team-1.jpg" alt="">
 
                     <h4>Ms. Emma</h4>
                     <p>Manager</p>
                 </div>
 
                 <div class="member-box">
-                    <img src="/uni-watch/public/assets/images/about-page/member/team-2.jpg" alt="">
+                    <img src="<?= IMG_ROOT ?>about-page/member/team-2.jpg" alt="">
 
                     <h4>Mr. James</h4>
                     <p>Developer</p>
                 </div>
 
                 <div class="member-box">
-                    <img src="/uni-watch/public/assets/images/about-page/member/team-3.jpg" alt="">
+                    <img src="<?= IMG_ROOT ?>about-page/member/team-3.jpg" alt="">
 
                     <h4>Ms. Sophia</h4>
                     <p>Designer</p>
                 </div>
 
                 <div class="member-box">
-                    <img src="/uni-watch/public/assets/images/about-page/member/team-4.jpg" alt="">
+                    <img src="<?= IMG_ROOT ?>about-page/member/team-4.jpg" alt="">
 
                     <h4>Ms. Olivia</h4>
                     <p>Chairman</p>

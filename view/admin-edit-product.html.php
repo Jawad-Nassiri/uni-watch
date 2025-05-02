@@ -22,7 +22,7 @@
             <div class="show-img">
                 <input type="file" class="product-image" name="product-image" placeholder="Watch image" value="<?= htmlspecialchars($product['image_path']) ?>">
                 <?php if (!empty($product['image_path'])): ?>
-                    <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product['image_path']) ?>" alt="Product Image" width="100">
+                    <img src="<?= IMG_ROOT ?>watches/<?= htmlspecialchars($product['image_path']) ?>" alt="Product Image" width="100">
                 <?php endif; ?>
             </div>
 

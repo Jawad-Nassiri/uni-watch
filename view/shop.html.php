@@ -15,7 +15,7 @@
             <div class="product-item">
                 <div class="product-image-container">
                     <div class="product-image">
-                        <img src="/uni-watch/public/assets/images/watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="Watch">
+                        <img src="<?= IMG_ROOT ?>watches/<?= htmlspecialchars($product->getImagePath()); ?>" alt="Watch">
                     </div>
                     <div class="quick-view-container">
                         <a href="/uni-watch/detail/productDetail?id=<?= htmlspecialchars($product->getId());?>" class="quick-view">Quick View</a>
@@ -49,27 +49,27 @@
     <div class="shop-carousel-list">
         
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w1.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w1.png" alt="watch">
         </div>
 
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w2.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w2.png" alt="watch">
         </div>
 
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w3.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w3.png" alt="watch">
         </div>
 
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w4.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w4.png" alt="watch">
         </div>
 
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w5.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w5.png" alt="watch">
         </div>
 
         <div class="shop-carousel-item">
-            <img src="/uni-watch/public/assets/images/shop-carousel/shop-w6.png" alt="watch">
+            <img src="<?= IMG_ROOT ?>shop-carousel/shop-w6.png" alt="watch">
         </div>
     </div>
 </div>

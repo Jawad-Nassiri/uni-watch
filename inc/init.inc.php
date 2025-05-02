@@ -16,3 +16,4 @@ require "autoload.php";
 session_start();
 include "functions.inc.php";
 define("ROOT", "/uni-watch/");
+define("IMG_ROOT", "/uni-watch/public/assets/images/");
