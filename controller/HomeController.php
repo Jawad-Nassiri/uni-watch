@@ -15,4 +15,9 @@ class HomeController extends BaseController {
     public function about() {
         return $this->render('about.html.php');
     }
+
+    // term & privacy method 
+    public function terms_privacy () {
+        return $this->render('terms&privacy.html.php');
+    }
 }

@@ -11,7 +11,7 @@
                 <a href="#"><img src="<?= IMG_ROOT ?>social-media/youtub-icon.png" alt="youtube"></a>
             </div>
             <div class="contact">
-                <a href="/uni-watch/view/terms&privacy.php"><i class="fa-solid fa-scale-unbalanced-flip"></i>Terms & Privacy</a>
+                <a href="/uni-watch/home/terms_privacy"><i class="fa-solid fa-scale-unbalanced-flip"></i>Terms & Privacy</a>
                 <a href=""><img src="<?= IMG_ROOT ?>social-media/mail-icon.png" alt="">support@uniwatch.com</a>
                 <a href=""><img src="<?= IMG_ROOT ?>social-media/call-icon.png" alt="">Call +01 1234567890</a>
             </div>

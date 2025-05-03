@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // terms&privacy page 
-    if (location.pathname.includes('terms&privacy'))  {
+    if (location.pathname.includes('terms_privacy'))  {
         const accordionsContainer = document.querySelector('.accordion');
 
         accordionsContainer.addEventListener('click', (event) => {
@@ -691,7 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (accordionContentElem.classList.contains('open')) {
                     button.style.color = '#fff';
-                    angleElem.style.transform = 'rotate(0)';
+                    angleElem.style.transform = 'rotate(0deg)';
                     accordionContentElem.classList.remove('open');
                 } else {
                     button.style.color = '#b60213';

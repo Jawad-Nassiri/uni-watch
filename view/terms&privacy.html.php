@@ -1,4 +1,4 @@
-<?php include "../public/header.html.php"?>
+
 <div class="info-banner-container">
         <div class="breadcumb">
             <h1 class="breadcumb-title">Information</h1>
@@ -240,4 +240,3 @@
 
     </div>
 
-<?php include "../public/footer.html.php"?>
