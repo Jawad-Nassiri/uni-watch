@@ -1636,6 +1636,18 @@ hr.style-detail {
     transform: translate(-50%, -50%);
 }
 
+input.detail-quantity {
+    width: 40px;
+    height: 30px;
+    outline: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 0;
+    border-left: 0;
+    font-size: 18px;
+    text-align: center;
+}
+
 .cart-item-titles,
 .cart-items {
     color: #fff;

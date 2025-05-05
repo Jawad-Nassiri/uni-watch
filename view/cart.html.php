@@ -48,7 +48,7 @@
 
                             <div class="cart-plus-minus quantity">
                                 <div class="dec ctnbutton">_</div>
-                                <input id="detail-quantity" name="quantity" value="<?= (int)$cartItem["quantity"]; ?>" type="text" min="1" readonly>
+                                <input class="detail-quantity" name="quantity" value="<?= (int)$cartItem["quantity"]; ?>" type="text" min="1" readonly>
                                 <div class="inc ctnbutton">+</div>
                             </div>
 

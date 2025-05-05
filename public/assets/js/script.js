@@ -230,12 +230,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 titles[index].classList.add('active');
             });
         })    
+
+
+        //!
+        async function updateQuantityOnServer(productId, quantity) {
+            try {
+                const response = await fetch(`/uni-watch/cart/updateQuantity?productId=${productId}&quantity=${quantity}`);
+                const result = await response.json();
+                if (result.status !== 'success') {
+                    console.error('Failed to update quantity on server');
+                }
+            } catch (error) {
+                console.error('Error updating quantity on server', error);
+            }
+        }
+        
             
             
         // handles increment, decrement, and manual input for quantity with min/max limits.
         const increaseBtns = document.querySelectorAll('.inc.ctnbutton');
         const decreaseBtns = document.querySelectorAll('.dec.ctnbutton');
-        const inputQuantityElements = document.querySelectorAll('#detail-quantity');
+        const inputQuantityElements = document.querySelectorAll('.detail-quantity');
 
         increaseBtns.forEach((increaseBtn, index) => {
             const decreaseBtn = decreaseBtns[index];
@@ -258,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // calculate the product price in the cart page
         const productPriceElements = document.querySelectorAll('.cart-price > span');
-        const productInputElements = document.querySelectorAll('#detail-quantity');
+        const productInputElements = document.querySelectorAll('.detail-quantity');
         const productTotalPriceElements = document.querySelectorAll('.cart-items .total > span');
         let subtotal = document.querySelector('.subtotal .total h1')
 
@@ -282,6 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const productInputElement = productInputElements[index];
             const productPrice = parseFloat(productPriceElements[index].textContent.replace('$', ''));
 
+            
+
+
             // disable increase bnt when the quantity is 100
             increaseBtn.addEventListener('click', () => {
 
@@ -292,6 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productTotalPrice = productPrice * inputValue;
                 productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
 
+            //!
+            const productId = productInputElement.closest('.cart-items').getAttribute('data-id');
+            updateQuantityOnServer(productId, inputValue);
 
                 updateSubtotal();
             });
@@ -311,6 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
                     const productTotalPrice = productPrice * inputValue;
                     productTotalPriceElements[index].textContent = `$${productTotalPrice.toFixed(2)}`;
+                    
+                    //!
+                    const productId = productInputElement.closest('.cart-items').getAttribute('data-id');
+                    updateQuantityOnServer(productId, inputValue);
+
 
                     updateSubtotal()
 
@@ -331,10 +357,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (evt.target.classList.contains('fa-trash')) {
                 const cartItemContainer = evt.target.closest('.cart-items');
                 const productId = cartItemContainer.getAttribute('data-id');
+                const productQuantityInput = cartItemContainer.querySelector('.detail-quantity');
+                const quantity = parseInt(productQuantityInput.value);
             
                 (async () => {
                     try {
-                        let response = await fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`);
+                        let response = await fetch(`/uni-watch/cart/deleteProduct?productId=${productId}&quantity=${quantity}`);
                         let obj = await response.json();
             
                         if (obj.status === 'success') {
@@ -363,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const proImgElements = document.querySelectorAll('.cart-items .image img');
             const proNameElements = document.querySelectorAll('.cart-items .name span');
             const proPriceElements = document.querySelectorAll('.cart-items .cart-price span');
-            const proQuantityElements = document.querySelectorAll('.cart-items .quantity #detail-quantity');
+            const proQuantityElements = document.querySelectorAll('.cart-items .quantity .detail-quantity');
             const proTotalPriceElements = document.querySelectorAll('.cart-items .total span');
             const proSubtotalElement = document.querySelector('.subtotal .total h1');
     

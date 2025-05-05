@@ -18,28 +18,31 @@ class CartController extends BaseController {
             'totalPrice' => $totalPrice
         ]);
     }
+    
+
+   
 
 
-    // delete product method for the cart file 
     public function deleteProduct() {
         if (isset($_GET['productId'])) {
             $productId = (int)$_GET['productId'];
     
             if (isset($_SESSION['cart'][$productId])) {
-                
+                $productQuantity = isset($_GET['quantity']) ? (int)$_GET['quantity'] : $_SESSION['cart'][$productId]['quantity'];
                 $productPrice = $_SESSION['cart'][$productId]['price'];
-                $productQuantity = $_SESSION['cart'][$productId]['quantity'];
     
                 $_SESSION['totalPrice'] -= $productPrice * $productQuantity;
     
+                if ($_SESSION['totalPrice'] < 0) {
+                    $_SESSION['totalPrice'] = 0;
+                }
+    
                 unset($_SESSION['cart'][$productId]);
     
-                $cartCount = count($_SESSION['cart']); 
     
                 echo json_encode([
                     'status' => 'success',
-                    'cartCount' => $cartCount,
-                    'totalPrice' => $_SESSION['totalPrice'] 
+                    'totalPrice' => $_SESSION['totalPrice']
                 ]);
                 exit;
             } else {
@@ -53,5 +56,40 @@ class CartController extends BaseController {
     }
     
 
+
+
+    public function updateQuantity() {
+        if (isset($_GET['productId']) && isset($_GET['quantity'])) {
+            $productId = (int)$_GET['productId'];
+            $newQuantity = (int)$_GET['quantity'];
+
+            if ($newQuantity < 1 || $newQuantity > 100) {
+                echo json_encode(['status' => 'error', 'message' => 'Invalid quantity']);
+                exit;
+            }
+
+            if (isset($_SESSION['cart'][$productId])) {
+                $oldQuantity = $_SESSION['cart'][$productId]['quantity'];
+                $pricePerItem = $_SESSION['cart'][$productId]['price'];
+
+                $_SESSION['totalPrice'] -= $oldQuantity * $pricePerItem;
+                $_SESSION['totalPrice'] += $newQuantity * $pricePerItem;
+
+                $_SESSION['cart'][$productId]['quantity'] = $newQuantity;
+
+                echo json_encode([
+                    'status' => 'success',
+                    'newTotal' => $_SESSION['totalPrice']
+                ]);
+                exit;
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Product not found in cart']);
+                exit;
+            }
+        }
+
+        echo json_encode(['status' => 'error', 'message' => 'Missing productId or quantity']);
+        exit;
+    }
 
 }
