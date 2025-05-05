@@ -1,4 +1,3 @@
-
 <div class="detail-container">
     <div class="detail-box">
         <div class="left-box">

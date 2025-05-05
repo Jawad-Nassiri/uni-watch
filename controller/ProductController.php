@@ -32,7 +32,7 @@ class ProductController extends BaseController {
             $products = $productRepository->getProductsByOffset($limit, $offset);
             $totalProductCount = $productRepository->getTotalProductCount();
 
-            if ($products !== false) {
+            if ($products) {
                 echo json_encode([
                     'products' => $products,
                     'total' => $totalProductCount

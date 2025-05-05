@@ -10,7 +10,7 @@ class Sign_UpRepository extends BaseRepository{
     public function saveSign_UpForm(Sign_Up $sign_up){
         try {
             $sql = "INSERT INTO user (username, email, password, role)
-             VALUES (:username, :email, :password, :role)";
+            VALUES (:username, :email, :password, :role)";
             $stmt = $this->connection->prepare($sql);
             
             $username = $sign_up->getUsername();

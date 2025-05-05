@@ -47,21 +47,7 @@ class ProductRepository extends BaseRepository {
     
             $productsData = $stmt->fetchAll();
     
-            $products = [];
-            foreach ($productsData as $productData) {
-                $products[] = [
-                    'id' => $productData['id'],
-                    'title' => $productData['title'],
-                    'brand' => $productData['brand'],
-                    'category' => $productData['category'],
-                    'description' => $productData['description'],
-                    'image_path' => $productData['image_path'],
-                    'price' => $productData['price'],
-                    'stock' => $productData['stock']
-                ];
-            }
-    
-            return $products;
+            return $productsData;
         } catch (PDOException $e) {
             error_log("Database error: " . $e->getMessage());
             return false;

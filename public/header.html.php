@@ -52,6 +52,8 @@
 
                 <?php endif; ?>
             </ul>
+
+            
             <li class="list-item basket-icon">
                 <a id="card" href="#">
                     <i class="fa-solid fa-basket-shopping"></i>

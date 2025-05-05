@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
                             button.setAttribute('data-offset', offset + limit);
             
-                            if ((offset + limit) >= obj.total) {
+                            if (offset + limit >= obj.total) {
                                 button.style.display = 'none';
                             }
 
@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // add product to the cartContainer(box) 
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(location.search);
         const productId = params.get("id");
         const addToCartBtn = document.querySelector('.add-to-cart-btn');
         const productQuantity = document.querySelector('.title .product-quantity');
@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(evt.target.classList.contains('fa-trash-can')) {
 
             const item = evt.target
-            const productId = item.getAttribute('data-id')
+            const productId = item.dataset.id
 
             fetch(`/uni-watch/basket/deleteProduct?productId=${productId}`)
             .then(response => response.json())

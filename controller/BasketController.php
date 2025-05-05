@@ -37,7 +37,6 @@ class BasketController extends BaseController {
                     'description' => $product['description'],
                     'image_path' => $product['image_path'],
                     'price' => $product['price'],
-                    'stock' => $product['stock'],
                     'quantity' => $productQuantity
                 ];
 
