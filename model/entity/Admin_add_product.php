@@ -10,7 +10,6 @@ class Admin_add_product extends BaseEntity {
     private $description;
     private $image_path;
     private $price;
-    private $stock;
 
 
     public function getTitle() {
@@ -58,15 +57,6 @@ class Admin_add_product extends BaseEntity {
 
     public function setPrice($price){
         $this->price = $price;
-    }
-
-
-    public function getStock() {
-        return $this->stock;
-    }
-
-    public function setStock($stock){
-        $this->stock = $stock;
     }
 
 }

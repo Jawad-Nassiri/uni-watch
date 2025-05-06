@@ -24,7 +24,6 @@ class ProductRepository extends BaseRepository {
                 $product->setDescription($productData['description']);
                 $product->setImagePath($productData['image_path']);
                 $product->setPrice($productData['price']);
-                $product->setStock($productData['stock']);
 
                 $products[] = $product;
             }

@@ -24,8 +24,6 @@
             <input type="text" class="product-price" name="product-price" placeholder="Watch Price: 19.99" value="<?= isset($_POST['product-price']) ? htmlspecialchars($_POST['product-price']) : '' ?>" required>
             <p class="error-message product-price-error"><?= isset($errors['price']) ? htmlspecialchars($errors['price']) : '' ?></p>
 
-            <input type="number" class="product-stock" name="product-stock" placeholder="Watch Stock: 100" value="<?= isset($_POST['product-stock']) ? htmlspecialchars($_POST['product-stock']) : '' ?>" required>
-            <p class="error-message product-stock-error"><?= isset($errors['stock']) ? htmlspecialchars($errors['stock']) : '' ?></p>
 
             <div class="add-product-submit">
                 <input type="submit" value="Send">
@@ -52,7 +50,6 @@
                 <th>Category</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Stock</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -66,7 +63,6 @@
                     <td><?= htmlspecialchars($product['category']); ?></td>
                     <td><?= htmlspecialchars($product['description']); ?></td>
                     <td><?= htmlspecialchars($product['price']); ?></td>
-                    <td><?= htmlspecialchars($product['stock']); ?></td>
                     <td>
                         <div class="action-buttons">
                             <button class="btn btn-edit" onclick="location.href = '/uni-watch/Admin_edit_product/editProduct?id=<?= $product['id']; ?>'; ">Edit</button>

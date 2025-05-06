@@ -43,10 +43,6 @@ class Admin_add_productHandleRequest extends BaseHandleRequest {
                 $errors['price'] = "Price is required and must be a valid number";
             }
 
-            if (empty($_POST['product-stock']) || !is_numeric($_POST['product-stock'])) {
-                $errors['stock'] = "Stock is required and must be a valid number";
-            }
-
             if (empty($errors)) {
                 $admin_add_product->setTitle($_POST['product-title']);
                 $admin_add_product->setBrand($_POST['product-brand']);
@@ -62,7 +58,6 @@ class Admin_add_productHandleRequest extends BaseHandleRequest {
                 }
 
                 $admin_add_product->setPrice($_POST['product-price']);
-                $admin_add_product->setStock($_POST['product-stock']);
                 
                 if (empty($errors)) {
                     return $admin_add_product;

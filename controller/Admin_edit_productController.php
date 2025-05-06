@@ -38,7 +38,6 @@ class Admin_edit_productController extends BaseController {
             $category = $_POST['product-category'];
             $description = $_POST['product-description'];
             $price = $_POST['product-price'];
-            $stock = $_POST['product-stock'];
     
             if (!empty($_FILES['product-image']['name'])) {
                 $oldProduct = $this->repository->getProductById($productId);
@@ -56,7 +55,7 @@ class Admin_edit_productController extends BaseController {
                 $image_path = $product['image_path'];
             }
     
-            $this->repository->editProduct($productId, $title, $brand, $category, $description, $image_path, $price, $stock);
+            $this->repository->editProduct($productId, $title, $brand, $category, $description, $image_path, $price);
     
             header("Location: /uni-watch/admin_add_product/addProduct");
             exit;

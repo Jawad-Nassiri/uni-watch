@@ -13,11 +13,11 @@ class Admin_edit_productRepository extends BaseRepository {
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     
-    public function editProduct($id, $title, $brand, $category, $description, $image_path, $price, $stock) {
+    public function editProduct($id, $title, $brand, $category, $description, $image_path, $price) {
         $sql = "UPDATE product 
                 SET title = :title, brand = :brand, category = :category, 
                     description = :description, image_path = :image_path, 
-                    price = :price, stock = :stock 
+                    price = :price
                 WHERE id = :id";
         
         $stmt = $this->connection->prepare($sql);
@@ -29,7 +29,6 @@ class Admin_edit_productRepository extends BaseRepository {
         $stmt->bindParam(':description', $description, \PDO::PARAM_STR);
         $stmt->bindParam(':image_path', $image_path, \PDO::PARAM_STR);
         $stmt->bindParam(':price', $price, \PDO::PARAM_STR);
-        $stmt->bindParam(':stock', $stock, \PDO::PARAM_INT);
 
         return $stmt->execute();
     }

@@ -11,7 +11,7 @@ class Admin_add_productRepository extends BaseRepository {
     public function addProductByAdmin(Admin_add_product $admin_add_product) {
         try {
 
-            $sql = "INSERT INTO product(title, brand, category, description, image_path, price, stock) VALUES (:title, :brand, :category, :description, :image_path, :price, :stock)";
+            $sql = "INSERT INTO product(title, brand, category, description, image_path, price) VALUES (:title, :brand, :category, :description, :image_path, :price)";
                         
             $stmt = $this->connection->prepare($sql);
 
@@ -21,7 +21,6 @@ class Admin_add_productRepository extends BaseRepository {
             $description = $admin_add_product->getDescription();
             $imagePath = $admin_add_product->getImagePath();
             $price = $admin_add_product->getPrice();
-            $stock = $admin_add_product->getStock();
 
 
             $stmt->bindParam(":title", $title);
@@ -30,7 +29,6 @@ class Admin_add_productRepository extends BaseRepository {
             $stmt->bindParam(":description", $description);
             $stmt->bindParam(":image_path", $imagePath);
             $stmt->bindParam(":price", $price);
-            $stmt->bindParam(":stock", $stock);
 
 
             $stmt->execute();

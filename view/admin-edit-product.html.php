@@ -29,8 +29,6 @@
             <input type="text" class="product-price" name="product-price" placeholder="Watch Price: 19.99"
                 value="<?= htmlspecialchars($product['price'] ?? '') ?>">
 
-            <input type="number" class="product-stock" name="product-stock" placeholder="Watch Stock: 100"
-                value="<?= htmlspecialchars($product['stock'] ?? '') ?>">
 
             <div class="edit-product-submit">
                 <input type="submit" value="Update Product">
